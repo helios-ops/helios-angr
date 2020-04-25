@@ -105,6 +105,7 @@ class SimLinux(SimUserland):
                         }
                         # TODO: should this be replaced with hook_symbol?
                         randaddr = self.project.loader.extern_object.allocate()
+
                         self.project.hook(randaddr, P['linux_loader']['IFuncResolver'](**kwargs))
                         self.project.loader.memory.pack_word(gotaddr, randaddr)
 
@@ -355,6 +356,7 @@ class SimLinux(SimUserland):
                 return pointer, basic_addr
 
             pseudo_hookaddr = self.project.loader.extern_object.get_pseudo_addr(symbol_name)
+
             pseudo_toc = self.project.loader.extern_object.allocate(size=0x18)
             self.project.loader.extern_object.memory.pack_word(
                 AT.from_mva(pseudo_toc, self.project.loader.extern_object).to_rva(), pseudo_hookaddr)

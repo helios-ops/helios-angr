@@ -106,6 +106,8 @@ class RegionMap(object):
         if not self.is_stack:
             raise SimRegionMapError('Calling "stack_base" on a non-stack region map.')
 
+        ## reverse=True : 降序 
+        ## 这里是获取最大的地址对应的 RegionDescriptor
         return next(self._address_to_region_id.irange(reverse=True))
 
     @property
@@ -144,6 +146,8 @@ class RegionMap(object):
             # Remove all stack regions that are lower than the one to add
             while True:
                 try:
+                    ## reverse = False: 升序； reverse = True: 降序
+                    ## 这里是拿到下一个小于 absolute_address 的值
                     addr = next(self._address_to_region_id.irange(maximum=absolute_address, reverse=True))
                     descriptor = self._address_to_region_id[addr]
                     # Remove this mapping
@@ -217,11 +221,13 @@ class RegionMap(object):
 
         if target_region_id is None:
             if self.is_stack:
+                ## reverse = False: 升序
                 # Get the base address of the stack frame it belongs to
                 base_address = next(self._address_to_region_id.irange(minimum=absolute_address, reverse=False))
 
             else:
                 try:
+                    ## reverse = False: 降序
                     base_address = next(self._address_to_region_id.irange(maximum=absolute_address, reverse=True))
 
                 except StopIteration:
@@ -421,7 +427,10 @@ class SimMemory(SimStatePlugin):
         """
         if self._stack_region_map is None:
             raise SimMemoryError('Stack region map is not initialized.')
-        self._stack_region_map.map(absolute_address, region_id, related_function_address=related_function_address)
+        self._stack_region_map.map( absolute_address, 
+                                    region_id, 
+                                    related_function_address = related_function_address
+                                  )
 
     def unset_stack_address_mapping(self, absolute_address):
         """
@@ -567,6 +576,7 @@ class SimMemory(SimStatePlugin):
         ):
             self._constrain_underconstrained_index(addr_e)
 
+        ## 这里是实质性的 STORE 操作
         request = MemoryStoreRequest(addr_e, data=data_e, size=size_e, condition=condition_e, endness=endness)
         try:
             self._store(request) #will use state_plugins/symbolic_memory.py
@@ -842,6 +852,7 @@ class SimMemory(SimStatePlugin):
 
             if action is not None:
                 action.actual_addrs = a
+                #print ("action.actual_addrs = " + str(action.actual_addrs))
                 action.added_constraints = action._make_object(self.state.solver.And(*c)
                                                                if len(c) > 0 else self.state.solver.true)
 

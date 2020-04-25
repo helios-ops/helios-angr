@@ -1,0 +1,18334 @@
+cscope 15 /2TB-ext4-data/Experiments/angrs/angr-dev/angr/angr/analyses/static_taintAna -q 0000000874 0000082317
+	@__init__.py
+
+2 
+	gäom
+ .
+»achšg_defš™iÚs
+ 
+impÜt
+ 
+	gR—chšgDefš™iÚAÇlysis
+, 
+LiveDefš™iÚs
+
+
+3 
+	gäom
+ .
+cÚ¡ªts
+ 
+impÜt
+ 
+	gOP_AFTER
+, 
+	gOP_BEFORE
+
+
+	@atoms.py
+
+2 
+şass
+ 
+	gAtom
+:
+
+4 
+This
+ 
+şass
+ 
+»´e£Ás
+ 
+a
+ 
+d©a
+ 
+¡Üage
+ 
+loÿtiÚ
+ 
+mªuÏ‹d
+ 
+by
+ 
+IR
+ 
+š¡ruùiÚs
+.
+
+6 
+It
+ 
+could
+ 
+e™h”
+ 
+be
+ 
+a
+ 
+Tmp
+ (
+‹mpÜ¬y
+ 
+v¬ŸbË
+),‡ 
+	gRegi¡”
+,‡ 
+	gMemÜyLoÿtiÚ
+, 
+Ü
+‡ 
+	gP¬am‘”
+.
+
+8 
+def
+ 
+	$__š™__
+(
+£lf
+):
+
+9 
+·ss
+
+
+11 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+12 
+¿i£
+ 
+	$NÙIm¶em’‹dE¼Ü
+()
+
+15 
+şass
+ 
+	$Tmp
+(
+Atom
+):
+
+17 
+R•»£Ás
+ 
+a
+ 
+v¬ŸbË
+ 
+u£d
+ 
+by
+ 
+the
+ 
+IR
+ 
+to
+ 
+¡Üe
+ 
+š‹rmedŸ‹
+ 
+v®ues
+.
+
+19 
+__¦Ùs__
+ = ['tmp_idx']
+
+21 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+tmp_idx
+):
+
+22 
+	`su³r
+(
+Tmp
+, 
+£lf
+).
+	$__š™__
+()
+
+23 
+£lf
+.
+tmp_idx
+ =mp_idx
+
+25 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+26  "<Tm°%d>" % 
+£lf
+.
+tmp_idx
+
+
+28 
+def
+ 
+	$__eq__
+(
+£lf
+, 
+Ùh”
+):
+
+29  
+	$ty³
+(
+Ùh”
+è
+is
+ 
+Tmp
+ 
+ªd
+ \
+
+30 
+£lf
+.
+tmp_idx
+ =ğ
+Ùh”
+.tmp_idx
+
+32 
+def
+ 
+	$__hash__
+(
+£lf
+):
+
+33  
+	`hash
+(('tmp', 
+£lf
+.
+tmp_idx
+))
+
+36 
+şass
+ 
+	$Regi¡”
+(
+Atom
+):
+
+38 
+R•»£Ás
+ 
+a
+ 
+giv’
+ 
+CPU
+ .
+
+40 
+As
+ 
+ª
+ 
+IR
+ 
+ab¡¿ùs
+ 
+the
+ 
+CPU
+ 
+design
+ 
+to
+ 
+rg‘
+ 
+difã»Á
+ 
+¬ch™eùu»s
+, 
+»gi¡”s
+ 
+¬e
+ 
+»´e£Áed
+ 
+as
+ 
+a
+ 
+£·¿‹d
+ 
+memÜy
+
+
+41 
+¥aû
+.
+
+42 
+Thus
+ 
+a
+ 
+is
+ 
+defšed
+ 
+by
+ 
+™s
+ 
+off£t
+ 
+äom
+ 
+the
+ 
+ba£
+ 
+of
+ 
+this
+ 
+memÜy
+ 
+ªd
+ it 
+size
+.
+
+44 :
+iv¬
+ 
+»g_off£t
+: 
+The
+ 
+off£t
+ 
+äom
+ 
+the
+ 
+ba£
+ 
+to
+ 
+defše
+ 
+™s
+ 
+¶aû
+ 
+š
+h
+memÜy
+ 
+bloc
+.
+
+45 :
+iv¬
+ 
+size
+: 
+The
+ size, 
+š
+ 
+numb”
+ 
+of
+ 
+by‹s
+.
+
+47 
+__¦Ùs__
+ = ['reg_offset', 'size']
+
+49 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+»g_off£t
+, 
+size
+):
+
+50 
+	`su³r
+(
+Regi¡”
+, 
+£lf
+).
+	$__š™__
+()
+
+52 
+£lf
+.
+»g_off£t
+ =„eg_offset
+
+53 
+£lf
+.
+size
+ = size
+
+55 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+56  "<Reg %d<%d>>" % (
+£lf
+.
+»g_off£t
+, s–f.
+size
+)
+
+58 
+def
+ 
+	$__eq__
+(
+£lf
+, 
+Ùh”
+):
+
+59  
+	$ty³
+(
+Ùh”
+è
+is
+ 
+Regi¡”
+ 
+ªd
+ \
+
+60 
+£lf
+.
+»g_off£t
+ =ğ
+Ùh”
+.»g_off£ˆ
+ªd
+ \
+
+61 
+£lf
+.
+size
+ =ğ
+Ùh”
+.size
+
+63 
+def
+ 
+	$__hash__
+(
+£lf
+):
+
+64  
+	`hash
+(('»g', 
+£lf
+.
+»g_off£t
+, s–f.
+size
+))
+
+67 
+şass
+ 
+	$MemÜyLoÿtiÚ
+(
+Atom
+):
+
+69 
+R•»£Ás
+ 
+a
+ 
+memÜy
+ 
+¦iû
+.
+
+71 
+It
+ 
+is
+ 
+ch¬aù”ized
+ 
+by
+ 
+™s
+ 
+add»ss
+ 
+ªd
+ it 
+size
+.
+
+73 
+__¦Ùs__
+ = ['addr', 'size']
+
+75 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+addr
+, 
+size
+):
+
+76 
+	`su³r
+(
+MemÜyLoÿtiÚ
+, 
+£lf
+).
+	$__š™__
+()
+
+78 
+£lf
+.
+addr
+ =‡ddr
+
+79 
+£lf
+.
+size
+ = size
+
+81 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+82  "<Mem %s<%d>>" % (
+	$hex
+(
+£lf
+.
+addr
+è
+	$ty³
+(
+£lf
+.
+addr
+è
+is
+ £lf.addr, s–f.
+size
+)
+
+84 @
+´İ”ty
+
+
+85 
+def
+ 
+	$b™s
+(
+£lf
+):
+
+86  
+£lf
+.
+size
+ * 8
+
+88 @
+´İ”ty
+
+
+89 
+def
+ 
+	$symbŞic
+(
+£lf
+):
+
+90  
+nÙ
+ 
+	$ty³
+(
+£lf
+.
+addr
+è
+is
+ 
+
+92 
+def
+ 
+	$__eq__
+(
+£lf
+, 
+Ùh”
+):
+
+93  
+	$ty³
+(
+Ùh”
+è
+is
+ 
+MemÜyLoÿtiÚ
+ 
+ªd
+ \
+
+94 
+£lf
+.
+addr
+ =ğ
+Ùh”
+.add¸
+ªd
+ \
+
+95 
+£lf
+.
+size
+ =ğ
+Ùh”
+.size
+
+97 
+def
+ 
+	$__hash__
+(
+£lf
+):
+
+98  
+	`hash
+(('mem', 
+£lf
+.
+addr
+, s–f.
+size
+))
+
+101 
+şass
+ 
+	$P¬am‘”
+(
+Atom
+):
+
+103 
+R•»£Ás
+ 
+a
+ 
+funùiÚ
+ 
+·¿m‘”
+.
+
+105 
+Cª
+ 
+e™h”
+ 
+be
+ 
+a
+ <
+ªgr
+.
+’gšes
+.
+light
+.
+d©a
+.
+SpOff£t
+> 
+the
+ 
+·¿m‘”
+ 
+was
+ 
+·s£d
+ 
+Ú
+h
+¡ack
+, 
+Ü
+‡ <
+Regi¡”
+>, 
+d•’dšg
+ oÀth
+ÿÎšg
+
+
+106 
+cÚv’tiÚ
+.
+
+108 
+__¦Ùs__
+ = ['value', 'type_', 'meta']
+
+110 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+v®ue
+, 
+ty³_
+=
+NÚe
+, 
+m‘a
+=None):
+
+111 
+	`su³r
+(
+P¬am‘”
+, 
+£lf
+).
+	$__š™__
+()
+
+113 
+£lf
+.
+v®ue
+ = value
+
+114 
+£lf
+.
+ty³_
+ =ype_
+
+115 
+£lf
+.
+m‘a
+ = meta
+
+117 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+118 
+ty³_
+ = ',y³=%s' % 
+£lf
+.ty³_ £lf.ty³_ 
+is
+ 
+nÙ
+ 
+NÚe
+ ''
+
+119 
+m‘a
+ = ', m‘a=%s' % 
+£lf
+.m‘¨£lf.m‘¨
+is
+ 
+nÙ
+ 
+NÚe
+ ''
+
+120  '<P¬am %s%s%s>' % (
+£lf
+.
+v®ue
+, 
+ty³_
+, 
+m‘a
+)
+
+122 
+def
+ 
+	$__eq__
+(
+£lf
+, 
+Ùh”
+):
+
+123  
+	$ty³
+(
+Ùh”
+è
+is
+ 
+P¬am‘”
+ 
+ªd
+ \
+
+124 
+£lf
+.
+v®ue
+ =ğ
+Ùh”
+.v®u
+ªd
+ \
+
+125 
+£lf
+.
+ty³_
+ =ğ
+Ùh”
+.ty³_ 
+ªd
+ \
+
+126 
+£lf
+.
+m‘a
+ =ğ
+Ùh”
+.meta
+
+128 
+def
+ 
+	$__hash__
+(
+£lf
+):
+
+129  
+	`hash
+(('·r', 
+£lf
+.
+v®ue
+, s–f.
+ty³_
+, s–f.
+m‘a
+))
+
+	@constants.py
+
+1 
+	gDEBUG
+ = 
+True
+
+
+3 #
+#Ob£rv©iÚ 
+pošt
+ 
+ty³s
+
+
+5 #
+_BEFORE = 0
+
+7 
+OP_AFTER
+ = 1
+
+	@dataset.py
+
+1 
+impÜt
+ 
+loggšg
+
+
+2 
+impÜt
+ 
+İ”©Ü
+
+
+4 
+	gäom
+ .
+cÚ¡ªts
+ 
+impÜt
+ 
+DEBUG
+
+
+5 
+	gäom
+ .
+undefšed
+ 
+impÜt
+ 
+Undefšed
+
+
+7 
+	gl
+ = 
+loggšg
+.
+	$g‘Logg”
+(
+Çme
+=
+__Çme__
+)
+
+10 
+şass
+ 
+D©aS‘
+:
+
+12 
+This
+ 
+şass
+ 
+»´e£Ás
+ 
+a
+ 
+£t
+ 
+of
+ 
+d©a
+.
+
+14 
+Add™iÚ
+ 
+ªd
+ 
+subŒaùiÚ
+ 
+¬e
+ 
+³rfÜmed
+ 
+Ú
+ 
+the
+ 
+ÿ¹esŸn
+ 
+´oduù
+ 
+of
+h
+İ”ªds
+. 
+Du¶iÿ‹
+ 
+»suÉs
+‡» 
+»moved
+.
+
+15 
+D©a
+ 
+mu¡
+ 
+®ways
+ 
+šşude
+ 
+a
+ 
+£t
+.
+
+17 :
+iv¬
+ 
+£t
+ 
+d©a
+: 
+The
+ s‘ 
+of
+ d©¨
+to
+ 
+»´e£Á
+.
+
+18 :
+iv¬
+ 
+b™s
+: 
+The
+ 
+size
+ 
+of
+ 
+ª
+ 
+–em’t
+ oà
+the
+ 
+£t
+, 
+š
+ 
+numb”
+ oàb™ 
+™s
+ 
+»´e£Á©iÚ
+ 
+kes
+.
+
+20 
+maximum_size
+ = 5
+
+22 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+d©a
+, 
+b™s
+):
+
+23 
+£lf
+.
+d©a
+ = d©¨
+	$ty³
+(
+d©a
+è
+is
+ 
+£t
+ {
+	}
+data}
+
+24 
+£lf
+.
+_b™s
+ = 
+b™s
+
+
+25 
+£lf
+.
+_mask
+ = (1 << 
+b™s
+) - 1
+
+26 
+£lf
+.
+_lim™
+()
+
+28 @
+´İ”ty
+
+
+29 
+def
+ 
+	$b™s
+(
+£lf
+):
+
+30  
+£lf
+.
+_b™s
+
+
+32 @
+´İ”ty
+
+
+33 
+def
+ 
+	$mask
+(
+£lf
+):
+
+34  
+£lf
+.
+_mask
+
+
+36 
+def
+ 
+	$_lim™
+(
+£lf
+):
+
+37 
+DEBUG
+ 
+is
+ 
+True
+:
+
+38 #D‘”mši¡iø
+lim™
+
+
+39 ià(
+	`Ën
+(
+£lf
+.
+d©a
+)è> 
+D©aS‘
+.
+maximum_size
+:
+
+40 
+d©a
+ = 
+	$li¡
+(
+£lf
+.
+d©a
+)
+
+41 
+d©a
+.
+	$sÜt
+(
+key
+=
+»´
+)
+
+42 
+£lf
+.
+d©a
+ = 
+	$£t
+(
+d©a
+[:
+D©aS‘
+.
+maximum_size
+])
+
+43 
+l
+.
+	`w¬nšg
+('R—ched maximum sizoàD©aS‘, disÿrded %s.', 
+	$¡r
+(
+d©a
+[
+D©aS‘
+.
+maximum_size
+:]))
+
+45 #Hash 
+d•’d’t
+ 
+im¶em’tiÚ
+
+
+46 
+	`Ën
+(
+£lf
+.
+d©a
+è> 
+D©aS‘
+.
+maximum_size
+:
+
+47 
+l
+.
+	`w¬nšg
+('R—ched maximum sizoàD©aS‘, disÿrded %s.', 
+	`¡r
+(
+£lf
+.
+d©a
+.
+	$pİ
+()))
+
+49 
+def
+ 
+	$upd©e
+(
+£lf
+, 
+d©a
+):
+
+50 
+	$ty³
+(
+d©a
+è
+is
+ 
+D©aS‘
+:
+
+51 
+£lf
+.
+b™s
+ !ğ
+d©a
+.bits:
+
+52 
+l
+.
+	`w¬nšg
+('Update with different sizes.')
+
+53 
+£lf
+.
+d©a
+.
+	$upd©e
+(
+d©a
+.data)
+
+55 
+£lf
+.
+d©a
+.
+	$add
+(
+d©a
+)
+
+56 
+£lf
+.
+	$_lim™
+()
+
+58 
+def
+ 
+	$g‘_fœ¡_–em’t
+(
+£lf
+):
+
+59 
+as£¹
+ 
+	`Ën
+(
+£lf
+.
+d©a
+) >= 1
+
+60  
+	`Ãxt
+(
+	$™”
+(
+£lf
+.
+d©a
+))
+
+62 
+def
+ 
+	$__Ën__
+(
+£lf
+):
+
+63  
+	$Ën
+(
+£lf
+.
+d©a
+)
+
+65 
+def
+ 
+	$_un_İ
+(
+£lf
+, 
+İ
+):
+
+66 
+»s
+ = 
+	$£t
+()
+
+68 
+s
+ 
+š
+ 
+£lf
+:
+
+69 
+	$ty³
+(
+s
+è
+is
+ 
+Undefšed
+:
+
+70 
+»s
+.
+	`add
+(
+	$Undefšed
+(
+s
+.
+b™s
+))
+
+72 
+Œy
+:
+
+73 
+tmp
+ = 
+	$İ
+(
+s
+)
+
+74 
+	$isš¡ªû
+(
+tmp
+, ):
+
+75 
+tmp
+ &ğ
+£lf
+.
+_mask
+
+
+76 
+»s
+.
+	$add
+(
+tmp
+)
+
+77 
+exû±
+ 
+Ty³E¼Ü
+ 
+as
+ 
+ex
+: #pylšt:
+di§bË
+=
+Œy
+-exû±-
+¿i£
+,
+unu£d
+-
+v¬ŸbË
+
+
+78 #l.
+	`w¬nšg
+(
+ex
+)
+
+79 
+¿i£
+
+
+81  
+	$D©aS‘
+(
+»s
+, 
+£lf
+.
+_b™s
+)
+
+83 
+def
+ 
+	$_bš_İ
+(
+£lf
+, 
+Ùh”
+, 
+İ
+):
+
+84 
+nÙ
+ 
+	$ty³
+(
+Ùh”
+è
+is
+ 
+D©aS‘
+:
+
+85 
+¿i£
+ 
+	`Ty³E¼Ü
+("_bin_op() only works on‡nother DataSet instance.")
+
+87 
+»s
+ = 
+	$£t
+()
+
+89 
+£lf
+.
+_b™s
+ !ğ
+Ùh”
+.
+b™s
+:
+
+90 
+l
+.
+	`w¬nšg
+('Binary operation with different sizes.')
+
+92 
+o
+ 
+š
+ 
+Ùh”
+:
+
+93 
+s
+ 
+š
+ 
+£lf
+:
+
+94 
+	$ty³
+(
+o
+è
+is
+ 
+Undefšed
+ 
+Ü
+ 
+	$ty³
+(
+s
+è
+is
+ 
+Undefšed
+:
+
+95 
+»s
+.
+	`add
+(
+	$Undefšed
+(
+£lf
+.
+b™s
+))
+
+97 
+Œy
+:
+
+98 
+tmp
+ = 
+	$İ
+(
+s
+, 
+o
+)
+
+99 
+	$isš¡ªû
+(
+tmp
+, ):
+
+100 
+tmp
+ &ğ
+£lf
+.
+_mask
+
+
+101 
+»s
+.
+	$add
+(
+tmp
+)
+
+102 
+exû±
+ 
+Ty³E¼Ü
+ 
+as
+ 
+ex
+: #pylšt;
+di§bË
+=
+Œy
+-exû±-
+¿i£
+,
+unu£d
+-
+v¬ŸbË
+
+
+103 #l.
+	`w¬nšg
+(
+ex
+)
+
+104 
+¿i£
+
+
+106  
+	$D©aS‘
+(
+»s
+, 
+£lf
+.
+_b™s
+)
+
+108 
+def
+ 
+	$__add__
+(
+£lf
+, 
+Ùh”
+):
+
+109  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+add
+)
+
+111 
+def
+ 
+	$__sub__
+(
+£lf
+, 
+Ùh”
+):
+
+112  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+sub
+)
+
+114 
+def
+ 
+	$__mul__
+(
+£lf
+, 
+Ùh”
+):
+
+115  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+mul
+)
+
+117 
+def
+ 
+	$__div__
+(
+£lf
+, 
+Ùh”
+):
+
+118  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+æoÜdiv
+)
+
+120 
+def
+ 
+	$__lshiá__
+(
+£lf
+, 
+Ùh”
+):
+
+121  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+lshiá
+)
+
+123 
+def
+ 
+	$__rshiá__
+(
+£lf
+, 
+Ùh”
+):
+
+124  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+rshiá
+)
+
+126 
+def
+ 
+	$__ªd__
+(
+£lf
+, 
+Ùh”
+):
+
+127  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+ªd_
+)
+
+129 
+def
+ 
+	$__xÜ__
+(
+£lf
+, 
+Ùh”
+):
+
+130  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+xÜ
+)
+
+132 
+def
+ 
+	$__Ü__
+(
+£lf
+, 
+Ùh”
+):
+
+133  
+£lf
+.
+	$_bš_İ
+(
+Ùh”
+, 
+İ”©Ü
+.
+Ü_
+)
+
+135 
+def
+ 
+	$__Ãg__
+(
+£lf
+):
+
+136  
+£lf
+.
+	$_un_İ
+(
+İ”©Ü
+.
+Ãg
+)
+
+138 
+def
+ 
+	$__šv”t__
+(
+£lf
+):
+
+139  
+£lf
+.
+	$_un_İ
+(
+İ”©Ü
+.
+šv”t
+)
+
+141 
+def
+ 
+	$__eq__
+(
+£lf
+, 
+Ùh”
+):
+
+142 
+	`ty³
+(
+Ùh”
+è=ğ
+D©aS‘
+:
+
+143  
+£lf
+.
+d©a
+ =ğ
+Ùh”
+.d©¨
+ªd
+ s–f.
+_b™s
+ =ğÙh”.
+b™s
+‡nd s–f.
+_mask
+ =ğÙh”.
+mask
+
+
+145  
+F®£
+
+
+147 
+def
+ 
+	$__hash__
+(
+£lf
+):
+
+148  
+	`hash
+((
+£lf
+.
+_b™s
+, s–f.
+_mask
+))
+
+150 
+def
+ 
+	$__™”__
+(
+£lf
+):
+
+151  
+	$™”
+(
+£lf
+.
+d©a
+)
+
+153 
+def
+ 
+	$__¡r__
+(
+£lf
+):
+
+154  'D©aS‘<%d>: %s' % (
+£lf
+.
+_b™s
+, 
+	`¡r
+(£lf.
+d©a
+))
+
+	@def_use.py
+
+1 
+impÜt
+ 
+ÃtwÜkx
+
+
+3 
+	gäom
+ .
+»achšg_defš™iÚs
+ 
+impÜt
+ 
+	gLiveDefš™iÚs
+, 
+	gR—chšgDefš™iÚAÇlysis
+, 
+»gi¡”_ª®ysis
+
+
+4 
+	gäom
+ .
+defš™iÚ
+ 
+impÜt
+ 
+Defš™iÚ
+
+
+5 
+	gäom
+ .
+©oms
+ 
+impÜt
+ 
+Atom
+
+
+7 
+şass
+ 
+	$Gu¬dU£
+(
+Atom
+):
+
+8 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+rg‘
+):
+
+9 
+£lf
+.
+rg‘
+ =arget
+
+11 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+12  '<Gu¬d %#x>' % 
+£lf
+.
+rg‘
+
+
+15 
+şass
+ 
+	$DefU£S‹
+(
+LiveDefš™iÚs
+):
+
+16 
+def
+ 
+	$_cyşe
+(
+£lf
+, 
+code_loc
+):
+
+17 
+code_loc
+ !ğ
+£lf
+.
+ª®ysis
+.
+cu¼’t_cod–oc
+:
+
+18 
+£lf
+.
+ª®ysis
+.
+cu¼’t_cod–oc
+ = 
+code_loc
+
+
+19 
+£lf
+.
+ª®ysis
+.
+cod–oc_u£s
+ = 
+	$£t
+()
+
+21 
+def
+ 
+	$add_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+22 
+£lf
+.
+	$_cyşe
+(
+code_loc
+)
+
+23 
+£lf
+.
+ª®ysis
+.
+cod–oc_u£s
+.
+	`upd©e
+(£lf.
+	$g‘_defš™iÚs
+(
+©om
+))
+
+24  
+	`su³r
+().
+	$add_u£
+(
+©om
+, 
+code_loc
+)
+
+26 
+def
+ 
+	$kl_ªd_add_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+27 
+£lf
+.
+	$_cyşe
+(
+code_loc
+)
+
+28 
+defš™iÚ
+ = 
+	`su³r
+().
+	$kl_ªd_add_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+29 
+defš™iÚ
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+30 
+£lf
+.
+ª®ysis
+.
+def_u£_g¿ph
+.
+	$add_node
+(
+defš™iÚ
+)
+
+31 
+u£d
+ 
+š
+ 
+£lf
+.
+ª®ysis
+.
+cod–oc_u£s
+:
+
+32 #mod”©–y 
+cÚfusšg
+ 
+mi¢om”s
+. 
+this
+ 
+is
+ 
+ª
+ 
+edge
+ 
+äom
+ 
+a
+ 
+def
+ 
+to
+‡ 
+u£
+, 
+sšû
+ 
+the
+ "u£s" 
+¬e
+ 
+aùu®ly
+he
+
+33 #defš™iÚ 
+th©
+ 
+we
+'re using‡ndhe "definition" ishe‚ew definition
+
+34 #i.
+e
+. 
+the
+ 
+def
+ 
+th©
+h
+Şd
+ deà
+is
+ 
+u£d
+ 
+to
+ 
+cÚ¡ruù
+
+
+35 #sØ
+this
+ 
+is
+ 
+»®ly
+ 
+a
+ 
+g¿ph
+ 
+wh”e
+ 
+nodes
+ 
+¬e
+ 
+defs
+ 
+ªd
+ 
+edges
+‡» 
+u£s
+
+
+36 
+£lf
+.
+ª®ysis
+.
+def_u£_g¿ph
+.
+	$add_edge
+(
+u£d
+, 
+defš™iÚ
+)
+
+37  
+defš™iÚ
+
+
+39 
+def
+ 
+	$m¬k_gu¬d
+(
+£lf
+, 
+code_loc
+, 
+d©a
+, 
+rg‘
+):
+
+40 
+£lf
+.
+	$_cyşe
+(
+code_loc
+)
+
+41 
+©om
+ = 
+	$Gu¬dU£
+(
+rg‘
+)
+
+42 
+kšda_defš™iÚ
+ = 
+	$Defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+)
+
+43 
+£lf
+.
+ª®ysis
+.
+def_u£_g¿ph
+.
+	$add_node
+(
+kšda_defš™iÚ
+)
+
+44 
+u£d
+ 
+š
+ 
+£lf
+.
+ª®ysis
+.
+cod–oc_u£s
+:
+
+45 
+£lf
+.
+ª®ysis
+.
+def_u£_g¿ph
+.
+	$add_edge
+(
+u£d
+, 
+kšda_defš™iÚ
+)
+
+48 
+şass
+ 
+	$DefU£AÇlysis
+(
+R—chšgDefš™iÚAÇlysis
+):
+
+49 
+def
+ 
+	$__š™__
+(
+£lf
+, *
+¬gs
+, **
+kw¬gs
+):
+
+50 
+£lf
+.
+def_u£_g¿ph
+ = 
+ÃtwÜkx
+.
+	$DiG¿ph
+()
+
+51 
+£lf
+.
+cu¼’t_cod–oc
+ = 
+NÚe
+
+
+52 
+£lf
+.
+cod–oc_u£s
+ = 
+	$£t
+()
+
+53 
+	`su³r
+().
+	$__š™__
+(*
+¬gs
+, **
+kw¬gs
+)
+
+55 
+def
+ 
+	$_š™Ÿl_ab¡¿ù_¡©e
+(
+£lf
+, 
+node
+):
+
+56 
+£lf
+.
+_š™_¡©e
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+57  
+£lf
+.
+_š™_¡©e
+
+
+59 
+func_addr
+ = 
+£lf
+.
+_funùiÚ
+.
+addr
+ £lf._funùiÚ 
+NÚe
+
+
+60  
+	$DefU£S‹
+(
+£lf
+.
+´ojeù
+.
+¬ch
+, 
+Œack_tmps
+=£lf.
+_Œack_tmps
+, 
+ª®ysis
+=self,
+
+61 
+š™_func
+=
+£lf
+.
+_š™_func
+, 
+cc
+=£lf.
+_cc
+, 
+func_addr
+=func_addr)
+
+63 
+	`»gi¡”_ª®ysis
+(
+DefU£AÇlysis
+, 'DefUseAnalysis')
+
+	@definition.py
+
+2 
+	gäom
+ ...
+	g’gšes
+.
+light
+ 
+impÜt
+ 
+SpOff£t
+
+
+3 
+	gäom
+ .
+©oms
+ 
+impÜt
+ 
+	gMemÜyLoÿtiÚ
+, 
+Regi¡”
+
+
+4 
+	gäom
+ .
+undefšed
+ 
+impÜt
+ 
+Undefšed
+
+
+5 
+	gäom
+ .
+d©a£t
+ 
+impÜt
+ 
+D©aS‘
+
+
+8 
+şass
+ 
+	gDefš™iÚ
+:
+
+10 
+An
+ 
+©om
+ 
+defš™iÚ
+.
+
+12 :
+iv¬
+ 
+Atom
+ 
+©om
+: 
+The
+‡tom 
+bešg
+ 
+defšed
+.
+
+13 :
+iv¬
+ 
+CodeLoÿtiÚ
+ 
+cod–oc
+: 
+Wh”e
+ 
+this
+ 
+defš™iÚ
+ 
+is
+ 
+ü—‹d
+ 
+š
+ 
+the
+ 
+Üigš®
+ 
+bš¬y
+ 
+code
+.
+
+14 :
+iv¬
+ 
+D©aS‘
+ 
+d©a
+: 
+A
+ 
+cÚü‘e
+ 
+	$v®ue
+ (
+Ü
+ 
+mªy
+ 
+cÚü‘e
+ 
+v®ues
+è
+th©
+ 
+the
+ 
+©om
+ 
+hŞds
+ 
+wh’
+h
+defš™iÚ
+ 
+is
+
+
+15 
+ü—‹d
+.
+
+16 :
+iv¬
+ 
+boŞ
+ 
+dummy
+: 
+T–l
+ 
+w‘h”
+ 
+the
+ 
+defš™iÚ
+ 
+should
+ 
+be
+ 
+cÚsid”ed
+ dummy 
+Ü
+ 
+nÙ
+.
+
+17 
+Duršg
+ 
+sim¶ifiÿtiÚ
+ 
+by
+ 
+AILm’t
+, 
+defš™iÚs
+ 
+m¬ked
+ 
+as
+ 
+dummy
+ 
+wl
+ 
+nÙ
+ 
+be
+ 
+»moved
+.
+
+20 
+__¦Ùs__
+ = ('atom', 'codeloc', 'data', 'dummy')
+
+22 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+©om
+, 
+cod–oc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+24 
+£lf
+.
+©om
+ =‡tom
+
+25 
+£lf
+.
+cod–oc
+ = codeloc
+
+26 
+£lf
+.
+d©a
+ = data
+
+27 
+£lf
+.
+dummy
+ = dummy
+
+29 #cÚv”ˆ
+ev”ythšg
+ 
+što
+ 
+a
+ 
+D©aS‘
+
+
+30 
+nÙ
+ 
+	`isš¡ªû
+(
+£lf
+.
+d©a
+, (
+D©aS‘
+, 
+Undefšed
+)):
+
+31 
+£lf
+.
+d©a
+ = 
+	$D©aS‘
+(
+£lf
+.
+d©a
+, s–f.d©a.
+b™s
+)
+
+33 
+def
+ 
+	$__eq__
+(
+£lf
+, 
+Ùh”
+):
+
+34  
+£lf
+.
+©om
+ =ğ
+Ùh”
+.©om 
+ªd
+ s–f.
+cod–oc
+ =ğÙh”.cod–oøªd s–f.
+d©a
+ == other.data
+
+36 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+37  '<Defš™iÚ {Atom:%s, Cod–oc:%s, D©a:%s%s}>' % (
+£lf
+.
+©om
+, s–f.
+cod–oc
+, s–f.
+d©a
+,
+
+38 "" 
+nÙ
+ 
+£lf
+.
+dummy
+ " dummy")
+
+40 
+def
+ 
+	$__hash__
+(
+£lf
+):
+
+41  
+	`hash
+((
+£lf
+.
+©om
+, s–f.
+cod–oc
+, s–f.
+d©a
+))
+
+43 @
+´İ”ty
+
+
+44 
+def
+ 
+	$off£t
+(
+£lf
+):
+
+45 
+	$ty³
+(
+£lf
+.
+©om
+è
+is
+ 
+Regi¡”
+:
+
+46  
+£lf
+.
+©om
+.
+»g_off£t
+
+
+47 
+–if
+ 
+	$ty³
+(
+£lf
+.
+©om
+è
+is
+ 
+SpOff£t
+:
+
+48  
+£lf
+.
+©om
+.
+off£t
+
+
+49 
+–if
+ 
+	$ty³
+(
+£lf
+.
+©om
+è
+is
+ 
+MemÜyLoÿtiÚ
+:
+
+50  
+£lf
+.
+©om
+.
+addr
+
+
+52 
+¿i£
+ 
+	`V®ueE¼Ü
+('UnsuµÜ‹d o³¿tiÚ off£ˆÚ %s.' % 
+	`ty³
+(
+£lf
+.
+©om
+))
+
+54 @
+´İ”ty
+
+
+55 
+def
+ 
+	$size
+(
+£lf
+):
+
+56 
+	$ty³
+(
+£lf
+.
+©om
+è
+is
+ 
+Regi¡”
+:
+
+57  
+£lf
+.
+©om
+.
+size
+
+
+58 
+–if
+ 
+	$ty³
+(
+£lf
+.
+©om
+è
+is
+ 
+SpOff£t
+:
+
+59  
+£lf
+.
+©om
+.
+b™s
+
+
+60 
+–if
+ 
+	$ty³
+(
+£lf
+.
+©om
+è
+is
+ 
+MemÜyLoÿtiÚ
+:
+
+61  
+£lf
+.
+©om
+.
+size
+
+
+63 
+¿i£
+ 
+	`V®ueE¼Ü
+('UnsuµÜ‹d o³¿tiÚ sizÚ %s.' % 
+	`ty³
+(
+£lf
+.
+©om
+))
+
+	@engine_ail.py
+
+1 
+impÜt
+ 
+loggšg
+
+
+3 
+impÜt
+ 
+am’t
+
+
+5 
+	gäom
+ .
+©oms
+ 
+impÜt
+ 
+	gRegi¡”
+, 
+	gTmp
+, 
+MemÜyLoÿtiÚ
+
+
+6 
+	gäom
+ .
+cÚ¡ªts
+ 
+impÜt
+ 
+	gOP_BEFORE
+, 
+OP_AFTER
+
+
+7 
+	gäom
+ .
+d©a£t
+ 
+impÜt
+ 
+D©aS‘
+
+
+8 
+	gäom
+ .
+ex‹º®_cod–oc
+ 
+impÜt
+ 
+Ex‹º®CodeLoÿtiÚ
+
+
+9 
+	gäom
+ .
+undefšed
+ 
+impÜt
+ 
+Undefšed
+
+
+10 
+	gäom
+ ...
+	g’gšes
+.
+light
+ 
+impÜt
+ 
+	gSimEngšeLight
+, 
+	gSimEngšeLightAILMixš
+, 
+	gRegi¡”Off£t
+, 
+SpOff£t
+
+
+11 
+	gäom
+ ...
+”rÜs
+ 
+impÜt
+ 
+SimEngšeE¼Ü
+
+
+13 
+	gl
+ = 
+loggšg
+.
+	$g‘Logg”
+(
+Çme
+=
+__Çme__
+)
+
+16 
+şass
+ 
+	$SimEngšeRDAIL
+(
+
+17 
+SimEngšeLightAILMixš
+,
+
+18 
+SimEngšeLight
+,
+
+19 ): #pylšt:
+di§bË
+=
+ab¡¿ù
+-
+m‘hod
+
+
+20 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+´ojeù
+, 
+cu¼’t_loÿl_ÿÎ_d•th
+, 
+maximum_loÿl_ÿÎ_d•th
+, 
+funùiÚ_hªdËr
+=
+NÚe
+):
+
+21 
+	`su³r
+(
+SimEngšeRDAIL
+, 
+£lf
+).
+	$__š™__
+()
+
+22 
+£lf
+.
+´ojeù
+ =…roject
+
+23 
+£lf
+.
+_cu¼’t_loÿl_ÿÎ_d•th
+ = 
+cu¼’t_loÿl_ÿÎ_d•th
+
+
+24 
+£lf
+.
+_maximum_loÿl_ÿÎ_d•th
+ = 
+maximum_loÿl_ÿÎ_d•th
+
+
+25 
+£lf
+.
+_funùiÚ_hªdËr
+ = 
+funùiÚ_hªdËr
+
+
+27 
+def
+ 
+	$´oûss
+(
+£lf
+, 
+¡©e
+, *
+¬gs
+, **
+kw¬gs
+):
+
+28 #w
+¬e
+ 
+usšg
+ 
+a
+ 
+com¶‘–y
+ 
+difã»Á
+ 
+¡©e
+. 
+Th”efÜe
+, 
+we
+ 
+dœeùly
+ 
+ÿÎ
+ 
+our
+ 
+	`_´oûss
+(è
+m‘hod
+ 
+befÜe
+
+
+29 #SimEngš
+becomes
+ 
+æexibË
+ 
+’ough
+.
+
+30 
+Œy
+:
+
+31 
+£lf
+.
+	`_´oûss
+(
+¡©e
+, 
+NÚe
+, 
+block
+=
+kw¬gs
+.
+	`pİ
+('block', None))
+
+32 
+exû±
+ 
+SimEngšeE¼Ü
+ 
+as
+ 
+e
+:
+
+33 
+kw¬gs
+.
+	`pİ
+('ç_ç¡', 
+F®£
+è
+is
+ 
+True
+:
+
+34 
+¿i£
+ 
+e
+
+
+35  
+£lf
+.
+¡©e
+
+
+37 #
+#Priv©
+m‘hods
+
+
+41 @
+¡©icm‘hod
+
+
+42 
+def
+ 
+	$_ex‹º®_cod–oc
+():
+
+43  
+	`Ex‹º®CodeLoÿtiÚ
+()
+
+45 @
+¡©icm‘hod
+
+
+46 
+def
+ 
+	$_d©a£t_uÅack
+(
+d
+):
+
+47 
+	$ty³
+(
+d
+è
+is
+ 
+D©aS‘
+ 
+ªd
+ 
+	`Ën
+(d) == 1:
+
+48  
+	`Ãxt
+(
+	$™”
+(
+d
+.
+d©a
+))
+
+49  
+d
+
+
+51 #
+#AIL 
+¡©em’t
+ 
+hªdËrs
+
+
+55 
+def
+ 
+	$_a_hªdË_Stmt
+(
+£lf
+, 
+¡mt
+):
+
+57 
+£lf
+.
+¡©e
+.
+ª®ysis
+:
+
+58 
+£lf
+.
+¡©e
+.
+ª®ysis
+.
+	$š¢_ob£rve
+(
+£lf
+.
+šs_addr
+, 
+¡mt
+, s–f.
+block
+, s–f.
+¡©e
+, 
+OP_BEFORE
+)
+
+60 
+	`su³r
+(
+SimEngšeRDAIL
+, 
+£lf
+).
+	$_a_hªdË_Stmt
+(
+¡mt
+)
+
+62 
+£lf
+.
+¡©e
+.
+ª®ysis
+:
+
+63 
+£lf
+.
+¡©e
+.
+ª®ysis
+.
+	$š¢_ob£rve
+(
+£lf
+.
+šs_addr
+, 
+¡mt
+, s–f.
+block
+, s–f.
+¡©e
+, 
+OP_AFTER
+)
+
+65 
+def
+ 
+	$_a_hªdË_Assignm’t
+(
+£lf
+, 
+¡mt
+):
+
+68 :
+·¿m
+ 
+am’t
+.
+Assignm’t
+ 
+¡mt
+:
+
+72 
+¤c
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+¤c
+)
+
+73 
+d¡
+ = 
+¡mt
+.dst
+
+75 
+¤c
+ 
+is
+ 
+NÚe
+:
+
+76 
+¤c
+ = 
+	`D©aS‘
+(
+	`Undefšed
+(
+d¡
+.
+b™s
+), dst.bits)
+
+78 
+	$ty³
+(
+d¡
+è
+is
+ 
+am’t
+.
+Tmp
+:
+
+79 
+£lf
+.
+¡©e
+.
+	`kl_ªd_add_defš™iÚ
+(
+	`Tmp
+(
+d¡
+.
+tmp_idx
+), s–f.
+	`_cod–oc
+(), 
+¤c
+)
+
+80 
+£lf
+.
+tmps
+[
+d¡
+.
+tmp_idx
+] = 
+¤c
+
+
+82 
+–if
+ 
+	$ty³
+(
+d¡
+è
+is
+ 
+am’t
+.
+Regi¡”
+:
+
+83 
+»g
+ = 
+	`Regi¡”
+(
+d¡
+.
+»g_off£t
+, d¡.
+b™s
+
+
+84 
+£lf
+.
+¡©e
+.
+	`kl_ªd_add_defš™iÚ
+(
+»g
+, s–f.
+	`_cod–oc
+(), 
+¤c
+)
+
+86 
+d¡
+.
+»g_off£t
+ =ğ
+£lf
+.
+¬ch
+.
+¥_off£t
+:
+
+87 #TODO: 
+S³cŸl
+ 
+logic
+ 
+th©
+ 
+ä“s
+ 
+®l
+ 
+defš™iÚs
+ 
+above
+ 
+the
+ 
+cu¼’t
+ 
+¡ack
+ 
+poš‹r
+
+
+88 
+·ss
+
+
+91 
+l
+.
+	`w¬nšg
+('UnsuµÜ‹dy³ oàAssignm’ˆd¡ %s.', 
+	`ty³
+(
+d¡
+).
+__Çme__
+)
+
+93 
+def
+ 
+	$_a_hªdË_StÜe
+(
+£lf
+, 
+¡mt
+):
+
+94 
+d©a
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+d©a
+)
+
+95 
+addr
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+addr
+)
+
+96 
+size
+ = 
+¡mt
+.size
+
+98 
+a
+ 
+š
+ 
+addr
+:
+
+99 
+	$ty³
+(
+a
+è
+is
+ 
+Undefšed
+:
+
+100 
+l
+.
+	`šfo
+('MemÜy‡dd»s undefšed, ins_add¸ğ%#x.', 
+£lf
+.
+šs_addr
+)
+
+102 
+	`ªy
+(
+	$ty³
+(
+d
+è
+is
+ 
+Undefšed
+ d 
+š
+ 
+d©a
+):
+
+103 
+l
+.
+	`šfo
+('D©¨tØwr™©‡dd»s %#x undefšed, ins_add¸ğ%#x.', 
+a
+, 
+£lf
+.
+šs_addr
+)
+
+105 
+	$ty³
+(
+a
+è
+is
+ 
+SpOff£t
+:
+
+106 #Wr™šg 
+to
+ 
+¡ack
+
+
+107 
+memloc
+ = 
+a
+
+
+109 #Wr™šg 
+to
+ 
+a
+ 
+nÚ
+-
+¡ack
+ 
+memÜy
+ 
+»giÚ
+
+
+110 
+memloc
+ = 
+	$MemÜyLoÿtiÚ
+(
+a
+, 
+size
+)
+
+112 
+nÙ
+ 
+memloc
+.
+symbŞic
+:
+
+113 #difã»Á 
+add»s£s
+ 
+¬e
+ 
+nÙ
+ 
+kËd
+ 
+by
+ 
+a
+ 
+sub£qu’t
+ 
+™”©iÚ
+, 
+beÿu£
+ 
+kl
+ 
+Úly
+ 
+»moves
+ 
+’Œ›s
+
+
+114 #w™h 
+§me
+ 
+šdex
+ 
+ªd
+ sam
+size
+
+
+115 
+£lf
+.
+¡©e
+.
+	`kl_ªd_add_defš™iÚ
+(
+memloc
+, s–f.
+	`_cod–oc
+(), 
+d©a
+)
+
+117 
+def
+ 
+	$_a_hªdË_Jump
+(
+£lf
+, 
+¡mt
+):
+
+118 
+rg‘
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+rg‘
+è#pylšt:
+di§bË
+=
+unu£d
+-
+v¬ŸbË
+
+
+120 
+def
+ 
+	$_a_hªdË_CÚd™iÚ®Jump
+(
+£lf
+, 
+¡mt
+):
+
+122 
+cÚd
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+cÚd™iÚ
+è#pylšt:
+di§bË
+=
+unu£d
+-
+v¬ŸbË
+
+
+123 
+Œue_rg‘
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+Œue_rg‘
+è#pylšt:
+di§bË
+=
+unu£d
+-
+v¬ŸbË
+
+
+124 
+çl£_rg‘
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+çl£_rg‘
+è#pylšt:
+di§bË
+=
+unu£d
+-
+v¬ŸbË
+
+
+126 
+
+ = 
+	$Regi¡”
+(
+£lf
+.
+¬ch
+.
+_off£t
+, s–f.¬ch.
+by‹s
+)
+
+127 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+
+, s–f.
+	`_cod–oc
+(), )
+
+129 #kÈ
+®l
+ 
+cc_İs
+
+
+130 'cc_İ' 
+š
+ 
+£lf
+.
+¬ch
+.
+»gi¡”s
+:
+
+131 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(*£lf.
+¬ch
+.
+»gi¡”s
+['cc_İ']), s–f.
+	$_cod–oc
+())
+
+132 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(*£lf.
+¬ch
+.
+»gi¡”s
+['cc_d•1']), s–f.
+	$_cod–oc
+())
+
+133 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(*£lf.
+¬ch
+.
+»gi¡”s
+['cc_d•2']), s–f.
+	$_cod–oc
+())
+
+134 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(*£lf.
+¬ch
+.
+»gi¡”s
+['cc_nd•']), s–f.
+	$_cod–oc
+())
+
+136 
+def
+ 
+	$_a_hªdË_C®l
+(
+£lf
+, 
+¡mt
+):
+
+137 
+rg‘
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+rg‘
+è#pylšt:
+di§bË
+=
+unu£d
+-
+v¬ŸbË
+
+
+139 
+
+ = 
+	$Regi¡”
+(
+£lf
+.
+¬ch
+.
+_off£t
+, s–f.¬ch.
+by‹s
+)
+
+140 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+
+, s–f.
+	$_cod–oc
+())
+
+142 #ià
+¬gum’ts
+ 
+exi¡
+, 
+u£
+ 
+them
+
+
+143 
+¡mt
+.
+¬gs
+:
+
+144 
+¬g
+ 
+š
+ 
+¡mt
+.
+¬gs
+:
+
+145 
+£lf
+.
+	$_ex´
+(
+¬g
+)
+
+147 #Wh’ 
+¡mt
+.
+¬gs
+ 
+¬e
+ 
+avaabË
+, 
+u£d
+ 
+»gi¡”s
+/
+¡ack
+ 
+v¬ŸbËs
+‡» 
+decided
+ 
+by
+ stmt.¬gs. 
+Oth”wi£
+ 
+we
+ 
+çÎ
+-
+back
+
+
+148 #tØ
+usšg
+ 
+®l
+ 
+ÿÎ”
+-
+§ved
+ 
+»gi¡”s
+.
+
+149 
+¡mt
+.
+¬gs
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+150 
+u£d_v¬s
+ = 
+¡mt
+.
+¬gs
+
+
+152 
+u£d_v¬s
+ = 
+NÚe
+
+
+154 #AÎ 
+ÿÎ”
+-
+§ved
+ 
+»gi¡”s
+ 
+wl
+ 
+®ways
+ 
+be
+ 
+kËd
+.
+
+155 
+¡mt
+.
+ÿÎšg_cÚv’tiÚ
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+156 
+cc
+ = 
+¡mt
+.
+ÿÎšg_cÚv’tiÚ
+
+
+158 #F®È
+back
+ 
+to
+ 
+the
+  
+ÿÎšg
+ 
+cÚv’tiÚ
+
+
+159 
+l
+.
+	`debug
+("UnknowÀÿÎšg cÚv’tiÚ fÜ funùiÚ %s. F®ÈbackØdeçuÉ c®lšg cÚv’tiÚ.", 
+rg‘
+)
+
+160 
+cc
+ = 
+£lf
+.
+´ojeù
+.
+çùÜy
+.
+	$cc
+()
+
+162 
+kËd_v¬s
+ = [ 
+	$Regi¡”
+(*
+£lf
+.
+¬ch
+.
+»gi¡”s
+[
+»g_Çme
+]è»g_Çm
+š
+ 
+cc
+.
+CALLER_SAVED_REGS
+ ]
+
+163 
+»tuº_»g_off£t
+, 
+»tuº_»g_size
+ = 
+£lf
+.
+¬ch
+.
+»gi¡”s
+[
+cc
+.
+RETURN_VAL
+.
+»g_Çme
+]
+
+165 #Add 
+u£s
+
+
+166 
+u£d_v¬s
+ 
+is
+ 
+NÚe
+:
+
+167 
+u£d_v¬s
+ = [ 
+v¬
+ v¬ 
+š
+ 
+kËd_v¬s
+ v¬.
+»g_off£t
+ !ğ
+»tuº_»g_off£t
+ ]
+
+168 
+v¬
+ 
+š
+ 
+u£d_v¬s
+:
+
+169 
+£lf
+.
+¡©e
+.
+	`add_u£
+(
+v¬
+, s–f.
+	$_cod–oc
+())
+
+171 #R‘uº 
+v®ue
+ 
+is
+ 
+»defšed
+ 
+h”e
+, 
+so
+ 
+™
+ i 
+nÙ
+ 
+a
+ 
+dummy
+ value
+
+172 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(
+»tuº_»g_off£t
+, 
+»tuº_»g_size
+), s–f.
+	`_cod–oc
+(), 
+dummy
+=
+F®£
+)
+
+173 #KÈ
+tho£
+ 
+Úes
+ 
+th©
+ 
+should
+ 
+be
+ 
+kËd
+
+
+174 
+v¬
+ 
+š
+ 
+kËd_v¬s
+:
+
+175 
+v¬
+.
+»g_off£t
+ =ğ
+»tuº_»g_off£t
+:
+
+176 #Sk 
+the
+  
+v¬ŸbË
+
+
+178 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+v¬
+, s–f.
+	$_cod–oc
+())
+
+180 #kÈ
+®l
+ 
+cc_İs
+
+
+181 'cc_İ' 
+š
+ 
+£lf
+.
+¬ch
+.
+»gi¡”s
+:
+
+182 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(*£lf.
+¬ch
+.
+»gi¡”s
+['cc_İ']), s–f.
+	$_cod–oc
+())
+
+183 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(*£lf.
+¬ch
+.
+»gi¡”s
+['cc_d•1']), s–f.
+	$_cod–oc
+())
+
+184 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(*£lf.
+¬ch
+.
+»gi¡”s
+['cc_d•2']), s–f.
+	$_cod–oc
+())
+
+185 
+£lf
+.
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(*£lf.
+¬ch
+.
+»gi¡”s
+['cc_nd•']), s–f.
+	$_cod–oc
+())
+
+187 #
+#AIL 
+ex´essiÚ
+ 
+hªdËrs
+
+
+191 
+def
+ 
+	$_a_hªdË_Tmp
+(
+£lf
+, 
+ex´
+):
+
+193 
+£lf
+.
+¡©e
+.
+_Œack_tmps
+:
+
+194 
+£lf
+.
+¡©e
+.
+	`add_u£
+(
+	`Tmp
+(
+ex´
+.
+tmp_idx
+), s–f.
+	$_cod–oc
+())
+
+196  
+	`su³r
+(
+SimEngšeRDAIL
+, 
+£lf
+).
+	$_a_hªdË_Tmp
+(
+ex´
+)
+
+198 
+def
+ 
+	$_a_hªdË_Regi¡”
+(
+£lf
+, 
+ex´
+):
+
+200 
+»g_off£t
+ = 
+ex´
+.reg_offset
+
+201 
+b™s
+ = 
+ex´
+.bits
+
+203 
+£lf
+.
+¡©e
+.
+	`add_u£
+(
+	`Regi¡”
+(
+»g_off£t
+, 
+b™s
+
+
+205 
+»g_off£t
+ =ğ
+£lf
+.
+¬ch
+.
+¥_off£t
+:
+
+206  
+	`D©aS‘
+(
+	`SpOff£t
+(
+b™s
+, 0), bits)
+
+207 
+–if
+ 
+»g_off£t
+ =ğ
+£lf
+.
+¬ch
+.
+bp_off£t
+:
+
+208  
+	`D©aS‘
+(
+	`SpOff£t
+(
+b™s
+, 0, 
+is_ba£
+=
+True
+), bits)
+
+210 
+Œy
+:
+
+211 
+d©a
+ = 
+	`D©aS‘
+(
+	`£t
+(), 
+b™s
+)
+
+212 
+defs
+ = 
+£lf
+.
+¡©e
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+»g_off£t
+)
+
+213 
+nÙ
+ 
+defs
+:
+
+214 
+	#™
+ 
+right
+ 
+away
+ 
+as
+ 
+ª
+ 
+ex‹º®
+ 
+d•’d’cy
+
+
+	)
+
+215 
+£lf
+.
+¡©e
+.
+	`kl_ªd_add_defš™iÚ
+(
+	$Regi¡”
+(
+»g_off£t
+, 
+b™s
+
+
+216 
+d©a
+=
+ex´
+
+
+218 
+defs
+ = 
+£lf
+.
+¡©e
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+»g_off£t
+)
+
+219 
+as£¹
+ 
+defs
+
+
+220 
+def_
+ 
+š
+ 
+defs
+:
+
+221 
+def_
+.
+d©a
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+222 
+d©a
+.
+	$upd©e
+(
+def_
+.
+d©a
+)
+
+224 
+l
+.
+	`w¬nšg
+('Data in„egister <%s> is undefined‡t %#x.',
+
+225 
+£lf
+.
+¬ch
+.
+»gi¡”_Çmes
+[
+»g_off£t
+], s–f.
+šs_addr
+
+
+227  
+d©a
+
+
+228 
+exû±
+ 
+KeyE¼Ü
+:
+
+229  
+	`D©aS‘
+(
+	`Regi¡”Off£t
+(
+b™s
+, 
+»g_off£t
+, 0), bits)
+
+231 
+def
+ 
+	$_a_hªdË_Lßd
+(
+£lf
+, 
+ex´
+):
+
+233 
+addrs
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+addr
+)
+
+234 
+size
+ = 
+ex´
+.size
+
+235 
+b™s
+ = 
+ex´
+.bits
+
+237 
+d©a
+ = 
+	$£t
+()
+
+238 
+addr
+ 
+š
+ 
+addrs
+:
+
+239 
+	$isš¡ªû
+(
+addr
+, ):
+
+240 
+cu¼’t_defs
+ = 
+£lf
+.
+¡©e
+.
+memÜy_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+addr
+)
+
+241 
+cu¼’t_defs
+:
+
+242 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+243 
+d©a
+.
+	$upd©e
+(
+cu¼’t_def
+.
+d©a
+)
+
+244 
+	`ªy
+(
+	$ty³
+(
+d
+è
+is
+ 
+Undefšed
+ d 
+š
+ 
+d©a
+):
+
+245 
+l
+.
+	`šfo
+('MemÜy‡ˆadd»s %#x undefšed, ins_add¸ğ%#x.', 
+addr
+, 
+£lf
+.
+šs_addr
+)
+
+247 
+Œy
+:
+
+248 
+d©a
+.
+	`add
+(
+£lf
+.
+´ojeù
+.
+lßd”
+.
+memÜy
+.
+	$uÅack_wÜd
+(
+addr
+, 
+size
+=size))
+
+249 
+exû±
+ 
+KeyE¼Ü
+:
+
+250 
+·ss
+
+
+252 #FIXME: 
+	`_add_memÜy_u£
+(è
+™”©es
+ 
+ov”
+ 
+the
+ 
+§me
+ 
+loİ
+
+
+253 
+£lf
+.
+¡©e
+.
+	`add_u£
+(
+	`MemÜyLoÿtiÚ
+(
+addr
+, 
+size
+), s–f.
+	$_cod–oc
+())
+
+254 
+–if
+ 
+	$isš¡ªû
+(
+addr
+, 
+SpOff£t
+):
+
+255 
+cu¼’t_defs
+ = 
+£lf
+.
+¡©e
+.
+¡ack_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+addr
+.
+off£t
+)
+
+256 
+cu¼’t_defs
+:
+
+257 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+258 
+d©a
+.
+	$upd©e
+(
+cu¼’t_def
+.
+d©a
+)
+
+259 
+	`ªy
+(
+	$ty³
+(
+d
+è
+is
+ 
+Undefšed
+ d 
+š
+ 
+d©a
+):
+
+260 
+l
+.
+	`šfo
+('Sck‡cûs © off£ˆ%#x undefšed, ins_add¸ğ%#x.', 
+addr
+.
+off£t
+, 
+£lf
+.
+šs_addr
+)
+
+262 
+d©a
+.
+	`add
+(
+	$Undefšed
+(
+b™s
+))
+
+264 
+£lf
+.
+¡©e
+.
+	`add_u£
+(
+addr
+, s–f.
+	$_cod–oc
+())
+
+266 
+l
+.
+	`šfo
+('MemÜy‡dd»s undefšed, ins_add¸ğ%#x.', 
+£lf
+.
+šs_addr
+)
+
+268 
+	`Ën
+(
+d©a
+) == 0:
+
+269 
+d©a
+.
+	`add
+(
+	$Undefšed
+(
+b™s
+))
+
+271  
+	$D©aS‘
+(
+d©a
+, 
+b™s
+)
+
+273 
+def
+ 
+	$_a_hªdË_CÚv”t
+(
+£lf
+, 
+ex´
+):
+
+274 
+to_cÚv
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+İ”ªd
+)
+
+275 
+	$ty³
+(
+to_cÚv
+è
+is
+ :
+
+276  
+to_cÚv
+
+
+278 
+r
+ = 
+NÚe
+
+
+279 
+ex´
+.
+äom_b™s
+ =ğ
+to_cÚv
+.
+b™s
+ 
+ªd
+ \
+
+280 
+	$isš¡ªû
+(
+to_cÚv
+, 
+D©aS‘
+):
+
+281 
+	`Ën
+(
+to_cÚv
+è=ğ1 
+ªd
+ 
+	`ty³
+(
+	`Ãxt
+(
+	$™”
+(
+to_cÚv
+.
+d©a
+))è
+is
+ 
+Undefšed
+:
+
+282 
+r
+ = 
+	`D©aS‘
+(
+to_cÚv
+.
+d©a
+.
+	`cİy
+(), 
+ex´
+.
+to_b™s
+)
+
+283 
+–if
+ 
+	`®l
+(
+	`isš¡ªû
+(
+d
+, (
+am’t
+.
+Ex´
+.
+CÚ¡
+, )èd 
+š
+ 
+to_cÚv
+.
+d©a
+):
+
+284 
+cÚv”‹d
+ = 
+	$£t
+()
+
+285 
+d
+ 
+š
+ 
+to_cÚv
+.
+d©a
+:
+
+286 
+	$isš¡ªû
+(
+d
+, 
+am’t
+.
+Ex´
+.
+CÚ¡
+):
+
+287 
+cÚv”‹d
+.
+	`add
+(
+am’t
+.
+Ex´
+.
+	$CÚ¡
+(
+d
+.
+idx
+, d.
+v¬ŸbË
+, d.
+v®ue
+, 
+ex´
+.
+to_b™s
+))
+
+288 : #isš¡ªû(
+d
+, )
+
+289 
+cÚv”‹d
+.
+	$add
+(
+d
+)
+
+290 
+r
+ = 
+	$D©aS‘
+(
+cÚv”‹d
+, 
+ex´
+.
+to_b™s
+)
+
+292 
+r
+ 
+is
+ 
+NÚe
+:
+
+293 
+r
+ = 
+am’t
+.
+Ex´
+.
+	$CÚv”t
+(
+ex´
+.
+idx
+,ƒx´.
+äom_b™s
+,ƒx´.
+to_b™s
+,ƒx´.
+is_sigÃd
+,
+
+294 
+to_cÚv
+)
+
+295 
+r
+ = 
+	$D©aS‘
+(
+r
+, 
+ex´
+.
+to_b™s
+)
+
+297  
+r
+
+
+299 
+def
+ 
+	$_a_hªdË_Bš¬yOp
+(
+£lf
+, 
+ex´
+):
+
+300 
+r
+ = 
+	`su³r
+().
+	$_a_hªdË_Bš¬yOp
+(
+ex´
+)
+
+301 
+	$isš¡ªû
+(
+r
+, 
+am’t
+.
+Ex´
+.
+Bš¬yOp
+):
+
+302 #R•ack 
+™
+ 
+w™h
+ 
+D©aS‘
+
+
+303  
+	`D©aS‘
+({
+r
+},„.b™s)
+
+304  
+r
+
+
+306 
+def
+ 
+	$_a_hªdË_CmpEQ
+(
+£lf
+, 
+ex´
+):
+
+307 
+İ0
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+İ”ªds
+[0])
+
+308 
+İ1
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+İ”ªds
+[1])
+
+310 
+İ0
+ 
+is
+ 
+NÚe
+: op0 = 
+ex´
+.
+İ”ªds
+[0]
+
+311 
+İ1
+ 
+is
+ 
+NÚe
+: op1 = 
+ex´
+.
+İ”ªds
+[1]
+
+313  
+am’t
+.
+Ex´
+.
+	$Bš¬yOp
+(
+ex´
+.
+idx
+,ƒx´.
+İ
+, [
+İ0
+, 
+İ1
+], **ex´.
+gs
+)
+
+315 
+def
+ 
+	$_a_hªdË_CmpLE
+(
+£lf
+, 
+ex´
+):
+
+316 
+İ0
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+İ”ªds
+[0])
+
+317 
+İ1
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+İ”ªds
+[1])
+
+319 
+İ0
+ 
+is
+ 
+NÚe
+: op0 = 
+ex´
+.
+İ”ªds
+[0]
+
+320 
+İ1
+ 
+is
+ 
+NÚe
+: op1 = 
+ex´
+.
+İ”ªds
+[1]
+
+322  
+am’t
+.
+Ex´
+.
+	$Bš¬yOp
+(
+ex´
+.
+idx
+,ƒx´.
+İ
+, [
+İ0
+, 
+İ1
+], **ex´.
+gs
+)
+
+324 
+def
+ 
+	$_a_hªdË_CÚ¡
+(
+£lf
+, 
+ex´
+):
+
+325  
+	$D©aS‘
+(
+ex´
+.
+v®ue
+,ƒx´.
+b™s
+)
+
+327 
+def
+ 
+	$_a_hªdË_SckBa£Off£t
+(
+£lf
+, 
+ex´
+):
+
+328  
+	`D©aS‘
+(
+	`SpOff£t
+(
+£lf
+.
+¬ch
+.
+b™s
+,
+
+329 
+ex´
+.
+off£t
+ ex´.off£ˆ
+is
+ 
+nÙ
+ 
+NÚe
+ 0,
+
+330 
+is_ba£
+=
+F®£
+
+
+332 
+£lf
+.
+¬ch
+.
+b™s
+
+
+335 
+def
+ 
+	$_a_hªdË_DœtyEx´essiÚ
+(
+£lf
+, 
+ex´
+): #pylšt:
+di§bË
+=
+no
+-£lf-
+u£
+
+
+336  
+ex´
+
+
+338 #
+#U£¸
+defšed
+ 
+high
+ 
+Ëv–
+ 
+¡©em’t
+ 
+hªdËrs
+
+
+342 
+def
+ 
+	$_hªdË_funùiÚ
+(
+£lf
+):
+
+343 
+£lf
+.
+_cu¼’t_loÿl_ÿÎ_d•th
+ > s–f.
+_maximum_loÿl_ÿÎ_d•th
+:
+
+344 
+l
+.
+	`w¬nšg
+('The‡nalysis„eached its maximum„ecursion depth.')
+
+345  
+NÚe
+
+
+347 
+defs_
+ = 
+£lf
+.
+¡©e
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+£lf
+.
+¬ch
+.
+_off£t
+)
+
+348 
+	`Ën
+(
+defs_
+) != 1:
+
+349 
+l
+.
+	`”rÜ
+('Invalid definition(s) for IP.')
+
+350  
+NÚe
+
+
+352 
+_d©a
+ = 
+	`Ãxt
+(
+	`™”
+(
+defs_
+)).
+d©a
+
+
+353 
+	`Ën
+(
+_d©a
+) != 1:
+
+354 
+l
+.
+	`”rÜ
+('Invalid‚umber of values for IP.')
+
+355  
+NÚe
+
+
+357 
+_addr
+ = 
+_d©a
+.
+	$g‘_fœ¡_–em’t
+()
+
+358 
+nÙ
+ 
+	$isš¡ªû
+(
+_addr
+, ):
+
+359 
+l
+.
+	`”rÜ
+('Inv®idy³ % fÜ IP.', 
+	`ty³
+(
+_addr
+).
+__Çme__
+)
+
+360  
+NÚe
+
+
+362 
+is_š‹º®
+ = 
+F®£
+
+
+363 
+ext_func_Çme
+ = 
+NÚe
+
+
+364 
+£lf
+.
+´ojeù
+.
+lßd”
+.
+maš_objeù
+.
+	$cÚšs_addr
+(
+_addr
+è
+is
+ 
+True
+:
+
+365 
+ext_func_Çme
+ = 
+£lf
+.
+´ojeù
+.
+lßd”
+.
+	$fšd_¶t_¡ub_Çme
+(
+_addr
+)
+
+366 
+ext_func_Çme
+ 
+is
+ 
+NÚe
+:
+
+367 
+is_š‹º®
+ = 
+True
+
+
+369 
+symbŞ
+ = 
+£lf
+.
+´ojeù
+.
+lßd”
+.
+	$fšd_symbŞ
+(
+_addr
+)
+
+370 
+symbŞ
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+371 
+ext_func_Çme
+ = 
+symbŞ
+.
+Çme
+
+
+373 
+ext_func_Çme
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+374 
+hªdËr_Çme
+ = 'hªdË_%s' % 
+ext_func_Çme
+
+
+375 
+	$ha§‰r
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+):
+
+376 
+	$g‘©Œ
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+)(£lf.
+¡©e
+, s–f.
+	$_cod–oc
+())
+
+378 
+l
+.
+	`w¬nšg
+('Please implementheƒxternal function handler for %s() with your own†ogic.',
+
+379 
+ext_func_Çme
+)
+
+380 
+–if
+ 
+is_š‹º®
+ 
+is
+ 
+True
+:
+
+381 
+hªdËr_Çme
+ = 'handle_local_function'
+
+382 
+	$ha§‰r
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+):
+
+383 
+is_upd©ed
+, 
+¡©e
+ = 
+	$g‘©Œ
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+)(£lf.
+¡©e
+, 
+_addr
+,
+
+384 
+£lf
+.
+_cu¼’t_loÿl_ÿÎ_d•th
+ + 1,
+
+385 
+£lf
+.
+_maximum_loÿl_ÿÎ_d•th
+)
+
+386 
+is_upd©ed
+ 
+is
+ 
+True
+:
+
+387 
+£lf
+.
+¡©e
+ = state
+
+389 
+l
+.
+	`w¬nšg
+('Please implementhe†ocal function handler with your own†ogic.')
+
+391 
+l
+.
+	`w¬nšg
+('Could‚Ù fšd funùiÚ‚amfÜƒx‹º® funùiÚ‡ˆadd»s %#x.', 
+_addr
+)
+
+392  
+NÚe
+
+
+	@engine_vex.py
+
+1 
+impÜt
+ 
+loggšg
+
+
+3 
+impÜt
+ 
+pyvex
+
+
+5 
+	gäom
+ .
+©oms
+ 
+impÜt
+ 
+	gRegi¡”
+, 
+	gMemÜyLoÿtiÚ
+, 
+P¬am‘”
+
+
+6 
+	gäom
+ .
+cÚ¡ªts
+ 
+impÜt
+ 
+	gOP_BEFORE
+, 
+OP_AFTER
+
+
+7 
+	gäom
+ .
+d©a£t
+ 
+impÜt
+ 
+D©aS‘
+
+
+8 
+	gäom
+ .
+ex‹º®_cod–oc
+ 
+impÜt
+ 
+Ex‹º®CodeLoÿtiÚ
+
+
+9 
+	gäom
+ .
+undefšed
+ 
+impÜt
+ 
+Undefšed
+
+
+10 
+	gäom
+ ...
+	g’gšes
+.
+light
+ 
+impÜt
+ 
+	gSimEngšeLight
+, 
+	gSimEngšeLightVEXMixš
+, 
+SpOff£t
+
+
+11 
+	gäom
+ ...
+	g’gšes
+.
+	gvex
+.
+œİ
+ 
+impÜt
+ 
+İ”©iÚs
+ 
+as
+ 
+vex_İ”©iÚs
+
+
+12 
+	gäom
+ ...
+”rÜs
+ 
+impÜt
+ 
+SimEngšeE¼Ü
+
+
+14 
+	gl
+ = 
+loggšg
+.
+	$g‘Logg”
+(
+Çme
+=
+__Çme__
+)
+
+17 
+şass
+ 
+	$SimEngšeRDVEX
+(
+
+18 
+SimEngšeLightVEXMixš
+,
+
+19 
+SimEngšeLight
+,
+
+20 ): #pylšt:
+di§bË
+=
+ab¡¿ù
+-
+m‘hod
+
+
+21 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+´ojeù
+, 
+cu¼’t_loÿl_ÿÎ_d•th
+, 
+maximum_loÿl_ÿÎ_d•th
+, 
+funùiÚ_hªdËr
+=
+NÚe
+):
+
+22 
+	`su³r
+(
+SimEngšeRDVEX
+, 
+£lf
+).
+	$__š™__
+()
+
+23 
+£lf
+.
+´ojeù
+ =…roject
+
+24 
+£lf
+.
+_cu¼’t_loÿl_ÿÎ_d•th
+ = 
+cu¼’t_loÿl_ÿÎ_d•th
+
+
+25 
+£lf
+.
+_maximum_loÿl_ÿÎ_d•th
+ = 
+maximum_loÿl_ÿÎ_d•th
+
+
+26 
+£lf
+.
+_funùiÚ_hªdËr
+ = 
+funùiÚ_hªdËr
+
+
+28 
+def
+ 
+	$´oûss
+(
+£lf
+, 
+¡©e
+, *
+¬gs
+, **
+kw¬gs
+):
+
+29 #w
+¬e
+ 
+usšg
+ 
+a
+ 
+com¶‘–y
+ 
+difã»Á
+ 
+¡©e
+. 
+Th”efÜe
+, 
+we
+ 
+dœeùly
+ 
+ÿÎ
+ 
+our
+ 
+	`_´oûss
+(è
+m‘hod
+ 
+befÜe
+
+
+30 #SimEngš
+becomes
+ 
+æexibË
+ 
+’ough
+.
+
+31 
+Œy
+:
+
+32 
+£lf
+.
+	`_´oûss
+(
+¡©e
+, 
+NÚe
+, 
+block
+=
+kw¬gs
+.
+	`pİ
+('block', None))
+
+33 
+exû±
+ 
+SimEngšeE¼Ü
+ 
+as
+ 
+e
+:
+
+34 
+kw¬gs
+.
+	`pİ
+('ç_ç¡', 
+F®£
+è
+is
+ 
+True
+:
+
+35 
+¿i£
+ 
+e
+
+
+36 
+l
+.
+	$”rÜ
+(
+e
+)
+
+37  
+£lf
+.
+¡©e
+
+
+39 #
+#Priv©
+m‘hods
+
+
+43 @
+¡©icm‘hod
+
+
+44 
+def
+ 
+	$_ex‹º®_cod–oc
+():
+
+45  
+	$Ex‹º®CodeLoÿtiÚ
+()
+
+47 #
+#VEX 
+¡©em’t
+ 
+hªdËrs
+
+
+51 
+def
+ 
+	$_hªdË_Stmt
+(
+£lf
+, 
+¡mt
+):
+
+53 
+£lf
+.
+¡©e
+.
+ª®ysis
+:
+
+54 
+£lf
+.
+¡©e
+.
+ª®ysis
+.
+	$š¢_ob£rve
+(
+£lf
+.
+šs_addr
+, 
+¡mt
+, s–f.
+block
+, s–f.
+¡©e
+, 
+OP_BEFORE
+)
+
+56 
+	`su³r
+(
+SimEngšeRDVEX
+, 
+£lf
+).
+	$_hªdË_Stmt
+(
+¡mt
+)
+
+58 
+£lf
+.
+¡©e
+.
+ª®ysis
+:
+
+59 
+£lf
+.
+¡©e
+.
+ª®ysis
+.
+	$š¢_ob£rve
+(
+£lf
+.
+šs_addr
+, 
+¡mt
+, s–f.
+block
+, s–f.
+¡©e
+, 
+OP_AFTER
+)
+
+61 #e.
+g
+. 
+	`PUT
+(
+r¥
+èğ
+t2
+,2 
+might
+ 
+šşude
+ 
+muÉË
+ 
+v®ues
+
+
+62 
+def
+ 
+	$_hªdË_Put
+(
+£lf
+, 
+¡mt
+):
+
+63 
+»g_off£t
+ = 
+¡mt
+.
+off£t
+
+
+64 
+size
+ = 
+¡mt
+.
+d©a
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)
+
+65 
+»g
+ = 
+	$Regi¡”
+(
+»g_off£t
+, 
+size
+)
+
+66 
+d©a
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+d©a
+)
+
+68 
+	`ªy
+(
+	$ty³
+(
+d
+è
+is
+ 
+Undefšed
+ d 
+š
+ 
+d©a
+):
+
+69 
+l
+.
+	`šfo
+('Datao write into„egister <%s> with offset %d undefined, ins_addr = %#x.',
+
+70 
+£lf
+.
+¬ch
+.
+»gi¡”_Çmes
+[
+»g_off£t
+],„eg_off£t, s–f.
+šs_addr
+)
+
+72 
+£lf
+.
+¡©e
+.
+	`kl_ªd_add_defš™iÚ
+(
+»g
+, s–f.
+	`_cod–oc
+(), 
+d©a
+)
+
+74 #e.
+g
+. 
+	`STË
+(
+t6
+èğ
+t21
+,6 
+ªd
+/
+Ü
+21 
+might
+ 
+šşude
+ 
+muÉË
+ 
+v®ues
+
+
+75 #synø
+w™h
+ 
+	`_hªdË_StÜeG
+()
+
+76 
+def
+ 
+	$_hªdË_StÜe
+(
+£lf
+, 
+¡mt
+):
+
+78 
+addr
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+addr
+)
+
+79 
+size
+ = 
+¡mt
+.
+d©a
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)
+
+80 
+d©a
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+d©a
+)
+
+82 
+a
+ 
+š
+ 
+addr
+:
+
+83 
+	$ty³
+(
+a
+è
+is
+ 
+Undefšed
+:
+
+84 
+l
+.
+	`šfo
+('MemÜy‡dd»s undefšed, ins_add¸ğ%#x.', 
+£lf
+.
+šs_addr
+)
+
+86 
+	`ªy
+(
+	$ty³
+(
+d
+è
+is
+ 
+Undefšed
+ d 
+š
+ 
+d©a
+):
+
+87 
+l
+.
+	`šfo
+('D©¨tØwr™©‡dd»s %#x undefšed, ins_add¸ğ%#x.', 
+a
+, 
+£lf
+.
+šs_addr
+)
+
+89 
+memloc
+ = 
+	$MemÜyLoÿtiÚ
+(
+a
+, 
+size
+)
+
+90 #difã»Á 
+add»s£s
+ 
+¬e
+ 
+nÙ
+ 
+kËd
+ 
+by
+ 
+a
+ 
+sub£qu’t
+ 
+™”©iÚ
+, 
+beÿu£
+ 
+kl
+ 
+Úly
+ 
+»moves
+ 
+’Œ›s
+
+
+91 #w™h 
+§me
+ 
+šdex
+ 
+ªd
+ sam
+size
+
+
+92 
+£lf
+.
+¡©e
+.
+	`kl_ªd_add_defš™iÚ
+(
+memloc
+, s–f.
+	`_cod–oc
+(), 
+d©a
+)
+
+94 #synø
+w™h
+ 
+	`_hªdË_StÜe
+()
+
+95 
+def
+ 
+	$_hªdË_StÜeG
+(
+£lf
+, 
+¡mt
+):
+
+96 
+gu¬d
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+gu¬d
+)
+
+97 
+gu¬d
+.
+d©a
+ =ğ{
+True
+}:
+
+98 
+£lf
+.
+	$_hªdË_StÜe
+(
+¡mt
+)
+
+99 
+–if
+ 
+gu¬d
+.
+d©a
+ =ğ{
+F®£
+}:
+
+100 
+·ss
+
+
+102 #gu¬d.
+d©a
+ =ğ{
+True
+, 
+F®£
+}
+
+103 
+addr
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+addr
+)
+
+104 
+size
+ = 
+¡mt
+.
+d©a
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)
+
+106 #g‘ 
+cu¼’t
+ 
+d©a
+
+
+107 
+lßd_’d
+ = 
+¡mt
+.
+’d
+
+
+108 
+lßd_ty
+ = 
+£lf
+.
+ty’v
+.
+	$lookup
+(
+¡mt
+.
+d©a
+.
+tmp
+)
+
+109 
+lßd_addr
+ = 
+¡mt
+.
+addr
+
+
+110 
+lßd_ex´
+ = 
+pyvex
+.
+IREx´
+.
+	$Lßd
+(
+lßd_’d
+, 
+lßd_ty
+, 
+lßd_addr
+)
+
+111 
+d©a_Şd
+ = 
+£lf
+.
+	$_hªdË_Lßd
+(
+lßd_ex´
+)
+
+113 #g‘ 
+Ãw
+ 
+d©a
+
+
+114 
+d©a_Ãw
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+d©a
+)
+
+116 #m”g
+Şd
+ 
+ªd
+ 
+Ãw
+ 
+d©a
+
+
+117 
+d©a_Ãw
+.
+	$upd©e
+(
+d©a_Şd
+)
+
+119 
+a
+ 
+š
+ 
+addr
+:
+
+120 
+	$ty³
+(
+a
+è
+is
+ 
+Undefšed
+:
+
+121 
+l
+.
+	`šfo
+('MemÜy‡dd»s undefšed, ins_add¸ğ%#x.', 
+£lf
+.
+šs_addr
+)
+
+123 
+	`ªy
+(
+	$ty³
+(
+d
+è
+is
+ 
+Undefšed
+ d 
+š
+ 
+d©a_Ãw
+):
+
+124 
+l
+.
+	`šfo
+('D©¨tØwr™©‡dd»s %#x undefšed, ins_add¸ğ%#x.', 
+a
+, 
+£lf
+.
+šs_addr
+)
+
+126 
+memloc
+ = 
+	$MemÜyLoÿtiÚ
+(
+a
+, 
+size
+)
+
+127 #difã»Á 
+add»s£s
+ 
+¬e
+ 
+nÙ
+ 
+kËd
+ 
+by
+ 
+a
+ 
+sub£qu’t
+ 
+™”©iÚ
+, 
+beÿu£
+ 
+kl
+ 
+Úly
+ 
+»moves
+ 
+’Œ›s
+
+
+128 #w™h 
+§me
+ 
+šdex
+ 
+ªd
+ sam
+size
+
+
+129 
+£lf
+.
+¡©e
+.
+	`kl_ªd_add_defš™iÚ
+(
+memloc
+, s–f.
+	`_cod–oc
+(), 
+d©a_Ãw
+)
+
+131 
+def
+ 
+	$_hªdË_LßdG
+(
+£lf
+, 
+¡mt
+):
+
+132 
+gu¬d
+ = 
+£lf
+.
+	$_ex´
+(
+¡mt
+.
+gu¬d
+)
+
+133 
+gu¬d
+.
+d©a
+ =ğ{
+True
+}:
+
+134 #FIXME: 
+fuÎ
+ 
+cÚv”siÚ
+ 
+suµÜt
+
+
+135 
+¡mt
+.
+cvt
+.
+fšd
+('Ident') < 0:
+
+136 
+l
+.
+w¬nšg
+('UnsuµÜ‹d cÚv”siÚ % š LßdG.', 
+¡mt
+.
+cvt
+)
+
+137 
+	glßd_ex´
+ = 
+pyvex
+.
+ex´
+.
+	$Lßd
+(
+¡mt
+.
+’d
+, stmt.
+cvt_ty³s
+[1], stmt.
+addr
+)
+
+138 
+wr_tmp_¡mt
+ = 
+pyvex
+.
+¡mt
+.
+	$WrTmp
+(
+¡mt
+.
+d¡
+, 
+lßd_ex´
+)
+
+139 
+£lf
+.
+	$_hªdË_WrTmp
+(
+wr_tmp_¡mt
+)
+
+140 
+–if
+ 
+gu¬d
+.
+d©a
+ =ğ{
+F®£
+}:
+
+141 
+wr_tmp_¡mt
+ = 
+pyvex
+.
+¡mt
+.
+	$WrTmp
+(
+¡mt
+.
+d¡
+, stmt.
+®t
+)
+
+142 
+£lf
+.
+	$_hªdË_WrTmp
+(
+wr_tmp_¡mt
+)
+
+144 
+¡mt
+.
+cvt
+.
+	`fšd
+('Ident') < 0:
+
+145 
+l
+.
+	`w¬nšg
+('UnsuµÜ‹d cÚv”siÚ % š LßdG.', 
+¡mt
+.
+cvt
+)
+
+146 
+lßd_ex´
+ = 
+pyvex
+.
+ex´
+.
+	$Lßd
+(
+¡mt
+.
+’d
+, stmt.
+cvt_ty³s
+[1], stmt.
+addr
+)
+
+147 
+d©a
+ = 
+	$£t
+()
+
+148 
+d©a
+.
+	`upd©e
+(
+£lf
+.
+	`_ex´
+(
+lßd_ex´
+).data)
+
+149 
+d©a
+.
+	`upd©e
+(
+£lf
+.
+	`_ex´
+(
+¡mt
+.
+®t
+).data)
+
+150 
+£lf
+.
+	`_hªdË_WrTmpD©a
+(
+¡mt
+.
+d¡
+, 
+	`D©aS‘
+(
+d©a
+, 
+lßd_ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)))
+
+152 
+def
+ 
+	$_hªdË_Ex™
+(
+£lf
+, 
+¡mt
+):
+
+153 
+·ss
+
+
+155 
+def
+ 
+	$_hªdË_IM¬k
+(
+£lf
+, 
+¡mt
+):
+
+156 
+·ss
+
+
+158 
+def
+ 
+	$_hªdË_AbiHšt
+(
+£lf
+, 
+¡mt
+):
+
+159 
+·ss
+
+
+161 #
+#VEX 
+ex´essiÚ
+ 
+hªdËrs
+
+
+165 
+def
+ 
+	$_hªdË_RdTmp
+(
+£lf
+, 
+ex´
+):
+
+166 
+tmp
+ = 
+ex´
+.tmp
+
+168 
+tmp
+ 
+š
+ 
+£lf
+.
+tmps
+:
+
+169  
+£lf
+.
+tmps
+[
+tmp
+]
+
+170 
+b™s
+ = 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)
+
+171  
+	`D©aS‘
+(
+	`Undefšed
+(
+b™s
+), bits)
+
+173 #e.
+g
+. 
+t0
+ = 
+GET
+:
+	`I64
+(
+r¥
+),„¥ 
+might
+ 
+be
+ 
+defšed
+ 
+muÉË
+ 
+times
+
+
+174 
+def
+ 
+	$_hªdË_G‘
+(
+£lf
+, 
+ex´
+):
+
+176 
+»g_off£t
+ = 
+ex´
+.
+off£t
+
+
+177 
+b™s
+ = 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)
+
+178 
+size
+ = 
+b™s
+
+
+180 #FIXME: 
+size
+, 
+ov”Ïµšg
+
+
+181 
+d©a
+ = 
+	$£t
+()
+
+182 
+cu¼’t_defs
+ = 
+£lf
+.
+¡©e
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+»g_off£t
+)
+
+183 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+184 
+d©a
+.
+	$upd©e
+(
+cu¼’t_def
+.
+d©a
+)
+
+185 
+	`Ën
+(
+d©a
+) == 0:
+
+186 
+d©a
+.
+	`add
+(
+	$Undefšed
+(
+b™s
+))
+
+187 
+	`ªy
+(
+	$ty³
+(
+d
+è
+is
+ 
+Undefšed
+ d 
+š
+ 
+d©a
+):
+
+188 
+l
+.
+	`šfo
+('Data in„egister <%s> with offset %d undefined, ins_addr = %#x.',
+
+189 
+£lf
+.
+¬ch
+.
+»gi¡”_Çmes
+[
+»g_off£t
+],„eg_off£t, s–f.
+šs_addr
+)
+
+191 
+£lf
+.
+¡©e
+.
+	`add_u£
+(
+	`Regi¡”
+(
+»g_off£t
+, 
+size
+), s–f.
+	$_cod–oc
+())
+
+193  
+	`D©aS‘
+(
+d©a
+, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+195 #e.
+g
+. 
+t27
+ = 
+LDË
+:
+	`I64
+(
+t9
+),9 
+might
+ 
+šşude
+ 
+muÉË
+ 
+v®ues
+
+
+196 #ÿutiÚ: 
+Is
+ 
+®so
+ 
+ÿÎed
+ 
+äom
+ 
+StÜeG
+
+
+197 
+def
+ 
+	$_hªdË_Lßd
+(
+£lf
+, 
+ex´
+):
+
+198 ## è¿™é‡Œ 
+ex´
+.
+addr
+ï¼Œå¯ä»¥å‚è§ 
+libvex_œ
+.
+h
+ é‡Œå…³äº 
+Lßd
+ å‹ 
+VEX
+ è¯­å¥çš„ç»“æ„å®šä¹‰
+
+200 
+addr
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+addr
+)
+
+201 
+b™s
+ = 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)
+
+202 
+size
+ = 
+b™s
+
+
+204 
+d©a
+ = 
+	$£t
+()
+
+205 
+a
+ 
+š
+ 
+addr
+:
+
+206 
+	$isš¡ªû
+(
+a
+, ):
+
+207 
+cu¼’t_defs
+ = 
+£lf
+.
+¡©e
+.
+memÜy_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+a
+)
+
+208 
+cu¼’t_defs
+:
+
+209 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+210 
+d©a
+.
+	$upd©e
+(
+cu¼’t_def
+.
+d©a
+)
+
+211 
+	`ªy
+(
+	$ty³
+(
+d
+è
+is
+ 
+Undefšed
+ d 
+š
+ 
+d©a
+):
+
+212 
+l
+.
+	`šfo
+('MemÜy‡ˆadd»s %#x undefšed, ins_add¸ğ%#x.', 
+a
+, 
+£lf
+.
+šs_addr
+)
+
+214 
+Œy
+:
+
+215 
+d©a
+.
+	`add
+(
+£lf
+.
+´ojeù
+.
+lßd”
+.
+memÜy
+.
+	$uÅack_wÜd
+(
+a
+, 
+size
+=size))
+
+216 
+exû±
+ 
+KeyE¼Ü
+:
+
+217 
+·ss
+
+
+219 #FIXME: 
+	`_add_memÜy_u£
+(è
+™”©es
+ 
+ov”
+ 
+the
+ 
+§me
+ 
+loİ
+
+
+220 
+£lf
+.
+¡©e
+.
+	`add_u£
+(
+	`MemÜyLoÿtiÚ
+(
+a
+, 
+size
+), s–f.
+	$_cod–oc
+())
+
+222 
+l
+.
+	`šfo
+('MemÜy‡dd»s undefšed, ins_add¸ğ%#x.', 
+£lf
+.
+šs_addr
+)
+
+224 
+	`Ën
+(
+d©a
+) == 0:
+
+225 
+d©a
+.
+	`add
+(
+	$Undefšed
+(
+b™s
+))
+
+227  
+	$D©aS‘
+(
+d©a
+, 
+b™s
+)
+
+229 #CAUTION: 
+ex³rim’l
+
+
+230 
+def
+ 
+	$_hªdË_ITE
+(
+£lf
+, 
+ex´
+):
+
+231 
+cÚd
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+cÚd
+)
+
+233 
+cÚd
+.
+d©a
+ =ğ{
+True
+}:
+
+234  
+£lf
+.
+	$_ex´
+(
+ex´
+.
+iárue
+)
+
+235 
+–if
+ 
+cÚd
+.
+d©a
+ =ğ{
+F®£
+}:
+
+236  
+£lf
+.
+	$_ex´
+(
+ex´
+.
+ifçl£
+)
+
+238 
+cÚd
+.
+d©a
+ !ğ{
+True
+, 
+F®£
+}:
+
+239 
+l
+.
+šfo
+('Could‚Ù„esŞvcÚd™iÚ % fÜ ITE.', 
+	$¡r
+(
+cÚd
+))
+
+240 
+d©a
+ = 
+	$£t
+()
+
+241 
+d©a
+.
+	`upd©e
+(
+£lf
+.
+	`_ex´
+(
+ex´
+.
+iárue
+).data)
+
+242 
+d©a
+.
+	`upd©e
+(
+£lf
+.
+	`_ex´
+(
+ex´
+.
+ifçl£
+).data)
+
+243  
+	`D©aS‘
+(
+d©a
+, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+245 #
+#UÇry 
+İ”©iÚ
+ 
+hªdËrs
+
+
+249 
+def
+ 
+	$_hªdË_CÚ¡
+(
+£lf
+, 
+ex´
+):
+
+250  
+	`D©aS‘
+(
+ex´
+.
+cÚ
+.
+v®ue
+,ƒx´.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+252 
+def
+ 
+	$_hªdË_CÚv”siÚ
+(
+£lf
+, 
+ex´
+):
+
+253 
+simİ
+ = 
+vex_İ”©iÚs
+[
+ex´
+.
+İ
+]
+
+254 
+¬g_0
+ = 
+£lf
+.
+	$_ex´
+(
+ex´
+.
+¬gs
+[0])
+
+256 
+b™s
+ = (
+simİ
+.
+İ_©Œs
+['to_size'])
+
+257 
+d©a
+ = 
+	$£t
+()
+
+258 #cÚv”ˆ
+İ”ªd
+ 
+possibË
+ 
+Ùh”wi£
+ 
+k“p
+ 
+™
+ 
+unchªged
+
+
+259 
+a
+ 
+š
+ 
+¬g_0
+:
+
+260 
+	$ty³
+(
+a
+è
+is
+ 
+Undefšed
+:
+
+261 
+·ss
+
+
+262 
+–if
+ 
+	$isš¡ªû
+(
+a
+, ):
+
+263 
+mask
+ = 2 ** 
+b™s
+ - 1
+
+264 
+a
+ &ğ
+mask
+
+
+265 
+–if
+ 
+	$ty³
+(
+a
+è
+is
+ 
+P¬am‘”
+:
+
+266 
+	$ty³
+(
+a
+.
+v®ue
+è
+is
+ 
+Regi¡”
+:
+
+267 
+a
+.
+v®ue
+.
+size
+ = 
+b™s
+
+
+268 
+–if
+ 
+	$ty³
+(
+a
+.
+v®ue
+è
+is
+ 
+SpOff£t
+:
+
+269 
+a
+.
+v®ue
+.
+b™s
+ = bits
+
+271 
+l
+.
+	`w¬nšg
+('UnsuµÜ‹dy³ P¬am‘”->% fÜ cÚv”siÚ.', 
+	`ty³
+(
+a
+.
+v®ue
+).
+__Çme__
+)
+
+273 
+l
+.
+	`w¬nšg
+('UnsuµÜ‹dy³ % fÜ cÚv”siÚ.', 
+	`ty³
+(
+a
+).
+__Çme__
+)
+
+274 
+d©a
+.
+	$add
+(
+a
+)
+
+276  
+	`D©aS‘
+(
+d©a
+, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+278 
+def
+ 
+	$_hªdË_NÙ1
+(
+£lf
+, 
+ex´
+):
+
+279 
+¬g0
+ = 
+ex´
+.
+¬gs
+[0]
+
+280 
+ex´_0
+ = 
+£lf
+.
+	$_ex´
+(
+¬g0
+)
+
+282 
+	`Ën
+(
+ex´_0
+) == 1:
+
+283 
+e0
+ = 
+ex´_0
+.
+	$g‘_fœ¡_–em’t
+()
+
+284 
+	$isš¡ªû
+(
+e0
+, ):
+
+285  
+	`D©aS‘
+(
+e0
+ !ğ1, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+287 
+l
+.
+	`w¬nšg
+('Comparison of multiple values / differentypes.')
+
+288  
+	`D©aS‘
+({
+True
+, 
+F®£
+},ƒx´.»suÉ_size(£lf.ty’v))
+
+290 
+def
+ 
+	$_hªdË_NÙ
+(
+£lf
+, 
+ex´
+):
+
+291 
+¬g0
+ = 
+ex´
+.
+¬gs
+[0]
+
+292 
+ex´_0
+ = 
+£lf
+.
+	$_ex´
+(
+¬g0
+)
+
+294 
+	`Ën
+(
+ex´_0
+) == 1:
+
+295 
+e0
+ = 
+ex´_0
+.
+	$g‘_fœ¡_–em’t
+()
+
+296 
+	$isš¡ªû
+(
+e0
+, ):
+
+297  
+	`D©aS‘
+(
+e0
+ =ğ0, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+299 
+l
+.
+	`w¬nšg
+('Comparison of multiple values / differentypes.')
+
+300  
+	`D©aS‘
+({
+True
+, 
+F®£
+},ƒx´.»suÉ_size(£lf.ty’v))
+
+302 #
+#Bš¬y 
+İ”©iÚ
+ 
+hªdËrs
+
+
+306 
+def
+ 
+	$_hªdË_S¬
+(
+£lf
+, 
+ex´
+):
+
+307 
+¬g0
+, 
+¬g1
+ = 
+ex´
+.
+¬gs
+
+
+308 
+ex´_0
+ = 
+£lf
+.
+	$_ex´
+(
+¬g0
+)
+
+309 
+ex´_1
+ = 
+£lf
+.
+	$_ex´
+(
+¬g1
+)
+
+311 
+b™s
+ = 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)
+
+312 
+d©a
+ = 
+	$£t
+()
+
+313 
+e0
+ 
+š
+ 
+ex´_0
+:
+
+314 
+e1
+ 
+š
+ 
+ex´_1
+:
+
+315 
+Œy
+:
+
+316 
+e0
+ >> (
+b™s
+ - 1) == 0:
+
+317 
+h—d
+ = 0
+
+319 
+h—d
+ = ((1 << 
+e1
+è- 1è<< (
+b™s
+ -ƒ1)
+
+320 
+d©a
+.
+	`add
+(
+h—d
+ | (
+e0
+ >> 
+e1
+))
+
+321 
+	$exû±
+ (
+V®ueE¼Ü
+, 
+Ty³E¼Ü
+è
+as
+ 
+e
+:
+
+322 
+d©a
+.
+	`add
+(
+	$Undefšed
+(
+b™s
+))
+
+323 
+l
+.
+	$w¬nšg
+(
+e
+)
+
+325  
+	`D©aS‘
+(
+d©a
+, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+327 
+def
+ 
+	$_hªdË_CmpEQ
+(
+£lf
+, 
+ex´
+):
+
+328 
+¬g0
+, 
+¬g1
+ = 
+ex´
+.
+¬gs
+
+
+329 
+ex´_0
+ = 
+£lf
+.
+	$_ex´
+(
+¬g0
+)
+
+330 
+ex´_1
+ = 
+£lf
+.
+	$_ex´
+(
+¬g1
+)
+
+332 
+	`Ën
+(
+ex´_0
+è=ğ1 
+ªd
+†’(
+ex´_1
+) == 1:
+
+333 
+e0
+ = 
+ex´_0
+.
+	$g‘_fœ¡_–em’t
+()
+
+334 
+e1
+ = 
+ex´_1
+.
+	$g‘_fœ¡_–em’t
+()
+
+335 
+	$isš¡ªû
+(
+e0
+, è
+ªd
+ 
+	$isš¡ªû
+(
+e1
+, ):
+
+336  
+	`D©aS‘
+(
+e0
+ =ğ
+e1
+, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+338 
+l
+.
+	`w¬nšg
+('Comparison of multiple values / differentypes.')
+
+339  
+	`D©aS‘
+({
+True
+, 
+F®£
+},ƒx´.»suÉ_size(£lf.ty’v))
+
+341 
+def
+ 
+	$_hªdË_CmpNE
+(
+£lf
+, 
+ex´
+):
+
+342 
+¬g0
+, 
+¬g1
+ = 
+ex´
+.
+¬gs
+
+
+343 
+ex´_0
+ = 
+£lf
+.
+	$_ex´
+(
+¬g0
+)
+
+344 
+ex´_1
+ = 
+£lf
+.
+	$_ex´
+(
+¬g1
+)
+
+346 
+	`Ën
+(
+ex´_0
+è=ğ1 
+ªd
+†’(
+ex´_1
+) == 1:
+
+347 
+e0
+ = 
+ex´_0
+.
+	$g‘_fœ¡_–em’t
+()
+
+348 
+e1
+ = 
+ex´_1
+.
+	$g‘_fœ¡_–em’t
+()
+
+349 
+	$isš¡ªû
+(
+e0
+, è
+ªd
+ 
+	$isš¡ªû
+(
+e1
+, ):
+
+350  
+	`D©aS‘
+(
+e0
+ !ğ
+e1
+, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+352 
+l
+.
+	`w¬nšg
+('Comparison of multiple values / differentypes.')
+
+353  
+	`D©aS‘
+({
+True
+, 
+F®£
+},ƒx´.»suÉ_size(£lf.ty’v))
+
+355 
+def
+ 
+	$_hªdË_CmpLT
+(
+£lf
+, 
+ex´
+):
+
+356 
+¬g0
+, 
+¬g1
+ = 
+ex´
+.
+¬gs
+
+
+357 
+ex´_0
+ = 
+£lf
+.
+	$_ex´
+(
+¬g0
+)
+
+358 
+ex´_1
+ = 
+£lf
+.
+	$_ex´
+(
+¬g1
+)
+
+360 
+	`Ën
+(
+ex´_0
+è=ğ1 
+ªd
+†’(
+ex´_1
+) == 1:
+
+361 
+e0
+ = 
+ex´_0
+.
+	$g‘_fœ¡_–em’t
+()
+
+362 
+e1
+ = 
+ex´_1
+.
+	$g‘_fœ¡_–em’t
+()
+
+363 
+	$isš¡ªû
+(
+e0
+, è
+ªd
+ 
+	$isš¡ªû
+(
+e1
+, ):
+
+364  
+	`D©aS‘
+(
+e0
+ < 
+e1
+, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+366 
+l
+.
+	`w¬nšg
+('Comparison of multiple values / differentypes.')
+
+367  
+	`D©aS‘
+({
+True
+, 
+F®£
+},ƒx´.»suÉ_size(£lf.ty’v))
+
+369 #µø
+Úly
+
+
+370 
+def
+ 
+	$_hªdË_CmpORD
+(
+£lf
+, 
+ex´
+):
+
+371 
+¬g0
+, 
+¬g1
+ = 
+ex´
+.
+¬gs
+
+
+372 
+ex´_0
+ = 
+£lf
+.
+	$_ex´
+(
+¬g0
+)
+
+373 
+ex´_1
+ = 
+£lf
+.
+	$_ex´
+(
+¬g1
+)
+
+375 
+	`Ën
+(
+ex´_0
+è=ğ1 
+ªd
+†’(
+ex´_1
+) == 1:
+
+376 
+e0
+ = 
+ex´_0
+.
+	$g‘_fœ¡_–em’t
+()
+
+377 
+e1
+ = 
+ex´_1
+.
+	$g‘_fœ¡_–em’t
+()
+
+378 
+	$isš¡ªû
+(
+e0
+, è
+ªd
+ 
+	$isš¡ªû
+(
+e1
+, ):
+
+379 
+e0
+ < 
+e1
+:
+
+380  
+	`D©aS‘
+(0x08, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+381 
+–if
+ 
+e0
+ > 
+e1
+:
+
+382  
+	`D©aS‘
+(0x04, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+384  
+	`D©aS‘
+(0x02, 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+))
+
+386 
+l
+.
+	`w¬nšg
+('Comparison of multiple values / differentypes.')
+
+387  
+	`D©aS‘
+({
+True
+, 
+F®£
+},ƒx´.»suÉ_size(£lf.ty’v))
+
+389 
+def
+ 
+	$_hªdË_CC®l
+(
+£lf
+, 
+ex´
+):
+
+390 
+b™s
+ = 
+ex´
+.
+	$»suÉ_size
+(
+£lf
+.
+ty’v
+)
+
+391  
+	`D©aS‘
+(
+	`Undefšed
+(
+b™s
+), bits)
+
+393 #
+#U£¸
+defšed
+ 
+high
+ 
+Ëv–
+ 
+¡©em’t
+ 
+hªdËrs
+
+
+397 
+def
+ 
+	$_hªdË_funùiÚ
+(
+£lf
+, *
+¬gs
+, **
+kw¬gs
+): #pylšt:
+di§bË
+=
+unu£d
+-
+¬gum’t
+
+
+398 
+£lf
+.
+_cu¼’t_loÿl_ÿÎ_d•th
+ > s–f.
+_maximum_loÿl_ÿÎ_d•th
+:
+
+399 
+l
+.
+	`w¬nšg
+('The‡nalysis„eached its maximum„ecursion depth.')
+
+400  
+NÚe
+
+
+402 
+defs_
+ = 
+£lf
+.
+¡©e
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+£lf
+.
+¬ch
+.
+_off£t
+)
+
+403 
+	`Ën
+(
+defs_
+) != 1:
+
+404 
+l
+.
+	`”rÜ
+('Invalid definition(s) for IP.')
+
+405  
+NÚe
+
+
+407 
+_d©a
+ = 
+	`Ãxt
+(
+	`™”
+(
+defs_
+)).
+d©a
+
+
+408 
+	`Ën
+(
+_d©a
+) != 1:
+
+409 
+hªdËr_Çme
+ = 'handle_indirect_call'
+
+410 
+	$ha§‰r
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+):
+
+411 
+_
+, 
+¡©e
+ = 
+	$g‘©Œ
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+)(£lf.
+¡©e
+, s–f.
+	$_cod–oc
+())
+
+412 
+£lf
+.
+¡©e
+ = state
+
+414 
+l
+.
+	`w¬nšg
+('Please implementhe inderect function handler with your own†ogic.')
+
+415  
+NÚe
+
+
+417 
+_addr
+ = 
+_d©a
+.
+	$g‘_fœ¡_–em’t
+()
+
+418 
+nÙ
+ 
+	$isš¡ªû
+(
+_addr
+, ):
+
+419 
+l
+.
+	`w¬nšg
+('Inv®idy³ % fÜ IP.', 
+	`ty³
+(
+_addr
+).
+__Çme__
+)
+
+420 
+hªdËr_Çme
+ = 'handle_unknown_call'
+
+421 
+	$ha§‰r
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+):
+
+422 
+execu‹d_rda
+, 
+¡©e
+ = 
+	$g‘©Œ
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+)(£lf.
+¡©e
+, s–f.
+	$_cod–oc
+())
+
+423 
+£lf
+.
+¡©e
+ = state
+
+425 
+l
+.
+	`w¬nšg
+('Please implementhe unknown function handler with your own†ogic.')
+
+426  
+NÚe
+
+
+428 
+is_š‹º®
+ = 
+F®£
+
+
+429 
+ext_func_Çme
+ = 
+NÚe
+
+
+430 
+£lf
+.
+´ojeù
+.
+lßd”
+.
+maš_objeù
+.
+	$cÚšs_addr
+(
+_addr
+è
+is
+ 
+True
+:
+
+431 
+ext_func_Çme
+ = 
+£lf
+.
+´ojeù
+.
+lßd”
+.
+	$fšd_¶t_¡ub_Çme
+(
+_addr
+)
+
+432 
+ext_func_Çme
+ 
+is
+ 
+NÚe
+:
+
+433 
+is_š‹º®
+ = 
+True
+
+
+435 
+symbŞ
+ = 
+£lf
+.
+´ojeù
+.
+lßd”
+.
+	$fšd_symbŞ
+(
+_addr
+)
+
+436 
+symbŞ
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+437 
+ext_func_Çme
+ = 
+symbŞ
+.
+Çme
+
+
+439 
+execu‹d_rda
+ = 
+F®£
+
+
+440 
+ext_func_Çme
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+441 
+hªdËr_Çme
+ = 'hªdË_%s' % 
+ext_func_Çme
+
+
+442 
+	$ha§‰r
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+):
+
+443 
+execu‹d_rda
+, 
+¡©e
+ = 
+	$g‘©Œ
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+)(£lf.
+¡©e
+, s–f.
+	$_cod–oc
+())
+
+444 
+£lf
+.
+¡©e
+ = state
+
+446 
+l
+.
+	`w¬nšg
+('PËa£ im¶em’ˆthex‹º® funùiÚ hªdË¸fÜ %s(èw™h you¸owÀlogic.', 
+ext_func_Çme
+)
+
+447 
+hªdËr_Çme
+ = 'handle_external_function_fallback'
+
+448 
+	$ha§‰r
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+):
+
+449 
+execu‹d_rda
+, 
+¡©e
+ = 
+	$g‘©Œ
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+)(£lf.
+¡©e
+, s–f.
+	$_cod–oc
+())
+
+450 
+£lf
+.
+¡©e
+ = state
+
+451 
+–if
+ 
+is_š‹º®
+ 
+is
+ 
+True
+:
+
+452 
+hªdËr_Çme
+ = 'handle_local_function'
+
+453 
+	$ha§‰r
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+):
+
+454 
+execu‹d_rda
+, 
+¡©e
+ = 
+	$g‘©Œ
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+)(£lf.
+¡©e
+,
+
+455 
+_addr
+,
+
+456 
+£lf
+.
+_cu¼’t_loÿl_ÿÎ_d•th
+ + 1,
+
+457 
+£lf
+.
+_maximum_loÿl_ÿÎ_d•th
+,
+
+458 
+£lf
+.
+	`_cod–oc
+(),
+
+460 
+£lf
+.
+¡©e
+ = state
+
+462 
+l
+.
+	`w¬nšg
+('Please implementhe†ocal function handler with your own†ogic.')
+
+464 
+l
+.
+	`w¬nšg
+('Could‚Ù fšd funùiÚ‚amfÜƒx‹º® funùiÚ‡ˆadd»s %#x.', 
+_addr
+)
+
+465 
+hªdËr_Çme
+ = 'handle_unknown_call'
+
+466 
+	$ha§‰r
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+):
+
+467 
+execu‹d_rda
+, 
+¡©e
+ = 
+	$g‘©Œ
+(
+£lf
+.
+_funùiÚ_hªdËr
+, 
+hªdËr_Çme
+)(£lf.
+¡©e
+, s–f.
+	$_cod–oc
+())
+
+468 
+£lf
+.
+¡©e
+ = state
+
+470 
+l
+.
+	`w¬nšg
+('Please implementhe unknown function handler with your own†ogic.')
+
+472 #pİ  
+add»ss
+ 
+Ãûs§ry
+
+
+473 
+execu‹d_rda
+ 
+is
+ 
+F®£
+ 
+ªd
+ 
+£lf
+.
+¬ch
+.
+ÿÎ_pushes_»t
+ i 
+True
+:
+
+474 
+defs_¥
+ = 
+£lf
+.
+¡©e
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+£lf
+.
+¬ch
+.
+¥_off£t
+)
+
+475 
+	`Ën
+(
+defs_¥
+) == 0:
+
+476 
+¿i£
+ 
+	`V®ueE¼Ü
+('No definition for SP found')
+
+477 
+	`Ën
+(
+defs_¥
+) == 1:
+
+478 
+¥_d©a
+ = 
+	`Ãxt
+(
+	`™”
+(
+defs_¥
+)).
+d©a
+.data
+
+479 : #Ën(
+defs_¥
+) > 1
+
+480 
+¥_d©a
+ = 
+	$£t
+()
+
+481 
+d
+ 
+š
+ 
+defs_¥
+:
+
+482 
+¥_d©a
+.
+	$upd©e
+(
+d
+.
+d©a
+)
+
+484 
+	`Ën
+(
+¥_d©a
+) != 1:
+
+485 
+¿i£
+ 
+	`V®ueE¼Ü
+('Invalid‚umber of values for stack…ointer.')
+
+487 
+¥_addr
+ = 
+	`Ãxt
+(
+	$™”
+(
+¥_d©a
+))
+
+488 
+nÙ
+ 
+	$isš¡ªû
+(
+¥_addr
+, ):
+
+489 
+¿i£
+ 
+	`Ty³E¼Ü
+('Inv®idy³ % fÜ sck…oš‹r.' % 
+	`ty³
+(
+¥_addr
+).
+__Çme__
+)
+
+491 
+©om
+ = 
+	$Regi¡”
+(
+£lf
+.
+¬ch
+.
+¥_off£t
+, s–f.¬ch.
+by‹s
+)
+
+492 
+¥_addr
+ -ğ
+£lf
+.
+¬ch
+.
+¡ack_chªge
+
+
+493 
+£lf
+.
+¡©e
+.
+	`kl_ªd_add_defš™iÚ
+(
+©om
+, s–f.
+	`_cod–oc
+(), 
+	$D©aS‘
+(
+¥_addr
+, 
+£lf
+.
+¬ch
+.
+b™s
+))
+
+495  
+NÚe
+
+
+	@external_codeloc.py
+
+2 
+	gäom
+ ..
+code_loÿtiÚ
+ 
+impÜt
+ 
+CodeLoÿtiÚ
+
+
+5 
+şass
+ 
+	$Ex‹º®CodeLoÿtiÚ
+(
+CodeLoÿtiÚ
+):
+
+6 
+def
+ 
+	$__š™__
+(
+£lf
+):
+
+7 
+	`su³r
+(
+Ex‹º®CodeLoÿtiÚ
+, 
+£lf
+).
+	$__š™__
+(0, 0)
+
+9 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+	@live_definitions.py
+
+1 
+impÜt
+ 
+loggšg
+
+
+3 
+impÜt
+ 
+¬chšfo
+
+
+5 
+äom
+ 
+cŞËùiÚs
+ 
+impÜt
+ 
+deçuÉdiù
+
+
+7 
+	gäom
+ ...
+ÿÎšg_cÚv’tiÚs
+ 
+impÜt
+ 
+	gSimRegArg
+, 
+SimSckArg
+
+
+8 
+	gäom
+ ...
+	g’gšes
+.
+light
+ 
+impÜt
+ 
+SpOff£t
+
+
+9 
+	gäom
+ ...
+keyed_»giÚ
+ 
+impÜt
+ 
+KeyedRegiÚ
+
+
+10 
+	gäom
+ .
+©oms
+ 
+impÜt
+ 
+	gRegi¡”
+, 
+	gMemÜyLoÿtiÚ
+, 
+	gTmp
+, 
+P¬am‘”
+
+
+11 
+	gäom
+ .
+d©a£t
+ 
+impÜt
+ 
+D©aS‘
+
+
+12 
+	gäom
+ .
+defš™iÚ
+ 
+impÜt
+ 
+Defš™iÚ
+
+
+13 
+	gäom
+ .
+undefšed
+ 
+impÜt
+ undefined
+
+14 
+	gäom
+ .
+u£s
+ 
+impÜt
+ 
+U£s
+
+
+17 
+	gl
+ = 
+loggšg
+.
+	$g‘Logg”
+(
+Çme
+=
+__Çme__
+)
+
+20 
+şass
+ 
+LiveDefš™iÚs
+:
+
+22 
+R•»£Ás
+ 
+the
+ 
+š‹º®
+ 
+¡©e
+ 
+of
+h
+R—chšgDefš™iÚAÇlysis
+.
+
+24 
+It
+ 
+cÚšs
+ 
+defš™iÚs
+ 
+ªd
+ 
+u£s
+ , 
+¡ack
+, 
+memÜy
+,‡nd 
+‹mpÜ¬y
+ 
+v¬ŸbËs
+, 
+uncov”ed
+ 
+duršg
+ 
+the
+ 
+ª®ysis
+.
+
+26 :
+·¿m
+ 
+¬chšfo
+.
+Arch
+ 
+¬ch
+: 
+The
+ 
+¬ch™eùu»
+ 
+rg‘ed
+ 
+by
+ 
+the
+ 
+´og¿m
+.
+
+27 :
+·¿m
+ 
+BoŞ—n
+ 
+Œack_tmps
+: 
+OÆy
+ 
+‹Îs
+ 
+wh‘h”
+ 
+Ü
+ 
+nÙ
+ 
+‹mpÜ¬y
+ 
+v¬ŸbËs
+ 
+should
+ 
+be
+ 
+k’
+ 
+što
+ 
+cÚsid”©iÚ
+ 
+wh’
+
+
+28 
+»´e£Ášg
+ 
+the
+ 
+¡©e
+ 
+of
+h
+ª®ysis
+.
+
+29 
+Should
+ 
+be
+ 
+£t
+ 
+to
+ 
+Œue
+ 
+wh’
+ 
+the
+ 
+ª®ysis
+ 
+has
+ 
+couÁed
+ 
+u£s
+ 
+ªd
+ 
+defš™iÚs
+ 
+‹mpÜ¬y
+
+
+30 
+v¬ŸbËs
+, 
+çl£
+ 
+Ùh”wi£
+.
+
+31 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+ª®ysis
+.
+AÇlysis
+‡Çlysis: 
+The
+‡Çlysi 
+th©
+ 
+g’”©ed
+ 
+the
+ 
+¡©e
+ 
+»´e£Áed
+ 
+by
+ 
+this
+ 
+objeù
+.
+
+32 :
+·¿m
+ 
+BoŞ—n
+ 
+š™_func
+: 
+Wh‘h”
+ 
+Ü
+ 
+nÙ
+ 
+the
+ 
+š‹º®
+ 
+¡©e
+ 
+of
+h
+ª®ysis
+ 
+should
+ 
+be
+ 
+š™Ÿlized
+.
+
+33 :
+·¿m
+ 
+ªgr
+.
+ÿÎšg_cÚv’tiÚs
+.
+SimCC
+ 
+cc
+: 
+The
+ 
+ÿÎšg
+ 
+cÚv’tiÚ
+ 
+the
+ 
+ª®yzed
+ 
+funùiÚ
+ 
+»¥eùs
+.
+
+34 :
+·¿m
+ 
+func_addr
+: 
+The
+ 
+add»ss
+ 
+of
+ 
+the
+ 
+ª®yzed
+ 
+funùiÚ
+.
+
+35 :
+·¿m
+ 
+¹oc_v®ue
+: 
+Wh’
+ 
+the
+ 
+rg‘ed
+ 
+¬ch™eùu»
+ 
+is
+ 
+µc64
+,h
+š™Ÿl
+ 
+funùiÚ
+ 
+Ãeds
+ 
+to
+ 
+know
+he `rtoc_value`.
+
+37 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+¬ch
+, 
+Œack_tmps
+=
+F®£
+, 
+ª®ysis
+=
+NÚe
+, 
+š™_func
+=F®£, 
+cc
+=NÚe, 
+func_addr
+=None,
+
+38 
+¹oc_v®ue
+=
+NÚe
+):
+
+40 #hªdy -
+hªds
+
+
+41 
+£lf
+.
+¬ch
+ =‡rch
+
+42 
+£lf
+.
+_Œack_tmps
+ = 
+Œack_tmps
+
+
+43 
+£lf
+.
+ª®ysis
+ =‡nalysis
+
+44 
+£lf
+.
+¹oc_v®ue
+ =„toc_value
+
+46 
+£lf
+.
+»gi¡”_defš™iÚs
+ = 
+	$KeyedRegiÚ
+()
+
+47 
+£lf
+.
+¡ack_defš™iÚs
+ = 
+	$KeyedRegiÚ
+()
+
+48 
+£lf
+.
+memÜy_defš™iÚs
+ = 
+	$KeyedRegiÚ
+()
+
+49 
+£lf
+.
+tmp_defš™iÚs
+ = {
+	}
+}
+
+51 #§n™y 
+check
+
+
+52 
+	$isš¡ªû
+(
+£lf
+.
+¬ch
+, 
+¬chšfo
+.
+¬ch_µc64
+.
+ArchPPC64
+è
+ªd
+ 
+nÙ
+ s–f.
+¹oc_v®ue
+:
+
+53 
+¿i£
+ 
+	`V®ueE¼Ü
+('The‡rchitecture being…pc64,he…arameter `rtoc_value` should be…rovided.')
+
+55 
+š™_func
+:
+
+56 
+£lf
+.
+	$_š™_func
+(
+cc
+, 
+func_addr
+)
+
+58 
+£lf
+.
+»gi¡”_u£s
+ = 
+	$U£s
+()
+
+59 
+£lf
+.
+¡ack_u£s
+ = 
+	$U£s
+()
+
+60 
+£lf
+.
+memÜy_u£s
+ = 
+	$U£s
+()
+
+61 
+£lf
+.
+u£s_by_cod–oc
+ = 
+	$deçuÉdiù
+(
+£t
+)
+
+62 
+£lf
+.
+tmp_u£s
+ = 
+	$deçuÉdiù
+(
+£t
+)
+
+64 
+£lf
+.
+_d—d_vœgš_defš™iÚs
+ = 
+	$£t
+(è#defš™iÚ 
+th©
+ 
+¬e
+ 
+kËd
+ 
+befÜe
+ 
+u£d
+
+
+66 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+67 
+ùÁ
+ = "LiveDefs, %d„egdefs, %d stackdefs, %d memdefs" % (
+
+68 
+	`Ën
+(
+£lf
+.
+»gi¡”_defš™iÚs
+),
+
+69 
+	`Ën
+(
+£lf
+.
+¡ack_defš™iÚs
+),
+
+70 
+	`Ën
+(
+£lf
+.
+memÜy_defš™iÚs
+),
+
+72 
+£lf
+.
+_Œack_tmps
+:
+
+73 
+ùÁ
+ +ğ", %dmpdefs" % 
+	$Ën
+(
+£lf
+.
+tmp_defš™iÚs
+)
+
+74  "<%s>" % 
+ùÁ
+
+
+76 
+def
+ 
+	$_š™_func
+(
+£lf
+, 
+cc
+, 
+func_addr
+):
+
+77 #š™Ÿliz
+¡ack
+ 
+poš‹r
+
+
+78 
+¥
+ = 
+	$Regi¡”
+(
+£lf
+.
+¬ch
+.
+¥_off£t
+, s–f.¬ch.
+by‹s
+)
+
+79 
+¥_def
+ = 
+	`Defš™iÚ
+(
+¥
+, 
+NÚe
+, 
+	$D©aS‘
+(
+£lf
+.
+¬ch
+.
+š™Ÿl_¥
+, s–f.¬ch.
+b™s
+))
+
+80 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+¥_def
+.
+off£t
+, sp_def, sp_def.
+size
+)
+
+81 
+£lf
+.
+¬ch
+.
+Çme
+.
+	`¡¬tsw™h
+('MIPS'):
+
+82 
+func_addr
+ 
+is
+ 
+NÚe
+:
+
+83 
+l
+.
+	`w¬nšg
+("func_addr must‚ot be Noneo initialize‡ function in mips")
+
+84 
+t9
+ = 
+	`Regi¡”
+(
+£lf
+.
+¬ch
+.
+»gi¡”s
+['t9'][0],£lf.¬ch.
+by‹s
+)
+
+85 
+t9_def
+ = 
+	`Defš™iÚ
+(
+t9
+, 
+NÚe
+, 
+	$D©aS‘
+(
+func_addr
+,
+£lf
+.
+¬ch
+.
+b™s
+))
+
+86 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+t9_def
+.
+off£t
+,t9_def,t9_def.
+size
+)
+
+88 
+cc
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+89 
+¬g
+ 
+š
+ 
+cc
+.
+¬gs
+:
+
+90 #š™Ÿliz
+·¿m‘”s
+
+
+91 
+	$ty³
+(
+¬g
+è
+is
+ 
+SimRegArg
+:
+
+92 #FIXME: 
+im¶em’t
+ 
+»g_off£t
+ 
+hªdlšg
+ 
+š
+ 
+SimRegArg
+
+
+93 
+»g_off£t
+ = 
+£lf
+.
+¬ch
+.
+»gi¡”s
+[
+¬g
+.
+»g_Çme
+][0]
+
+94 
+»g
+ = 
+	$Regi¡”
+(
+»g_off£t
+, 
+£lf
+.
+¬ch
+.
+by‹s
+)
+
+95 
+»g_def
+ = 
+	`Defš™iÚ
+(
+»g
+, 
+NÚe
+, 
+	`D©aS‘
+(
+	`P¬am‘”
+Ôeg), 
+£lf
+.
+¬ch
+.
+b™s
+))
+
+96 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+»g
+.
+»g_off£t
+, 
+»g_def
+,„eg.
+size
+)
+
+97 #š™Ÿliz
+¡ack
+ 
+·¿m‘”s
+
+
+98 
+–if
+ 
+	$ty³
+(
+¬g
+è
+is
+ 
+SimSckArg
+:
+
+99 
+ml
+ = 
+	`MemÜyLoÿtiÚ
+(
+£lf
+.
+¬ch
+.
+š™Ÿl_¥
+ + 
+¬g
+.
+¡ack_off£t
+, s–f.¬ch.
+by‹s
+)
+
+100 
+¥_off£t
+ = 
+	$SpOff£t
+(
+¬g
+.
+size
+ * 8,‡rg.
+¡ack_off£t
+)
+
+101 
+ml_def
+ = 
+	`Defš™iÚ
+(
+ml
+, 
+NÚe
+, 
+	`D©aS‘
+(
+	`P¬am‘”
+(
+¥_off£t
+), 
+£lf
+.
+¬ch
+.
+b™s
+))
+
+102 
+£lf
+.
+memÜy_defš™iÚs
+.
+	$£t_objeù
+(
+ml
+.
+addr
+, 
+ml_def
+, ml.
+size
+)
+
+104 
+¿i£
+ 
+	`Ty³E¼Ü
+('UnsuµÜ‹d…¬am‘”y³ %s.' % 
+	`ty³
+(
+¬g
+).
+__Çme__
+)
+
+106 #¬ch™eùu» 
+d•’d’t
+ 
+š™Ÿliz©iÚ
+
+
+107 
+£lf
+.
+¬ch
+.
+Çme
+.
+	`low”
+().
+	`fšd
+('ppc64') > -1:
+
+108 
+off£t
+, 
+size
+ = 
+£lf
+.
+¬ch
+.
+»gi¡”s
+['rtoc']
+
+109 
+¹oc
+ = 
+	$Regi¡”
+(
+off£t
+, 
+size
+)
+
+110 
+¹oc_def
+ = 
+	`Defš™iÚ
+(
+¹oc
+, 
+NÚe
+, 
+	$D©aS‘
+(
+£lf
+.
+¹oc_v®ue
+, s–f.
+¬ch
+.
+b™s
+))
+
+111 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+¹oc
+.
+»g_off£t
+, 
+¹oc_def
+,„toc.
+size
+)
+
+112 
+–if
+ 
+£lf
+.
+¬ch
+.
+Çme
+.
+	`low”
+().
+	`fšd
+('mips64') > -1:
+
+113 
+off£t
+, 
+size
+ = 
+£lf
+.
+¬ch
+.
+»gi¡”s
+['t9']
+
+114 
+t9
+ = 
+	$Regi¡”
+(
+off£t
+, 
+size
+)
+
+115 
+t9_def
+ = 
+	`Defš™iÚ
+(
+t9
+, 
+NÚe
+, 
+	$D©aS‘
+(
+func_addr
+, 
+£lf
+.
+¬ch
+.
+b™s
+))
+
+116 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+t9
+.
+»g_off£t
+, 
+t9_def
+,9.
+size
+)
+
+118 
+def
+ 
+	$cİy
+(
+£lf
+):
+
+119 
+rd
+ = 
+	$ty³
+(
+£lf
+)(
+
+120 
+£lf
+.
+¬ch
+,
+
+121 
+Œack_tmps
+=
+£lf
+.
+_Œack_tmps
+,
+
+122 
+ª®ysis
+=
+£lf
+.analysis,
+
+123 
+š™_func
+=
+F®£
+,
+
+126 
+rd
+.
+»gi¡”_defš™iÚs
+ = 
+£lf
+.»gi¡”_defš™iÚs.
+	$cİy
+()
+
+127 
+rd
+.
+¡ack_defš™iÚs
+ = 
+£lf
+.¡ack_defš™iÚs.
+	$cİy
+()
+
+128 
+rd
+.
+memÜy_defš™iÚs
+ = 
+£lf
+.memÜy_defš™iÚs.
+	$cİy
+()
+
+129 
+rd
+.
+tmp_defš™iÚs
+ = 
+£lf
+.tmp_defš™iÚs.
+	$cİy
+()
+
+130 
+rd
+.
+»gi¡”_u£s
+ = 
+£lf
+.»gi¡”_u£s.
+	$cİy
+()
+
+131 
+rd
+.
+¡ack_u£s
+ = 
+£lf
+.¡ack_u£s.
+	$cİy
+()
+
+132 
+rd
+.
+memÜy_u£s
+ = 
+£lf
+.memÜy_u£s.
+	$cİy
+()
+
+133 
+rd
+.
+tmp_u£s
+ = 
+£lf
+.tmp_u£s.
+	$cİy
+()
+
+134 
+rd
+.
+_d—d_vœgš_defš™iÚs
+ = 
+£lf
+._d—d_vœgš_defš™iÚs.
+	$cİy
+()
+
+136  
+rd
+
+
+139 
+def
+ 
+	$g‘_¥
+(
+£lf
+):
+
+141 
+R‘uº
+ 
+the
+ 
+cÚü‘e
+ 
+v®ue
+ 
+cÚšed
+ 
+by
+h
+¡ack
+ 
+poš‹r
+.
+
+143 
+¥_defš™iÚs
+ = 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+£lf
+.
+¬ch
+.
+¥_off£t
+)
+
+145 
+as£¹
+ 
+	`Ën
+(
+¥_defš™iÚs
+) == 1
+
+146 [
+¥_defš™iÚ
+] = 
+¥_defš™iÚs
+
+
+148 #Assumšg 
+¥_defš™iÚ
+ 
+has
+ 
+Úly
+ 
+Úe
+ 
+cÚü‘e
+ 
+v®ue
+.
+
+149  
+¥_defš™iÚ
+.
+d©a
+.
+	$g‘_fœ¡_–em’t
+()
+
+152 
+def
+ 
+	$m”ge
+(
+£lf
+, *
+Ùh”s
+):
+
+154 
+¡©e
+ = 
+£lf
+.
+	$cİy
+()
+
+156 
+Ùh”
+ 
+š
+ 
+Ùh”s
+:
+
+157 
+¡©e
+.
+»gi¡”_defš™iÚs
+.
+	$m”ge
+(
+Ùh”
+.
+»gi¡”_defš™iÚs
+)
+
+158 
+¡©e
+.
+¡ack_defš™iÚs
+.
+	$m”ge
+(
+Ùh”
+.
+¡ack_defš™iÚs
+)
+
+159 
+¡©e
+.
+memÜy_defš™iÚs
+.
+	$m”ge
+(
+Ùh”
+.
+memÜy_defš™iÚs
+)
+
+161 
+¡©e
+.
+»gi¡”_u£s
+.
+	$m”ge
+(
+Ùh”
+.
+»gi¡”_u£s
+)
+
+162 
+¡©e
+.
+¡ack_u£s
+.
+	$m”ge
+(
+Ùh”
+.
+¡ack_u£s
+)
+
+163 
+¡©e
+.
+memÜy_u£s
+.
+	$m”ge
+(
+Ùh”
+.
+memÜy_u£s
+)
+
+165 
+¡©e
+.
+_d—d_vœgš_defš™iÚs
+ |ğ
+Ùh”
+._dead_virgin_definitions
+
+167  
+¡©e
+
+
+169 
+def
+ 
+	$downsize
+(
+£lf
+):
+
+170 
+£lf
+.
+ª®ysis
+ = 
+NÚe
+
+
+172 
+def
+ 
+	$kl_defš™iÚs
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+=
+NÚe
+, 
+dummy
+=
+True
+):
+
+174 
+Ov”wr™e
+ 
+exi¡šg
+ 
+defš™iÚs
+ 
+w
+.
+r
+.
+t
+ '©om' 
+w™h
+ 
+a
+ 
+dummy
+ 
+defš™iÚ
+ 
+š¡ªû
+. 
+A
+ dummy defš™iÚ 
+wl
+ 
+nÙ
+ 
+be
+
+
+175 
+»moved
+ 
+duršg
+ 
+sim¶ifiÿtiÚ
+.
+
+177 :
+·¿m
+ 
+Atom
+ 
+©om
+:
+
+178 :
+·¿m
+ 
+CodeLoÿtiÚ
+ 
+code_loc
+:
+
+179 :
+·¿m
+ 
+objeù
+ 
+d©a
+:
+
+180 :: 
+NÚe
+
+
+183 
+d©a
+ 
+is
+ 
+NÚe
+:
+
+184 
+d©a
+ = 
+	$D©aS‘
+(
+undefšed
+, 
+©om
+.
+size
+)
+
+186 
+£lf
+.
+	$kl_ªd_add_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+188 
+def
+ 
+	$kl_ªd_add_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+189 
+	$ty³
+(
+©om
+è
+is
+ 
+Regi¡”
+:
+
+190  
+£lf
+.
+	$_kl_ªd_add_»gi¡”_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+191 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+SpOff£t
+:
+
+192  
+£lf
+.
+	$_kl_ªd_add_¡ack_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+193 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+MemÜyLoÿtiÚ
+:
+
+194  
+£lf
+.
+	$_kl_ªd_add_memÜy_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+195 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+Tmp
+:
+
+196  
+£lf
+.
+	$_add_tmp_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+)
+
+198 
+¿i£
+ 
+	$NÙIm¶em’‹dE¼Ü
+()
+
+200 
+def
+ 
+	$add_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+201 
+	$ty³
+(
+©om
+è
+is
+ 
+Regi¡”
+:
+
+202 
+£lf
+.
+	$_add_»gi¡”_u£
+(
+©om
+, 
+code_loc
+)
+
+203 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+SpOff£t
+:
+
+204 
+£lf
+.
+	$_add_¡ack_u£
+(
+©om
+, 
+code_loc
+)
+
+205 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+MemÜyLoÿtiÚ
+:
+
+206 
+£lf
+.
+	$_add_memÜy_u£
+(
+©om
+, 
+code_loc
+)
+
+207 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+Tmp
+:
+
+208 
+£lf
+.
+	$_add_tmp_u£
+(
+©om
+, 
+code_loc
+)
+
+210 
+def
+ 
+	$add_u£_by_def
+(
+£lf
+, 
+def_
+, 
+code_loc
+):
+
+211 
+	$ty³
+(
+def_
+.
+©om
+è
+is
+ 
+Regi¡”
+:
+
+212 
+£lf
+.
+	$_add_»gi¡”_u£_by_def
+(
+def_
+, 
+code_loc
+)
+
+213 
+–if
+ 
+	$ty³
+(
+def_
+.
+©om
+è
+is
+ 
+SpOff£t
+:
+
+214 
+£lf
+.
+	$_add_¡ack_u£_by_def
+(
+def_
+, 
+code_loc
+)
+
+215 
+–if
+ 
+	$ty³
+(
+def_
+.
+©om
+è
+is
+ 
+MemÜyLoÿtiÚ
+:
+
+216 
+£lf
+.
+	$_add_memÜy_u£_by_def
+(
+def_
+, 
+code_loc
+)
+
+217 
+–if
+ 
+	$ty³
+(
+def_
+.
+©om
+è
+is
+ 
+Tmp
+:
+
+218 
+£lf
+.
+	$_add_tmp_u£_by_def
+(
+def_
+, 
+code_loc
+)
+
+220 
+¿i£
+ 
+	$Ty³E¼Ü
+()
+
+222 
+def
+ 
+	$g‘_defš™iÚs
+(
+£lf
+, 
+©om
+):
+
+223 
+	$ty³
+(
+©om
+è
+is
+ 
+Regi¡”
+:
+
+224  
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+»g_off£t
+)
+
+225 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+SpOff£t
+:
+
+226  
+£lf
+.
+¡ack_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+off£t
+)
+
+227 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+MemÜyLoÿtiÚ
+:
+
+228  
+£lf
+.
+memÜy_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+addr
+)
+
+229 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+Tmp
+:
+
+230 
+£lf
+.
+_Œack_tmps
+:
+
+231  {
+£lf
+.
+tmp_defš™iÚs
+[
+©om
+.
+tmp_idx
+]
+	}
+}
+
+233  
+£lf
+.
+tmp_defš™iÚs
+[
+©om
+.
+tmp_idx
+]
+
+235 
+¿i£
+ 
+	$Ty³E¼Ü
+()
+
+237 
+def
+ 
+	$m¬k_gu¬d
+(
+£lf
+, 
+code_loc
+, 
+d©a
+, 
+rg‘
+):
+
+238 
+·ss
+
+
+240 #
+#Priv©
+m‘hods
+
+
+244 
+def
+ 
+	$_kl_ªd_add_»gi¡”_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+246 #FIXME: 
+check
+ 
+cÜ»ùÃss
+
+
+247 
+cu¼’t_defs
+ = 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+»g_off£t
+)
+
+248 
+cu¼’t_defs
+:
+
+249 
+u£s
+ = 
+	$£t
+()
+
+250 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+251 
+u£s
+ |ğ
+£lf
+.
+»gi¡”_u£s
+.
+	$g‘_u£s
+(
+cu¼’t_def
+)
+
+252 
+nÙ
+ 
+u£s
+:
+
+253 
+£lf
+.
+_d—d_vœgš_defš™iÚs
+ |ğ
+cu¼’t_defs
+
+
+255 
+defš™iÚ
+ = 
+	$Defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+256 #£t_objeù(è
+»¶aûs
+ 
+	`kl
+ (
+nÙ
+ 
+im¶em’‹d
+è
+ªd
+ 
+	`add
+ (
+add
+è
+š
+ 
+Úe
+ 
+¡•
+
+
+257 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+©om
+.
+»g_off£t
+, 
+defš™iÚ
+,‡tom.
+size
+)
+
+258  
+defš™iÚ
+
+
+260 
+def
+ 
+	$_kl_ªd_add_¡ack_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+261 
+cu¼’t_defs
+ = 
+£lf
+.
+¡ack_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+off£t
+)
+
+262 
+cu¼’t_defs
+:
+
+263 
+u£s
+ = 
+	$£t
+()
+
+264 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+265 
+u£s
+ |ğ
+£lf
+.
+¡ack_u£s
+.
+	$g‘_u£s
+(
+cu¼’t_def
+)
+
+266 
+nÙ
+ 
+u£s
+:
+
+267 
+£lf
+.
+_d—d_vœgš_defš™iÚs
+ |ğ
+cu¼’t_defs
+
+
+269 
+defš™iÚ
+ = 
+	$Defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+270 
+£lf
+.
+¡ack_defš™iÚs
+.
+	`£t_objeù
+(
+©om
+.
+off£t
+, 
+defš™iÚ
+, 
+d©a
+.
+b™s
+
+
+271  
+defš™iÚ
+
+
+273 
+def
+ 
+	$_kl_ªd_add_memÜy_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+274 
+defš™iÚ
+ = 
+	$Defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+275 #£t_objeù(è
+»¶aûs
+ 
+	`kl
+ (
+nÙ
+ 
+im¶em’‹d
+è
+ªd
+ 
+	`add
+ (
+add
+è
+š
+ 
+Úe
+ 
+¡•
+
+
+276 
+£lf
+.
+memÜy_defš™iÚs
+.
+	$£t_objeù
+(
+©om
+.
+addr
+, 
+defš™iÚ
+,‡tom.
+size
+)
+
+277  
+defš™iÚ
+
+
+279 
+def
+ 
+	$_add_tmp_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+):
+
+281 
+£lf
+.
+_Œack_tmps
+:
+
+282 
+def_
+ = 
+	$Defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+)
+
+283 
+£lf
+.
+tmp_defš™iÚs
+[
+©om
+.
+tmp_idx
+] = 
+def_
+
+
+284  
+def_
+
+
+286 
+£lf
+.
+tmp_defš™iÚs
+[
+©om
+.
+tmp_idx
+] = s–f.
+u£s_by_cod–oc
+[
+code_loc
+]
+
+287  
+NÚe
+
+
+289 
+def
+ 
+	$_add_»gi¡”_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+291 #g‘ 
+®l
+ 
+cu¼’t
+ 
+defš™iÚs
+
+
+292 
+cu¼’t_defs
+ = 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+»g_off£t
+)
+
+294 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+295 
+£lf
+.
+	$_add_»gi¡”_u£_by_def
+(
+cu¼’t_def
+, 
+code_loc
+)
+
+297 
+def
+ 
+	$_add_»gi¡”_u£_by_def
+(
+£lf
+, 
+def_
+, 
+code_loc
+):
+
+298 
+£lf
+.
+»gi¡”_u£s
+.
+	$add_u£
+(
+def_
+, 
+code_loc
+)
+
+299 
+£lf
+.
+u£s_by_cod–oc
+[
+code_loc
+].
+	$add
+(
+def_
+)
+
+301 
+def
+ 
+	$_add_¡ack_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+304 :
+·¿m
+ 
+SpOff£t
+ 
+©om
+:
+
+305 :
+·¿m
+ 
+code_loc
+:
+
+309 
+cu¼’t_defs
+ = 
+£lf
+.
+¡ack_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+off£t
+)
+
+311 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+312 
+£lf
+.
+	$_add_¡ack_u£_by_def
+(
+cu¼’t_def
+, 
+code_loc
+)
+
+314 
+def
+ 
+	$_add_¡ack_u£_by_def
+(
+£lf
+, 
+def_
+, 
+code_loc
+):
+
+315 
+£lf
+.
+¡ack_u£s
+.
+	$add_u£
+(
+def_
+, 
+code_loc
+)
+
+316 
+£lf
+.
+u£s_by_cod–oc
+[
+code_loc
+].
+	$add
+(
+def_
+)
+
+318 
+def
+ 
+	$_add_memÜy_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+320 #g‘ 
+®l
+ 
+cu¼’t
+ 
+defš™iÚs
+
+
+321 
+cu¼’t_defs
+ = 
+£lf
+.
+memÜy_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+addr
+)
+
+323 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+324 
+£lf
+.
+	$_add_memÜy_u£_by_def
+(
+cu¼’t_def
+, 
+code_loc
+)
+
+326 
+def
+ 
+	$_add_memÜy_u£_by_def
+(
+£lf
+, 
+def_
+, 
+code_loc
+):
+
+327 
+£lf
+.
+memÜy_u£s
+.
+	$add_u£
+(
+def_
+, 
+code_loc
+)
+
+328 
+£lf
+.
+u£s_by_cod–oc
+[
+code_loc
+].
+	$add
+(
+def_
+)
+
+330 
+def
+ 
+	$_add_tmp_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+332 
+£lf
+.
+_Œack_tmps
+:
+
+333 
+def_
+ = 
+£lf
+.
+tmp_defš™iÚs
+[
+©om
+.
+tmp_idx
+]
+
+334 
+£lf
+.
+	$_add_tmp_u£_by_def
+(
+def_
+, 
+code_loc
+)
+
+336 
+defs
+ = 
+£lf
+.
+tmp_defš™iÚs
+[
+©om
+.
+tmp_idx
+]
+
+337 
+d
+ 
+š
+ 
+defs
+:
+
+338 
+as£¹
+ 
+nÙ
+ 
+	$ty³
+(
+d
+.
+©om
+è
+is
+ 
+Tmp
+
+
+339 
+£lf
+.
+	$add_u£_by_def
+(
+d
+, 
+code_loc
+)
+
+341 
+def
+ 
+	$_add_tmp_u£_by_def
+(
+£lf
+, 
+def_
+, 
+code_loc
+):
+
+342 
+£lf
+.
+tmp_u£s
+[
+def_
+.
+©om
+.
+tmp_idx
+].
+	$add
+(
+code_loc
+)
+
+343 
+£lf
+.
+u£s_by_cod–oc
+[
+code_loc
+].
+	`add
+(
+def_
+)
+
+	@sink_funcHandler.py
+
+	@static_taint_analysis.py
+
+1 
+impÜt
+ 
+loggšg
+
+
+2 
+äom
+ 
+cŞËùiÚs
+ 
+impÜt
+ 
+deçuÉdiù
+
+
+4 
+impÜt
+ 
+am’t
+
+
+5 
+impÜt
+ 
+¬chšfo
+
+
+6 
+impÜt
+ 
+pyvex
+
+
+8 
+	gäom
+ ...
+ÿÎšg_cÚv’tiÚs
+ 
+impÜt
+ 
+	gSimRegArg
+, 
+SimSckArg
+
+
+9 
+	gäom
+ ...
+	g’gšes
+.
+light
+ 
+impÜt
+ 
+SpOff£t
+
+
+10 
+	gäom
+ ...
+keyed_»giÚ
+ 
+impÜt
+ 
+KeyedRegiÚ
+
+
+11 
+	gäom
+ ...
+block
+ 
+impÜt
+ 
+Block
+
+
+12 
+	gäom
+ ...
+cod’ode
+ 
+impÜt
+ 
+CodeNode
+
+
+13 
+	gäom
+ ...
+	gmisc
+.
+ux
+ 
+impÜt
+ 
+d•»ÿ‹d
+
+
+14 
+	gäom
+ .. 
+impÜt
+ 
+»gi¡”_ª®ysis
+
+
+15 
+	gäom
+ ..
+ª®ysis
+ 
+impÜt
+ 
+AÇlysis
+
+
+16 
+	gäom
+ ..
+fÜw¬d_ª®ysis
+ 
+impÜt
+ 
+	gFÜw¬dAÇlysis
+, 
+	gFunùiÚG¿phVis™Ü
+, 
+SšgËNodeG¿phVis™Ü
+
+
+17 
+	gäom
+ ..
+code_loÿtiÚ
+ 
+impÜt
+ 
+CodeLoÿtiÚ
+
+
+18 
+	gäom
+ .
+©oms
+ 
+impÜt
+ 
+	gRegi¡”
+, 
+	gMemÜyLoÿtiÚ
+, 
+	gTmp
+, 
+P¬am‘”
+
+
+19 
+	gäom
+ .
+cÚ¡ªts
+ 
+impÜt
+ 
+	gOP_BEFORE
+, 
+OP_AFTER
+
+
+20 
+	gäom
+ .
+d©a£t
+ 
+impÜt
+ 
+D©aS‘
+
+
+21 
+	gäom
+ .
+defš™iÚ
+ 
+impÜt
+ 
+Defš™iÚ
+
+
+22 
+	gäom
+ .
+’gše_a
+ 
+impÜt
+ 
+SimEngšeRDAIL
+
+
+23 
+	gäom
+ .
+’gše_vex
+ 
+impÜt
+ 
+SimEngšeRDVEX
+
+
+24 
+	gäom
+ .
+undefšed
+ 
+impÜt
+ 
+Undefšed
+
+
+25 
+	gäom
+ .
+u£s
+ 
+impÜt
+ 
+U£s
+
+
+28 
+	gl
+ = 
+loggšg
+.
+	$g‘Logg”
+(
+Çme
+=
+__Çme__
+)
+
+31 
+şass
+ 
+LiveDefš™iÚs
+:
+
+33 
+R•»£Ás
+ 
+the
+ 
+š‹º®
+ 
+¡©e
+ 
+of
+h
+R—chšgDefš™iÚAÇlysis
+.
+
+35 
+It
+ 
+cÚšs
+ 
+defš™iÚs
+ 
+ªd
+ 
+u£s
+ , 
+¡ack
+, 
+memÜy
+,‡nd 
+‹mpÜ¬y
+ 
+v¬ŸbËs
+, 
+uncov”ed
+ 
+duršg
+ 
+the
+ 
+ª®ysis
+.
+
+37 :
+·¿m
+ 
+¬chšfo
+.
+Arch
+ 
+¬ch
+: 
+The
+ 
+¬ch™eùu»
+ 
+rg‘ed
+ 
+by
+ 
+the
+ 
+´og¿m
+.
+
+38 :
+·¿m
+ 
+BoŞ—n
+ 
+Œack_tmps
+: 
+OÆy
+ 
+‹Îs
+ 
+wh‘h”
+ 
+Ü
+ 
+nÙ
+ 
+‹mpÜ¬y
+ 
+v¬ŸbËs
+ 
+should
+ 
+be
+ 
+k’
+ 
+što
+ 
+cÚsid”©iÚ
+ 
+wh’
+
+
+39 
+»´e£Ášg
+ 
+the
+ 
+¡©e
+ 
+of
+h
+ª®ysis
+.
+
+40 
+Should
+ 
+be
+ 
+£t
+ 
+to
+ 
+Œue
+ 
+wh’
+ 
+the
+ 
+ª®ysis
+ 
+has
+ 
+couÁed
+ 
+u£s
+ 
+ªd
+ 
+defš™iÚs
+ 
+‹mpÜ¬y
+
+
+41 
+v¬ŸbËs
+, 
+çl£
+ 
+Ùh”wi£
+.
+
+42 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+ª®ysis
+.
+AÇlysis
+‡Çlysis: 
+The
+‡Çlysi 
+th©
+ 
+g’”©ed
+ 
+the
+ 
+¡©e
+ 
+»´e£Áed
+ 
+by
+ 
+this
+ 
+objeù
+.
+
+43 :
+·¿m
+ 
+BoŞ—n
+ 
+š™_func
+: 
+Wh‘h”
+ 
+Ü
+ 
+nÙ
+ 
+the
+ 
+š‹º®
+ 
+¡©e
+ 
+of
+h
+ª®ysis
+ 
+should
+ 
+be
+ 
+š™Ÿlized
+.
+
+44 :
+·¿m
+ 
+ªgr
+.
+ÿÎšg_cÚv’tiÚs
+.
+SimCC
+ 
+cc
+: 
+The
+ 
+ÿÎšg
+ 
+cÚv’tiÚ
+ 
+the
+ 
+ª®yzed
+ 
+funùiÚ
+ 
+»¥eùs
+.
+
+45 :
+·¿m
+ 
+func_addr
+: 
+The
+ 
+add»ss
+ 
+of
+ 
+the
+ 
+ª®yzed
+ 
+funùiÚ
+.
+
+46 :
+·¿m
+ 
+¹oc_v®ue
+: 
+Wh’
+ 
+the
+ 
+rg‘ed
+ 
+¬ch™eùu»
+ 
+is
+ 
+µc64
+,h
+š™Ÿl
+ 
+funùiÚ
+ 
+Ãeds
+ 
+to
+ 
+know
+he `rtoc_value`.
+
+48 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+¬ch
+, 
+Œack_tmps
+=
+F®£
+, 
+ª®ysis
+=
+NÚe
+, 
+š™_func
+=F®£, 
+cc
+=NÚe, 
+func_addr
+=None,
+
+49 
+¹oc_v®ue
+=
+NÚe
+):
+
+51 #hªdy -
+hªds
+
+
+52 
+£lf
+.
+¬ch
+ =‡rch
+
+53 
+£lf
+.
+_Œack_tmps
+ = 
+Œack_tmps
+
+
+54 
+£lf
+.
+ª®ysis
+ =‡nalysis
+
+55 
+£lf
+.
+¹oc_v®ue
+ =„toc_value
+
+57 
+£lf
+.
+»gi¡”_defš™iÚs
+ = 
+	$KeyedRegiÚ
+()
+
+58 
+£lf
+.
+¡ack_defš™iÚs
+ = 
+	$KeyedRegiÚ
+()
+
+59 
+£lf
+.
+memÜy_defš™iÚs
+ = 
+	$KeyedRegiÚ
+()
+
+60 
+£lf
+.
+tmp_defš™iÚs
+ = {
+	}
+}
+
+62 #§n™y 
+check
+
+
+63 
+	$isš¡ªû
+(
+£lf
+.
+¬ch
+, 
+¬chšfo
+.
+¬ch_µc64
+.
+ArchPPC64
+è
+ªd
+ 
+nÙ
+ s–f.
+¹oc_v®ue
+:
+
+64 
+¿i£
+ 
+	`V®ueE¼Ü
+('The‡rchitecture being…pc64,he…arameter `rtoc_value` should be…rovided.')
+
+66 
+š™_func
+:
+
+67 
+£lf
+.
+	$_š™_func
+(
+cc
+, 
+func_addr
+)
+
+69 
+£lf
+.
+»gi¡”_u£s
+ = 
+	$U£s
+()
+
+70 
+£lf
+.
+¡ack_u£s
+ = 
+	$U£s
+()
+
+71 
+£lf
+.
+memÜy_u£s
+ = 
+	$U£s
+()
+
+72 
+£lf
+.
+tmp_u£s
+ = 
+	$deçuÉdiù
+(
+£t
+)
+
+74 
+£lf
+.
+_d—d_vœgš_defš™iÚs
+ = 
+	$£t
+(è#defš™iÚ 
+th©
+ 
+¬e
+ 
+kËd
+ 
+befÜe
+ 
+u£d
+
+
+76 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+77 
+ùÁ
+ = "LiveDefs, %d„egdefs, %d stackdefs, %d memdefs" % (
+
+78 
+	`Ën
+(
+£lf
+.
+»gi¡”_defš™iÚs
+),
+
+79 
+	`Ën
+(
+£lf
+.
+¡ack_defš™iÚs
+),
+
+80 
+	`Ën
+(
+£lf
+.
+memÜy_defš™iÚs
+),
+
+82 
+£lf
+.
+_Œack_tmps
+:
+
+83 
+ùÁ
+ +ğ", %dmpdefs" % 
+	$Ën
+(
+£lf
+.
+tmp_defš™iÚs
+)
+
+84  "<%s>" % 
+ùÁ
+
+
+86 
+def
+ 
+	$_š™_func
+(
+£lf
+, 
+cc
+, 
+func_addr
+):
+
+87 #š™Ÿliz
+¡ack
+ 
+poš‹r
+
+
+88 
+¥
+ = 
+	$Regi¡”
+(
+£lf
+.
+¬ch
+.
+¥_off£t
+, s–f.¬ch.
+by‹s
+)
+
+89 
+¥_def
+ = 
+	`Defš™iÚ
+(
+¥
+, 
+NÚe
+, 
+	$D©aS‘
+(
+£lf
+.
+¬ch
+.
+š™Ÿl_¥
+, s–f.¬ch.
+b™s
+))
+
+90 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+¥_def
+.
+off£t
+, sp_def, sp_def.
+size
+)
+
+91 
+£lf
+.
+¬ch
+.
+Çme
+.
+	`¡¬tsw™h
+('MIPS'):
+
+92 
+func_addr
+ 
+is
+ 
+NÚe
+:
+
+93 
+l
+.
+	`w¬nšg
+("func_addr must‚ot be Noneo initialize‡ function in mips")
+
+94 
+t9
+ = 
+	`Regi¡”
+(
+£lf
+.
+¬ch
+.
+»gi¡”s
+['t9'][0],£lf.¬ch.
+by‹s
+)
+
+95 
+t9_def
+ = 
+	`Defš™iÚ
+(
+t9
+, 
+NÚe
+, 
+	$D©aS‘
+(
+func_addr
+,
+£lf
+.
+¬ch
+.
+b™s
+))
+
+96 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+t9_def
+.
+off£t
+,t9_def,t9_def.
+size
+)
+
+98 
+cc
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+99 
+¬g
+ 
+š
+ 
+cc
+.
+¬gs
+:
+
+100 #š™Ÿliz
+·¿m‘”s
+
+
+101 
+	$ty³
+(
+¬g
+è
+is
+ 
+SimRegArg
+:
+
+102 #FIXME: 
+im¶em’t
+ 
+»g_off£t
+ 
+hªdlšg
+ 
+š
+ 
+SimRegArg
+
+
+103 
+»g_off£t
+ = 
+£lf
+.
+¬ch
+.
+»gi¡”s
+[
+¬g
+.
+»g_Çme
+][0]
+
+104 
+»g
+ = 
+	$Regi¡”
+(
+»g_off£t
+, 
+£lf
+.
+¬ch
+.
+by‹s
+)
+
+105 
+»g_def
+ = 
+	`Defš™iÚ
+(
+»g
+, 
+NÚe
+, 
+	`D©aS‘
+(
+	`P¬am‘”
+Ôeg), 
+£lf
+.
+¬ch
+.
+b™s
+))
+
+106 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+»g
+.
+»g_off£t
+, 
+»g_def
+,„eg.
+size
+)
+
+107 #š™Ÿliz
+¡ack
+ 
+·¿m‘”s
+
+
+108 
+–if
+ 
+	$ty³
+(
+¬g
+è
+is
+ 
+SimSckArg
+:
+
+109 
+ml
+ = 
+	`MemÜyLoÿtiÚ
+(
+£lf
+.
+¬ch
+.
+š™Ÿl_¥
+ + 
+¬g
+.
+¡ack_off£t
+, s–f.¬ch.
+by‹s
+)
+
+110 
+¥_off£t
+ = 
+	$SpOff£t
+(
+¬g
+.
+size
+ * 8,‡rg.
+¡ack_off£t
+)
+
+111 
+ml_def
+ = 
+	`Defš™iÚ
+(
+ml
+, 
+NÚe
+, 
+	`D©aS‘
+(
+	`P¬am‘”
+(
+¥_off£t
+), 
+£lf
+.
+¬ch
+.
+b™s
+))
+
+112 
+£lf
+.
+memÜy_defš™iÚs
+.
+	$£t_objeù
+(
+ml
+.
+addr
+, 
+ml_def
+, ml.
+size
+)
+
+114 
+¿i£
+ 
+	`Ty³E¼Ü
+('UnsuµÜ‹d…¬am‘”y³ %s.' % 
+	`ty³
+(
+¬g
+).
+__Çme__
+)
+
+116 #¬ch™eùu» 
+d•’d’t
+ 
+š™Ÿliz©iÚ
+
+
+117 
+£lf
+.
+¬ch
+.
+Çme
+.
+	`low”
+().
+	`fšd
+('ppc64') > -1:
+
+118 
+off£t
+, 
+size
+ = 
+£lf
+.
+¬ch
+.
+»gi¡”s
+['rtoc']
+
+119 
+¹oc
+ = 
+	$Regi¡”
+(
+off£t
+, 
+size
+)
+
+120 
+¹oc_def
+ = 
+	`Defš™iÚ
+(
+¹oc
+, 
+NÚe
+, 
+	$D©aS‘
+(
+£lf
+.
+¹oc_v®ue
+, s–f.
+¬ch
+.
+b™s
+))
+
+121 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+¹oc
+.
+»g_off£t
+, 
+¹oc_def
+,„toc.
+size
+)
+
+122 
+–if
+ 
+£lf
+.
+¬ch
+.
+Çme
+.
+	`low”
+().
+	`fšd
+('mips64') > -1:
+
+123 
+off£t
+, 
+size
+ = 
+£lf
+.
+¬ch
+.
+»gi¡”s
+['t9']
+
+124 
+t9
+ = 
+	$Regi¡”
+(
+off£t
+, 
+size
+)
+
+125 
+t9_def
+ = 
+	`Defš™iÚ
+(
+t9
+, 
+NÚe
+, 
+	$D©aS‘
+(
+func_addr
+, 
+£lf
+.
+¬ch
+.
+b™s
+))
+
+126 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+t9
+.
+»g_off£t
+, 
+t9_def
+,9.
+size
+)
+
+128 
+def
+ 
+	$cİy
+(
+£lf
+):
+
+129 
+rd
+ = 
+	$LiveDefš™iÚs
+(
+
+130 
+£lf
+.
+¬ch
+,
+
+131 
+Œack_tmps
+=
+£lf
+.
+_Œack_tmps
+,
+
+132 
+ª®ysis
+=
+£lf
+.analysis,
+
+133 
+š™_func
+=
+F®£
+,
+
+136 
+rd
+.
+»gi¡”_defš™iÚs
+ = 
+£lf
+.»gi¡”_defš™iÚs.
+	$cİy
+()
+
+137 
+rd
+.
+¡ack_defš™iÚs
+ = 
+£lf
+.¡ack_defš™iÚs.
+	$cİy
+()
+
+138 
+rd
+.
+memÜy_defš™iÚs
+ = 
+£lf
+.memÜy_defš™iÚs.
+	$cİy
+()
+
+139 
+rd
+.
+tmp_defš™iÚs
+ = 
+£lf
+.tmp_defš™iÚs.
+	$cİy
+()
+
+140 
+rd
+.
+»gi¡”_u£s
+ = 
+£lf
+.»gi¡”_u£s.
+	$cİy
+()
+
+141 
+rd
+.
+¡ack_u£s
+ = 
+£lf
+.¡ack_u£s.
+	$cİy
+()
+
+142 
+rd
+.
+memÜy_u£s
+ = 
+£lf
+.memÜy_u£s.
+	$cİy
+()
+
+143 
+rd
+.
+tmp_u£s
+ = 
+£lf
+.tmp_u£s.
+	$cİy
+()
+
+144 
+rd
+.
+_d—d_vœgš_defš™iÚs
+ = 
+£lf
+._d—d_vœgš_defš™iÚs.
+	$cİy
+()
+
+146  
+rd
+
+
+149 
+def
+ 
+	$g‘_¥
+(
+£lf
+):
+
+151 
+R‘uº
+ 
+the
+ 
+cÚü‘e
+ 
+v®ue
+ 
+cÚšed
+ 
+by
+h
+¡ack
+ 
+poš‹r
+.
+
+153 
+¥_defš™iÚs
+ = 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+£lf
+.
+¬ch
+.
+¥_off£t
+)
+
+155 
+as£¹
+ 
+	`Ën
+(
+¥_defš™iÚs
+) == 1
+
+156 [
+¥_defš™iÚ
+] = 
+¥_defš™iÚs
+
+
+158 #Assumšg 
+¥_defš™iÚ
+ 
+has
+ 
+Úly
+ 
+Úe
+ 
+cÚü‘e
+ 
+v®ue
+.
+
+159  
+¥_defš™iÚ
+.
+d©a
+.
+	$g‘_fœ¡_–em’t
+()
+
+161 ## åœ¨ 
+fÜw¬d_ª®ysis
+ æ¡†æ¶ä¸­ï¼Œå½“èŠ‚ç‚¹ 
+a
+ åˆ†æç»“æŸæ—¶ï¼Œå°†ä¼šæ›´æ–°‡ çš„æ¯ä¸ªåç»§èŠ‚ç‚¹ 
+b
+ çš„å…¥å£ç‚¹çŠ¶æ€ã€‚
+
+162 ## è¿™é‡Œé¡ºåº”åˆ†æç±»æä¾›çš„åˆå¹¶ç®—å­ 
+_m”ge_¡©es
+ï¼Œå°† 
+a
+ èŠ‚ç‚¹æœ¬è½®çš„è®¡ç®—å‡ºå£çŠ¶æ€å’Œ 
+b
+ èŠ‚ç‚¹ä¹‹å‰çš„è®¡ç®—çŠ¶æ€è¿›è¡Œåˆå¹¶ã€‚
+
+163 
+def
+ 
+	$m”ge
+(
+£lf
+, *
+Ùh”s
+):
+
+165 
+¡©e
+ = 
+£lf
+.
+	$cİy
+()
+
+167 
+Ùh”
+ 
+š
+ 
+Ùh”s
+:
+
+168 
+¡©e
+.
+»gi¡”_defš™iÚs
+.
+	$m”ge
+(
+Ùh”
+.
+»gi¡”_defš™iÚs
+)
+
+169 
+¡©e
+.
+¡ack_defš™iÚs
+.
+	$m”ge
+(
+Ùh”
+.
+¡ack_defš™iÚs
+)
+
+170 
+¡©e
+.
+memÜy_defš™iÚs
+.
+	$m”ge
+(
+Ùh”
+.
+memÜy_defš™iÚs
+)
+
+172 
+¡©e
+.
+»gi¡”_u£s
+.
+	$m”ge
+(
+Ùh”
+.
+»gi¡”_u£s
+)
+
+173 
+¡©e
+.
+¡ack_u£s
+.
+	$m”ge
+(
+Ùh”
+.
+¡ack_u£s
+)
+
+174 
+¡©e
+.
+memÜy_u£s
+.
+	$m”ge
+(
+Ùh”
+.
+memÜy_u£s
+)
+
+176 
+¡©e
+.
+_d—d_vœgš_defš™iÚs
+ |ğ
+Ùh”
+._dead_virgin_definitions
+
+178  
+¡©e
+
+
+180 
+def
+ 
+	$downsize
+(
+£lf
+):
+
+181 
+£lf
+.
+ª®ysis
+ = 
+NÚe
+
+
+183 
+def
+ 
+	$kl_defš™iÚs
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+=
+NÚe
+, 
+dummy
+=
+True
+):
+
+185 
+Ov”wr™e
+ 
+exi¡šg
+ 
+defš™iÚs
+ 
+w
+.
+r
+.
+t
+ '©om' 
+w™h
+ 
+a
+ 
+dummy
+ 
+defš™iÚ
+ 
+š¡ªû
+. 
+A
+ dummy defš™iÚ 
+wl
+ 
+nÙ
+ 
+be
+
+
+186 
+»moved
+ 
+duršg
+ 
+sim¶ifiÿtiÚ
+.
+
+188 :
+·¿m
+ 
+Atom
+ 
+©om
+:
+
+189 :
+·¿m
+ 
+CodeLoÿtiÚ
+ 
+code_loc
+:
+
+190 :
+·¿m
+ 
+objeù
+ 
+d©a
+:
+
+191 :: 
+NÚe
+
+
+194 
+d©a
+ 
+is
+ 
+NÚe
+:
+
+195 
+d©a
+ = 
+	`D©aS‘
+(
+	`Undefšed
+(
+©om
+.
+size
+),‡tom.size)
+
+197 
+£lf
+.
+	$kl_ªd_add_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+199 
+def
+ 
+	$kl_ªd_add_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+200 
+	$ty³
+(
+©om
+è
+is
+ 
+Regi¡”
+:
+
+201 
+£lf
+.
+	$_kl_ªd_add_»gi¡”_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+202 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+SpOff£t
+:
+
+203 
+£lf
+.
+	$_kl_ªd_add_¡ack_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+204 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+MemÜyLoÿtiÚ
+:
+
+205 
+£lf
+.
+	$_kl_ªd_add_memÜy_defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+206 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+Tmp
+:
+
+207 
+£lf
+.
+	$_add_tmp_defš™iÚ
+(
+©om
+, 
+code_loc
+)
+
+209 
+¿i£
+ 
+	$NÙIm¶em’‹dE¼Ü
+()
+
+211 
+def
+ 
+	$add_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+212 
+	$ty³
+(
+©om
+è
+is
+ 
+Regi¡”
+:
+
+213 
+£lf
+.
+	$_add_»gi¡”_u£
+(
+©om
+, 
+code_loc
+)
+
+214 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+SpOff£t
+:
+
+215 
+£lf
+.
+	$_add_¡ack_u£
+(
+©om
+, 
+code_loc
+)
+
+216 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+MemÜyLoÿtiÚ
+:
+
+217 
+£lf
+.
+	$_add_memÜy_u£
+(
+©om
+, 
+code_loc
+)
+
+218 
+–if
+ 
+	$ty³
+(
+©om
+è
+is
+ 
+Tmp
+:
+
+219 
+£lf
+.
+	$_add_tmp_u£
+(
+©om
+, 
+code_loc
+)
+
+221 #
+#Priv©
+m‘hods
+
+
+225 
+def
+ 
+	$_kl_ªd_add_»gi¡”_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+227 #FIXME: 
+check
+ 
+cÜ»ùÃss
+
+
+228 
+cu¼’t_defs
+ = 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+»g_off£t
+)
+
+229 
+cu¼’t_defs
+:
+
+230 
+u£s
+ = 
+	$£t
+()
+
+231 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+232 
+u£s
+ |ğ
+£lf
+.
+»gi¡”_u£s
+.
+	$g‘_u£s
+(
+cu¼’t_def
+)
+
+233 
+nÙ
+ 
+u£s
+:
+
+234 
+£lf
+.
+_d—d_vœgš_defš™iÚs
+ |ğ
+cu¼’t_defs
+
+
+236 
+defš™iÚ
+ = 
+	$Defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+237 #£t_objeù(è
+»¶aûs
+ 
+	`kl
+ (
+nÙ
+ 
+im¶em’‹d
+è
+ªd
+ 
+	`add
+ (
+add
+è
+š
+ 
+Úe
+ 
+¡•
+
+
+238 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$£t_objeù
+(
+©om
+.
+»g_off£t
+, 
+defš™iÚ
+,‡tom.
+size
+)
+
+240 
+def
+ 
+	$_kl_ªd_add_¡ack_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+241 
+cu¼’t_defs
+ = 
+£lf
+.
+¡ack_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+off£t
+)
+
+242 
+cu¼’t_defs
+:
+
+243 
+u£s
+ = 
+	$£t
+()
+
+244 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+245 
+u£s
+ |ğ
+£lf
+.
+¡ack_u£s
+.
+	$g‘_u£s
+(
+cu¼’t_def
+)
+
+246 
+nÙ
+ 
+u£s
+:
+
+247 
+£lf
+.
+_d—d_vœgš_defš™iÚs
+ |ğ
+cu¼’t_defs
+
+
+249 
+defš™iÚ
+ = 
+	$Defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+250 
+£lf
+.
+¡ack_defš™iÚs
+.
+	`£t_objeù
+(
+©om
+.
+off£t
+, 
+defš™iÚ
+, 
+d©a
+.
+b™s
+
+
+252 
+def
+ 
+	$_kl_ªd_add_memÜy_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=
+F®£
+):
+
+253 
+defš™iÚ
+ = 
+	$Defš™iÚ
+(
+©om
+, 
+code_loc
+, 
+d©a
+, 
+dummy
+=dummy)
+
+254 #£t_objeù(è
+»¶aûs
+ 
+	`kl
+ (
+nÙ
+ 
+im¶em’‹d
+è
+ªd
+ 
+	`add
+ (
+add
+è
+š
+ 
+Úe
+ 
+¡•
+
+
+255 
+£lf
+.
+memÜy_defš™iÚs
+.
+	$£t_objeù
+(
+©om
+.
+addr
+, 
+defš™iÚ
+,‡tom.
+size
+)
+
+257 
+def
+ 
+	$_add_tmp_defš™iÚ
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+259 
+£lf
+.
+tmp_defš™iÚs
+[
+©om
+.
+tmp_idx
+] = (©om, 
+code_loc
+)
+
+261 
+def
+ 
+	$_add_»gi¡”_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+263 #g‘ 
+®l
+ 
+cu¼’t
+ 
+defš™iÚs
+
+
+264 
+cu¼’t_defs
+ = 
+£lf
+.
+»gi¡”_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+»g_off£t
+)
+
+266 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+267 
+£lf
+.
+»gi¡”_u£s
+.
+	$add_u£
+(
+cu¼’t_def
+, 
+code_loc
+)
+
+269 
+def
+ 
+	$_add_¡ack_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+272 :
+·¿m
+ 
+SpOff£t
+ 
+©om
+:
+
+273 :
+·¿m
+ 
+code_loc
+:
+
+277 
+cu¼’t_defs
+ = 
+£lf
+.
+¡ack_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+off£t
+)
+
+279 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+280 
+£lf
+.
+¡ack_u£s
+.
+	$add_u£
+(
+cu¼’t_def
+, 
+code_loc
+)
+
+282 
+def
+ 
+	$_add_memÜy_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+284 #g‘ 
+®l
+ 
+cu¼’t
+ 
+defš™iÚs
+
+
+285 
+cu¼’t_defs
+ = 
+£lf
+.
+memÜy_defš™iÚs
+.
+	$g‘_objeùs_by_off£t
+(
+©om
+.
+addr
+)
+
+287 
+cu¼’t_def
+ 
+š
+ 
+cu¼’t_defs
+:
+
+288 
+£lf
+.
+memÜy_u£s
+.
+	$add_u£
+(
+cu¼’t_def
+, 
+code_loc
+)
+
+290 
+def
+ 
+	$_add_tmp_u£
+(
+£lf
+, 
+©om
+, 
+code_loc
+):
+
+292 
+cu¼’t_def
+ = 
+£lf
+.
+tmp_defš™iÚs
+[
+©om
+.
+tmp_idx
+]
+
+293 
+£lf
+.
+tmp_u£s
+[
+©om
+.
+tmp_idx
+].
+	`add
+((
+code_loc
+, 
+cu¼’t_def
+))
+
+296 
+şass
+ 
+	$R—chšgDefš™iÚAÇlysis
+(
+FÜw¬dAÇlysis
+, 
+AÇlysis
+): #pylšt:
+di§bË
+=
+ab¡¿ù
+-
+m‘hod
+
+
+298 
+R—chšgDefš™iÚAÇlysis
+ 
+is
+ 
+a
+ 
+‹xt
+-
+book
+ 
+im¶em’tiÚ
+ 
+of
+‡ 
+d©a
+-
+æow
+ 
+ª®ysis
+ 
+th©
+ 
+wÜks
+ 
+Ú
+ 
+e™h”
+‡
+
+299 
+funùiÚ
+ 
+Ü
+ 
+a
+ 
+block
+. 
+It
+ 
+suµÜts
+ 
+bÙh
+ 
+VEX
+ 
+ªd
+ 
+AIL
+. 
+By
+ 
+»gi¡”šg
+ 
+ob£rv”s
+ 
+to
+ 
+ob£rv©iÚ
+ 
+pošts
+, 
+u£rs
+ 
+may
+ 
+u£
+
+
+300 
+this
+ 
+ª®ysis
+ 
+to
+ 
+g’”©e
+ 
+u£
+-
+def
+ 
+chašs
+, def-u£ chašs, 
+ªd
+ 
+»achšg
+ 
+defš™iÚs
+,‡nd 
+³rfÜm
+ 
+Ùh”
+ 
+Œad™iÚ®
+
+
+301 
+d©a
+-
+æow
+ 
+ª®y£s
+ 
+such
+ 
+as
+ 
+liv’ess
+ 
+ª®ysis
+.
+
+303 * 
+I
+'ve‡lways wantedo find‡ better‚ame forhis‡nalysis. Now I gave up‡nd decidedo†ive withhis‚ame for
+
+304 
+the
+ 
+fÜe£—bË
+ 
+	`futu»
+ (
+uÁ
+ 
+a
+ 
+b‘‹r
+ 
+Çme
+ 
+is
+ 
+´İo£d
+ 
+by
+ 
+someÚe
+ ).
+
+305 * 
+AlŸsšg
+ 
+is
+ 
+defš™–y
+ 
+a
+ 
+´obËm
+, 
+ªd
+ 
+I
+ 
+fÜgÙ
+ 
+how
+ 
+®Ÿsšg
+ i 
+»sŞved
+ 
+š
+ 
+this
+ 
+im¶em’tiÚ
+. I'll†eavehis
+
+306 
+as
+ 
+a
+ 
+po¡
+-
+g¿du©iÚ
+ 
+TODO
+.
+
+307 * 
+Some
+ 
+mÜe
+ 
+docum’tiÚ
+ 
+ªd
+ 
+exam¶es
+ 
+would
+ 
+be
+ 
+niû
+.
+
+310 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+func
+=
+NÚe
+, 
+block
+=NÚe, 
+func_g¿ph
+=NÚe, 
+max_™”©iÚs
+=3, 
+Œack_tmps
+=
+F®£
+,
+
+311 
+ob£rv©iÚ_pošts
+=
+NÚe
+, 
+š™_¡©e
+=NÚe, 
+š™_func
+=
+F®£
+, 
+cc
+=NÚe, 
+funùiÚ_hªdËr
+=None,
+
+312 
+cu¼’t_loÿl_ÿÎ_d•th
+=1, 
+maximum_loÿl_ÿÎ_d•th
+=5, 
+ob£rve_®l
+=
+F®£
+):
+
+315 :
+·¿m
+ 
+ªgr
+.
+knowËdge
+.
+FunùiÚ
+ 
+func
+: 
+The
+ 
+funùiÚ
+ 
+to
+ 
+run
+ 
+»achšg
+ 
+defš™iÚ
+ 
+ª®ysis
+ 
+Ú
+.
+
+316 :
+·¿m
+ 
+block
+: 
+A
+ 
+sšgË
+ block 
+to
+ 
+run
+ 
+»achšg
+ 
+defš™iÚ
+ 
+ª®ysis
+ 
+Ú
+. 
+You
+ 
+ÿÂÙ
+
+
+317 
+¥ecify
+ 
+bÙh
+ `
+func
+` 
+ªd
+ `
+block
+`.
+
+318 :
+·¿m
+ 
+func_g¿ph
+: 
+AÉ”Çtive
+ 
+g¿ph
+ 
+funùiÚ
+.graph.
+
+319 :
+·¿m
+ 
+max_™”©iÚs
+: 
+The
+ 
+maximum
+ 
+numb”
+ 
+of
+ 
+™”©iÚs
+ 
+befÜe
+ 
+the
+ 
+ª®ysis
+ 
+is
+ 
+‹rmš©ed
+.
+
+320 :
+·¿m
+ 
+BoŞ—n
+ 
+Œack_tmps
+: 
+Wh‘h”
+ 
+Ü
+ 
+nÙ
+ 
+‹mpÜ¬y
+ 
+v¬ŸbËs
+ 
+should
+ 
+be
+ 
+k’
+ 
+što
+ 
+cÚsid”©iÚ
+
+
+321 
+duršg
+ 
+the
+ 
+ª®ysis
+.
+
+322 :
+·¿m
+ 
+™”abË
+ 
+ob£rv©iÚ_pošts
+: 
+A
+ 
+cŞËùiÚ
+ 
+of
+ 
+tu¶es
+ 
+	`of
+ ("node"|"š¢", 
+šs_addr
+, 
+OP_TYPE
+è
+defššg
+
+
+323 
+wh”e
+ 
+»achšg
+ 
+defš™iÚs
+ 
+should
+ 
+be
+ 
+cİ›d
+ 
+ªd
+ 
+¡Üed
+. 
+OP_TYPE
+ 
+ÿn
+ be
+
+324 
+OP_BEFORE
+ 
+Ü
+ 
+OP_AFTER
+.
+
+325 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+»achšg_defš™iÚs
+.»achšg_defš™iÚs.
+LiveDefš™iÚs
+ 
+š™_¡©e
+:
+
+326 
+An
+ 
+İtiÚ®
+ 
+š™Ÿliz©iÚ
+ 
+¡©e
+. 
+The
+ 
+ª®ysis
+ 
+ü—‹s
+ 
+ªd
+ 
+wÜks
+ 
+Ú
+ 
+a
+
+
+327 
+cİy
+.
+
+328 :
+·¿m
+ 
+BoŞ—n
+ 
+š™_func
+: 
+Wh‘h”
+ 
+¡ack
+ 
+ªd
+ 
+¬gum’ts
+ 
+¬e
+ 
+š™Ÿlized
+ 
+Ü
+ 
+nÙ
+.
+
+329 :
+·¿m
+ 
+SimCC
+ 
+cc
+: 
+C®lšg
+ 
+cÚv’tiÚ
+ 
+of
+ 
+the
+ 
+funùiÚ
+.
+
+330 :
+·¿m
+ 
+li¡
+ 
+funùiÚ_hªdËr
+: 
+HªdËr
+ 
+funùiÚs
+, 
+Çmšg
+ 
+scheme
+: 
+hªdË_
+<
+func_Çme
+>|
+	`loÿl_funùiÚ
+(
+
+331 <
+R—chšgDefš™iÚs
+>, <
+Cod–oc
+>, <
+IP
+ 
+add»ss
+>).
+
+332 :
+·¿m
+ 
+cu¼’t_loÿl_ÿÎ_d•th
+: 
+Cu¼’t
+ 
+loÿl
+ 
+funùiÚ
+ 
+»cursiÚ
+ 
+d•th
+.
+
+333 :
+·¿m
+ 
+maximum_loÿl_ÿÎ_d•th
+: 
+Maximum
+ 
+loÿl
+ 
+funùiÚ
+ 
+»cursiÚ
+ 
+d•th
+.
+
+334 :
+·¿m
+ 
+BoŞ—n
+ 
+ob£rve_®l
+: 
+Ob£rve
+ 
+ev”y
+ 
+¡©em’t
+, 
+bÙh
+ 
+befÜe
+ 
+ªd
+ 
+aá”
+.
+
+337 
+func
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+338 
+block
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+339 
+¿i£
+ 
+	`V®ueE¼Ü
+('You cannot specify both "func"‡nd "block".')
+
+340 #Œav”sšg 
+a
+ 
+funùiÚ
+
+
+341 
+g¿ph_vis™Ü
+ = 
+	$FunùiÚG¿phVis™Ü
+(
+func
+, 
+func_g¿ph
+)
+
+342 
+–if
+ 
+block
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+343 #Œav”sšg 
+a
+ 
+block
+
+
+344 
+g¿ph_vis™Ü
+ = 
+	$SšgËNodeG¿phVis™Ü
+(
+block
+)
+
+346 
+¿i£
+ 
+	`V®ueE¼Ü
+('Unsupported‡nalysisarget.')
+
+348 
+FÜw¬dAÇlysis
+.
+	$__š™__
+(
+£lf
+, 
+Üd”_jobs
+=
+True
+, 
+®low_m”gšg
+=True, 
+®low_wid’šg
+=
+F®£
+,
+
+349 
+g¿ph_vis™Ü
+=graph_visitor)
+
+351 
+£lf
+.
+_Œack_tmps
+ = 
+Œack_tmps
+
+
+352 
+£lf
+.
+_max_™”©iÚs
+ = 
+max_™”©iÚs
+
+
+353 
+£lf
+.
+_funùiÚ
+ = 
+func
+
+
+354 
+£lf
+.
+_block
+ = 
+block
+
+
+355 
+£lf
+.
+_ob£rv©iÚ_pošts
+ = 
+ob£rv©iÚ_pošts
+
+
+356 
+£lf
+.
+_š™_¡©e
+ = 
+š™_¡©e
+
+
+357 
+£lf
+.
+_funùiÚ_hªdËr
+ = 
+funùiÚ_hªdËr
+
+
+358 
+£lf
+.
+_cu¼’t_loÿl_ÿÎ_d•th
+ = 
+cu¼’t_loÿl_ÿÎ_d•th
+
+
+359 
+£lf
+.
+_maximum_loÿl_ÿÎ_d•th
+ = 
+maximum_loÿl_ÿÎ_d•th
+
+
+361 
+£lf
+.
+_š™_¡©e
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+362 
+£lf
+.
+_š™_¡©e
+ = s–f._š™_¡©e.
+	$cİy
+()
+
+363 
+£lf
+.
+_š™_¡©e
+.
+ª®ysis
+ = self
+
+365 #ignÜ
+š™Ÿliz©iÚ
+ 
+·¿m‘”s
+ 
+a
+ 
+block
+ 
+was
+ 
+·s£d
+
+
+366 
+£lf
+.
+_funùiÚ
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+367 
+£lf
+.
+_š™_func
+ = 
+š™_func
+
+
+368 
+£lf
+.
+_cc
+ = 
+cc
+
+
+369 
+£lf
+.
+_func_addr
+ = 
+func
+.
+addr
+
+
+371 
+£lf
+.
+_š™_func
+ = 
+F®£
+
+
+372 
+£lf
+.
+_cc
+ = 
+NÚe
+
+
+373 
+£lf
+.
+_func_addr
+ = 
+NÚe
+
+
+375 
+£lf
+.
+_ob£rve_®l
+ = 
+ob£rve_®l
+
+
+377 #§n™y 
+check
+
+
+378 
+£lf
+.
+_ob£rv©iÚ_pošts
+ 
+ªd
+ 
+	`ªy
+(
+nÙ
+ 
+	$ty³
+(
+İ
+è
+is
+ 
+tu¶e
+ İ 
+š
+ 
+£lf
+.
+_ob£rv©iÚ_pošts
+):
+
+379 
+¿i£
+ 
+	`V®ueE¼Ü
+('"observation_points" must beuples.')
+
+381 
+	$ty³
+(
+£lf
+è
+is
+ 
+R—chšgDefš™iÚAÇlysis
+ 
+ªd
+ 
+nÙ
+ s–f.
+_ob£rve_®l
+‡nd‚Ù s–f.
+_ob£rv©iÚ_pošts
+:
+
+382 
+l
+.
+	`w¬nšg
+('No observation…oint is specified. '
+
+386 
+£lf
+.
+_node_™”©iÚs
+ = 
+	$deçuÉdiù
+()
+
+387 
+£lf
+.
+_¡©es
+ = {
+	}
+}
+
+389 
+£lf
+.
+_’gše_vex
+ = 
+	$SimEngšeRDVEX
+(
+£lf
+.
+´ojeù
+, s–f.
+_cu¼’t_loÿl_ÿÎ_d•th
+, s–f.
+_maximum_loÿl_ÿÎ_d•th
+,
+
+390 
+£lf
+.
+_funùiÚ_hªdËr
+)
+
+391 
+£lf
+.
+_’gše_a
+ = 
+	$SimEngšeRDAIL
+(
+£lf
+.
+´ojeù
+, s–f.
+_cu¼’t_loÿl_ÿÎ_d•th
+, s–f.
+_maximum_loÿl_ÿÎ_d•th
+,
+
+392 
+£lf
+.
+_funùiÚ_hªdËr
+)
+
+394 
+£lf
+.
+ob£rved_»suÉs
+ = {
+	}
+}
+
+396 
+£lf
+.
+_ª®yze
+()
+
+398 @
+´İ”ty
+
+
+399 
+def
+ 
+	$Úe_»suÉ
+(
+£lf
+):
+
+401 
+nÙ
+ 
+£lf
+.
+ob£rved_»suÉs
+:
+
+402 
+¿i£
+ 
+	`V®ueE¼Ü
+('No„esult is‡vailable.')
+
+403 
+	`Ën
+(
+£lf
+.
+ob£rved_»suÉs
+) != 1:
+
+404 
+¿i£
+ 
+	`V®ueE¼Ü
+("Morehan one„esults‡re‡vailable.")
+
+406  
+	`Ãxt
+(
+	`™”
+(
+£lf
+.
+ob£rved_»suÉs
+.
+	`v®ues
+()))
+
+408 @
+	`d•»ÿ‹d
+(
+»¶aûm’t
+="get_reaching_definitions_by_insn")
+
+409 
+def
+ 
+	$g‘_»achšg_defš™iÚs
+(
+£lf
+, 
+šs_addr
+, 
+İ_ty³
+):
+
+410  
+£lf
+.
+	$g‘_»achšg_defš™iÚs_by_š¢
+(
+šs_addr
+, 
+İ_ty³
+)
+
+412 
+def
+ 
+	$g‘_»achšg_defš™iÚs_by_š¢
+(
+£lf
+, 
+šs_addr
+, 
+İ_ty³
+):
+
+413 
+key
+ = 'š¢', 
+šs_addr
+, 
+İ_ty³
+
+
+414 
+key
+ 
+nÙ
+ 
+š
+ 
+£lf
+.
+ob£rved_»suÉs
+:
+
+415 
+¿i£
+ 
+	`KeyE¼Ü
+(("Reaching definitions‡re‚ot‡vailable‡t observation…oint %s. "
+
+416 "Did you s³cifyh© ob£rv©iÚ…ošt?"è% 
+key
+)
+
+418  
+£lf
+.
+ob£rved_»suÉs
+[
+key
+]
+
+420 
+def
+ 
+	$g‘_»achšg_defš™iÚs_by_node
+(
+£lf
+, 
+node_addr
+, 
+İ_ty³
+):
+
+421 
+key
+ = 'node', 
+node_addr
+, 
+İ_ty³
+
+
+422 
+key
+ 
+nÙ
+ 
+š
+ 
+£lf
+.
+ob£rved_»suÉs
+:
+
+423 
+¿i£
+ 
+	`KeyE¼Ü
+(("Reaching definitions‡re‚ot‡vailable‡t observation…oint %s. "
+
+424 "Did you s³cifyh© ob£rv©iÚ…ošt?"è% 
+key
+)
+
+426  
+£lf
+.
+ob£rved_»suÉs
+[
+key
+]
+
+428 
+def
+ 
+	$node_ob£rve
+(
+£lf
+, 
+node_addr
+, 
+¡©e
+, 
+İ_ty³
+):
+
+430 :
+·¿m
+ 
+node_addr
+:
+
+431 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+»achšg_defš™iÚs
+.
+LiveDefš™iÚs
+ 
+¡©e
+:
+
+432 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+»achšg_defš™iÚs
+.
+cÚ¡ªts
+ 
+İ_ty³
+: 
+OP_BEFORE
+, 
+OP_AFTER
+
+
+435 
+key
+ = 'node', 
+node_addr
+, 
+İ_ty³
+
+
+437 
+£lf
+.
+_ob£rve_®l
+ 
+Ü
+ \
+
+438 
+£lf
+.
+_ob£rv©iÚ_pošts
+ 
+is
+ 
+nÙ
+ 
+NÚe
+ 
+ªd
+ 
+key
+ 
+š
+ self._observation_points:
+
+439 
+£lf
+.
+ob£rved_»suÉs
+[
+key
+] = 
+¡©e
+
+
+441 
+def
+ 
+	$š¢_ob£rve
+(
+£lf
+, 
+š¢_addr
+, 
+¡mt
+, 
+block
+, 
+¡©e
+, 
+İ_ty³
+):
+
+443 :
+·¿m
+ 
+š¢_addr
+:
+
+444 :
+·¿m
+ 
+am’t
+.
+Stmt
+.
+S‹m’t
+|
+pyvex
+.
+¡mt
+.
+IRStmt
+ stmt:
+
+445 :
+·¿m
+ 
+ªgr
+.
+Block
+ 
+block
+:
+
+446 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+»achšg_defš™iÚs
+.
+LiveDefš™iÚs
+ 
+¡©e
+:
+
+447 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+»achšg_defš™iÚs
+.
+cÚ¡ªts
+ 
+İ_ty³
+: 
+OP_BEFORE
+, 
+OP_AFTER
+
+
+450 
+key
+ = 'š¢', 
+š¢_addr
+, 
+İ_ty³
+
+
+452 
+£lf
+.
+_ob£rve_®l
+ 
+Ü
+ \
+
+453 
+£lf
+.
+_ob£rv©iÚ_pošts
+ 
+is
+ 
+nÙ
+ 
+NÚe
+ 
+ªd
+ 
+key
+ 
+š
+ self._observation_points:
+
+454 
+	$isš¡ªû
+(
+¡mt
+, 
+pyvex
+.¡mt.
+IRStmt
+):
+
+456 
+vex_block
+ = 
+block
+.
+vex
+
+
+457 #OP_BEFORE: 
+¡mt
+ 
+has
+ 
+to
+ 
+be
+ 
+IM¬k
+
+
+458 
+İ_ty³
+ =ğ
+OP_BEFORE
+ 
+ªd
+ 
+	$ty³
+(
+¡mt
+è
+is
+ 
+pyvex
+.¡mt.
+IM¬k
+:
+
+459 
+£lf
+.
+ob£rved_»suÉs
+[
+key
+] = 
+¡©e
+.
+	$cİy
+()
+
+460 #OP_AFTER: 
+¡mt
+ 
+has
+ 
+to
+ 
+be
+ 
+Ï¡
+ stmˆ
+of
+ 
+block
+ 
+Ü
+ 
+Ãxt
+ stmˆha tØb
+IM¬k
+
+
+461 
+–if
+ 
+İ_ty³
+ =ğ
+OP_AFTER
+:
+
+462 
+idx
+ = 
+vex_block
+.
+¡©em’ts
+.
+	$šdex
+(
+¡mt
+)
+
+463 
+idx
+ =ğ
+	`Ën
+(
+vex_block
+.
+¡©em’ts
+è- 1 
+Ü
+ 
+	`ty³
+(
+
+464 
+vex_block
+.
+¡©em’ts
+[
+idx
+ + 1]è
+is
+ 
+pyvex
+.
+IRStmt
+.
+IM¬k
+:
+
+465 
+£lf
+.
+ob£rved_»suÉs
+[
+key
+] = 
+¡©e
+.
+	$cİy
+()
+
+466 
+–if
+ 
+	$isš¡ªû
+(
+¡mt
+, 
+am’t
+.
+Stmt
+.
+S‹m’t
+):
+
+468 
+£lf
+.
+ob£rved_»suÉs
+[
+key
+] = 
+¡©e
+.
+	$cİy
+()
+
+470 #
+#Maš 
+ª®ysis
+ 
+routšes
+
+
+474 
+def
+ 
+	$_´e_ª®ysis
+(
+£lf
+):
+
+475 
+·ss
+
+
+478 ## (å‚è§ 
+fÜw¬d_ª®ysis
+.
+py
+ ä¸­çš„ 
+_ª®yze
+ å‡½æ•°ï¼‰
+
+479 
+def
+ 
+	$_š™Ÿl_ab¡¿ù_¡©e
+(
+£lf
+, 
+node
+):
+
+481 
+£lf
+.
+_š™_¡©e
+ 
+is
+ 
+nÙ
+ 
+NÚe
+:
+
+482  
+£lf
+.
+_š™_¡©e
+
+
+484  
+	$LiveDefš™iÚs
+(
+£lf
+.
+´ojeù
+.
+¬ch
+, 
+Œack_tmps
+=£lf.
+_Œack_tmps
+, 
+ª®ysis
+=self,
+
+485 
+š™_func
+=
+£lf
+.
+_š™_func
+, 
+cc
+=£lf.
+_cc
+, 
+func_addr
+=£lf.
+_func_addr
+)
+
+487 ## åœ¨ 
+fÜw¬d_ª®ysis
+ æ¡†æ¶ä¸­ï¼Œå½“èŠ‚ç‚¹ 
+a
+ åˆ†æç»“æŸæ—¶ï¼Œå°†ä¼šæ›´æ–°‡ çš„æ¯ä¸ªåç»§èŠ‚ç‚¹ 
+b
+ çš„å…¥å£ç‚¹çŠ¶æ€ã€‚
+
+488 ## è¿™é‡Œæä¾›åˆå¹¶ç®—å­ï¼Œå°† 
+a
+ èŠ‚ç‚¹æœ¬è½®çš„è®¡ç®—å‡ºå£çŠ¶æ€å’Œ 
+b
+ èŠ‚ç‚¹ä¹‹å‰çš„è®¡ç®—çŠ¶æ€è¿›è¡Œåˆå¹¶ã€‚
+
+489 
+def
+ 
+	$_m”ge_¡©es
+(
+£lf
+, 
+node
+, *
+¡©es
+):
+
+490  
+¡©es
+[0].
+	$m”ge
+(*
+¡©es
+[1:])
+
+492 
+def
+ 
+	$_run_Ú_node
+(
+£lf
+, 
+node
+, 
+¡©e
+):
+
+494 
+	$isš¡ªû
+(
+node
+, 
+am’t
+.
+Block
+):
+
+495 
+block
+ = 
+node
+
+
+496 
+block_key
+ = 
+node
+.
+addr
+
+
+497 
+’gše
+ = 
+£lf
+.
+_’gše_a
+
+
+498 
+–if
+ 
+	`isš¡ªû
+(
+node
+, (
+Block
+, 
+CodeNode
+)):
+
+499 
+block
+ = 
+£lf
+.
+´ojeù
+.
+çùÜy
+.
+	$block
+(
+node
+.
+addr
+,‚ode.
+size
+, 
+İt_Ëv–
+=0)
+
+500 
+block_key
+ = 
+node
+.
+addr
+
+
+501 
+’gše
+ = 
+£lf
+.
+_’gše_vex
+
+
+503 
+l
+.
+	`w¬nšg
+("UnsuµÜ‹d‚odty³ %s.", 
+node
+.
+__şass__
+)
+
+504  
+F®£
+, 
+¡©e
+.
+	$cİy
+()
+
+506 
+£lf
+.
+	$node_ob£rve
+(
+node
+.
+addr
+, 
+¡©e
+, 
+OP_BEFORE
+)
+
+508 
+¡©e
+ = s‹.
+	$cİy
+()
+
+509 
+¡©e
+ = 
+’gše
+.
+	$´oûss
+(
+¡©e
+, 
+block
+=block, 
+ç_ç¡
+=
+£lf
+.
+_ç_ç¡
+)
+
+511 #ş—¸
+the
+ 
+tmp
+ 
+¡Üe
+
+
+512 #¡©e.
+tmp_u£s
+.
+	`ş—r
+()
+
+513 #¡©e.
+tmp_defš™iÚs
+.
+	`ş—r
+()
+
+515 
+£lf
+.
+_node_™”©iÚs
+[
+block_key
+] += 1
+
+517 
+nÙ
+ 
+£lf
+.
+_g¿ph_vis™Ü
+.
+	$sucûssÜs
+(
+node
+):
+
+518 #nØ
+mÜe
+ 
+sucûssÜs
+. 
+kl
+ 
+defš™iÚs
+ 
+of
+ 
+û¹aš
+ 
+»gi¡”s
+
+
+519 
+	$isš¡ªû
+(
+node
+, 
+am’t
+.
+Block
+):
+
+520 
+cod–oc
+ = 
+	`CodeLoÿtiÚ
+(
+node
+.
+addr
+, 
+	$Ën
+(
+node
+.
+¡©em’ts
+))
+
+521 
+–if
+ 
+	$isš¡ªû
+(
+node
+, 
+Block
+):
+
+522 
+cod–oc
+ = 
+	`CodeLoÿtiÚ
+(
+node
+.
+addr
+, 
+	$Ën
+(
+node
+.
+vex
+.
+¡©em’ts
+))
+
+523 : #ià
+	$isš¡ªû
+(
+node
+, 
+CodeNode
+):
+
+524 
+cod–oc
+ = 
+	$CodeLoÿtiÚ
+(
+node
+.
+addr
+, 0)
+
+525 
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(
+£lf
+.
+´ojeù
+.
+¬ch
+.
+¥_off£t
+, s–f.´ojeù.¬ch.
+by‹s
+),
+
+526 
+cod–oc
+)
+
+527 
+¡©e
+.
+	`kl_defš™iÚs
+(
+	`Regi¡”
+(
+£lf
+.
+´ojeù
+.
+¬ch
+.
+_off£t
+, s–f.´ojeù.¬ch.
+by‹s
+),
+
+528 
+cod–oc
+)
+
+529 
+£lf
+.
+	$node_ob£rve
+(
+node
+.
+addr
+, 
+¡©e
+, 
+OP_AFTER
+)
+
+531 
+£lf
+.
+_node_™”©iÚs
+[
+block_key
+] < s–f.
+_max_™”©iÚs
+:
+
+532  
+True
+, 
+¡©e
+
+
+534  
+F®£
+, 
+¡©e
+
+
+536 
+def
+ 
+	$_šŒa_ª®ysis
+(
+£lf
+):
+
+537 
+·ss
+
+
+539 
+def
+ 
+	$_po¡_ª®ysis
+(
+£lf
+):
+
+540 
+·ss
+
+
+543 
+	`»gi¡”_ª®ysis
+(
+R—chšgDefš™iÚAÇlysis
+, "ReachingDefinitions")
+
+	@taint.py
+
+2 
+şass
+ 
+	gTaštD©a
+:
+
+4 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+š‹d
+, 
+štSrc
+ = 
+NÚe
+, 
+štS™e
+ = None):
+
+5 
+£lf
+.
+š‹d
+ =ainted
+
+7 
+£lf
+.
+štSrc
+ = 
+NÚe
+
+
+8 
+£lf
+.
+štS™e
+ = 
+NÚe
+
+
+9 
+£lf
+.
+š‹d
+:
+
+10 
+£lf
+.
+štSrc
+ =aintSrc
+
+11 
+£lf
+.
+štS™e
+ =aintSite
+
+12 
+·ss
+
+
+	@taint_funcHandler.py
+
+1 
+şass
+ 
+	gTaštSourûFuncHªdËr
+:
+
+2 
+def
+ 
+	$hªdË_»ad
+(
+£lf
+):
+
+3 
+·ss
+
+
+	@undefined.py
+
+1 
+şass
+ 
+	gUndefšed
+:
+
+3 
+__¦Ùs__
+ = ('bits', '_type', '_meta')
+
+5 
+def
+ 
+	$__š™__
+(
+£lf
+, 
+b™s
+, 
+ty³_
+=
+NÚe
+, 
+m‘a
+=None):
+
+6 
+£lf
+.
+b™s
+ = bits
+
+7 
+£lf
+.
+_ty³
+ = 
+ty³_
+
+
+8 
+£lf
+.
+_m‘a
+ = 
+m‘a
+
+
+10 @
+´İ”ty
+
+
+11 
+def
+ 
+	$ty³_
+(
+£lf
+):
+
+12  
+£lf
+.
+_ty³
+
+
+14 @
+´İ”ty
+
+
+15 
+def
+ 
+	$m‘a
+(
+£lf
+):
+
+16  
+£lf
+.
+_m‘a
+
+
+18 
+def
+ 
+	$__add__
+(
+£lf
+, 
+Ùh”
+):
+
+19  
+£lf
+
+
+21 
+def
+ 
+	$__¿dd__
+(
+£lf
+, 
+Ùh”
+):
+
+22  
+£lf
+
+
+24 
+def
+ 
+	$__sub__
+(
+£lf
+, 
+Ùh”
+):
+
+25  
+£lf
+
+
+27 
+def
+ 
+	$__rsub__
+(
+£lf
+, 
+Ùh”
+):
+
+28  
+£lf
+
+
+30 
+def
+ 
+	$__lshiá__
+(
+£lf
+, 
+Ùh”
+):
+
+31  
+£lf
+
+
+33 
+def
+ 
+	$__¾shiá__
+(
+£lf
+, 
+Ùh”
+):
+
+34  
+£lf
+
+
+36 
+def
+ 
+	$__rshiá__
+(
+£lf
+, 
+Ùh”
+):
+
+37  
+£lf
+
+
+39 
+def
+ 
+	$__¼shiá__
+(
+£lf
+, 
+Ùh”
+):
+
+40  
+£lf
+
+
+42 
+def
+ 
+	$__ªd__
+(
+£lf
+, 
+Ùh”
+):
+
+43  
+£lf
+
+
+45 
+def
+ 
+	$__¿nd__
+(
+£lf
+, 
+Ùh”
+):
+
+46  
+£lf
+
+
+48 
+def
+ 
+	$__xÜ__
+(
+£lf
+, 
+Ùh”
+):
+
+49  
+£lf
+
+
+51 
+def
+ 
+	$__rxÜ__
+(
+£lf
+, 
+Ùh”
+):
+
+52  
+£lf
+
+
+54 
+def
+ 
+	$__Ü__
+(
+£lf
+, 
+Ùh”
+):
+
+55  
+£lf
+
+
+57 
+def
+ 
+	$__rÜ__
+(
+£lf
+, 
+Ùh”
+):
+
+58  
+£lf
+
+
+60 
+def
+ 
+	$__Ãg__
+(
+£lf
+):
+
+61  
+£lf
+
+
+63 
+def
+ 
+	$__eq__
+(
+£lf
+, 
+Ùh”
+):
+
+64  
+	$ty³
+(
+Ùh”
+è
+is
+ 
+Undefšed
+ 
+ªd
+ \
+
+65 
+£lf
+.
+b™s
+ =ğ
+Ùh”
+.b™ 
+ªd
+ \
+
+66 
+£lf
+.
+_ty³
+ =ğ
+Ùh”
+.
+ty³_
+ 
+ªd
+ \
+
+67 
+£lf
+.
+_m‘a
+ =ğ
+Ùh”
+.
+m‘a
+
+
+69 
+def
+ 
+	$__hash__
+(
+£lf
+):
+
+70  
+	`hash
+(('undefšed', 
+£lf
+.
+b™s
+, s–f.
+_ty³
+, s–f.
+_m‘a
+))
+
+72 
+def
+ 
+	$__¡r__
+(
+£lf
+):
+
+73 
+ty³_
+ = (',y³=%s' % 
+£lf
+.
+_ty³
+è£lf._ty³ 
+is
+ 
+nÙ
+ 
+NÚe
+ ''
+
+74 
+m‘a
+ = ', m‘a=%s' % 
+£lf
+.
+_m‘a
+ £lf._m‘¨
+is
+ 
+nÙ
+ 
+NÚe
+ ''
+
+75  '<Undef%s%s>' % (
+ty³_
+, 
+m‘a
+)
+
+77 
+def
+ 
+	$__»´__
+(
+£lf
+):
+
+	@uses.py
+
+2 
+äom
+ 
+cŞËùiÚs
+ 
+impÜt
+ 
+deçuÉdiù
+
+
+5 
+şass
+ 
+	gU£s
+:
+
+7 
+__¦Ùs__
+ = ('_uses_by_definition', )
+
+9 
+def
+ 
+	$__š™__
+(
+£lf
+):
+
+10 
+£lf
+.
+_u£s_by_defš™iÚ
+ = 
+	$deçuÉdiù
+(
+£t
+)
+
+12 
+def
+ 
+	$add_u£
+(
+£lf
+, 
+defš™iÚ
+, 
+cod–oc
+):
+
+14 
+Add
+ 
+a
+ 
+u£
+ ¨
+giv’
+ 
+defš™iÚ
+.
+
+16 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+»achšg_defš™iÚs
+.
+defš™iÚ
+.
+Defš™iÚ
+ defš™iÚ: 
+The
+ defš™iÚ 
+th©
+ 
+is
+ 
+u£d
+.
+
+17 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+code_loÿtiÚ
+.
+CodeLoÿtiÚ
+ 
+cod–oc
+: 
+The
+ 
+code
+ 
+loÿtiÚ
+ 
+wh”e
+ 
+the
+ 
+u£
+ 
+occurs
+.
+
+19 
+£lf
+.
+_u£s_by_defš™iÚ
+[
+defš™iÚ
+].
+	$add
+(
+cod–oc
+)
+
+21 
+def
+ 
+	$g‘_u£s
+(
+£lf
+, 
+defš™iÚ
+):
+
+23 
+R‘r›ve
+ 
+the
+ 
+u£s
+ 
+of
+ 
+a
+ 
+giv’
+ 
+defš™iÚ
+.
+
+25 :
+·¿m
+ 
+ªgr
+.
+ª®y£s
+.
+»achšg_defš™iÚs
+.
+defš™iÚ
+.
+Defš™iÚ
+ defš™iÚ: 
+The
+ defš™iÚ 
+which
+ 
+we
+ 
+g‘
+ 
+the
+
+
+26 
+u£s
+.
+
+28 
+defš™iÚ
+ 
+nÙ
+ 
+š
+ 
+£lf
+.
+_u£s_by_defš™iÚ
+:
+
+29  
+	$£t
+()
+
+30  
+£lf
+.
+_u£s_by_defš™iÚ
+[
+defš™iÚ
+]
+
+32 
+def
+ 
+	$cİy
+(
+£lf
+):
+
+34 
+Cİy
+ 
+the
+ 
+š¡ªû
+.
+
+36 : 
+ªgr
+.ªgr.
+ª®y£s
+.
+»achšg_defš™iÚs
+.
+u£s
+.
+U£s
+: 
+R‘uº
+ 
+a
+ 
+Ãw
+ <U£s> 
+š¡ªû
+ 
+cÚššg
+ 
+the
+ 
+§me
+ 
+d©a
+.
+
+38 
+u
+ = 
+	$U£s
+()
+
+39 
+u
+.
+_u£s_by_defš™iÚ
+ = 
+£lf
+._u£s_by_defš™iÚ.
+	$cİy
+()
+
+41  
+u
+
+
+43 
+def
+ 
+	$m”ge
+(
+£lf
+, 
+Ùh”
+):
+
+45 
+M”ge
+ 
+ª
+ 
+š¡ªû
+ 
+of
+ <
+U£s
+> 
+što
+ 
+the
+ 
+cu¼’t
+ instance.
+
+47 :
+·¿m
+ 
+ªgr
+.ªgr.
+ª®y£s
+.
+»achšg_defš™iÚs
+.
+u£s
+.
+U£s
+ 
+Ùh”
+: 
+The
+ oth” <U£s> 
+äom
+ 
+which
+ 
+the
+ 
+d©a
+ 
+wl
+ 
+be
+ 
+added
+
+
+48 
+to
+ 
+the
+ 
+cu¼’t
+ 
+š¡ªû
+.
+
+50 
+k
+, 
+v
+ 
+š
+ 
+Ùh”
+.
+_u£s_by_defš™iÚ
+.
+	$™ems
+():
+
+51 
+k
+ 
+nÙ
+ 
+š
+ 
+£lf
+.
+_u£s_by_defš™iÚ
+:
+
+52 
+£lf
+.
+_u£s_by_defš™iÚ
+[
+k
+] = 
+v
+
+
+54 
+£lf
+.
+_u£s_by_defš™iÚ
+[
+k
+] |ğ
+v
+
+
+	@
+1
+.
+0
+16
+234
+__init__.py
+atoms.py
+constants.py
+dataset.py
+def_use.py
+definition.py
+engine_ail.py
+engine_vex.py
+external_codeloc.py
+live_definitions.py
+sink_funcHandler.py
+static_taint_analysis.py
+taint.py
+taint_funcHandler.py
+undefined.py
+uses.py

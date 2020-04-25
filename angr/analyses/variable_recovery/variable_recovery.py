@@ -409,8 +409,14 @@ class VariableRecovery(ForwardAnalysis, VariableRecoveryBase):  #pylint:disable=
         function_graph_visitor = FunctionGraphVisitor(func)
 
         VariableRecoveryBase.__init__(self, func, max_iterations)
-        ForwardAnalysis.__init__(self, order_jobs=True, allow_merging=True, allow_widening=False,
-                                 graph_visitor=function_graph_visitor)
+
+        ## 这里提供了 graph_visitor，所以是基于“数据流分析”型的 ForwardAnalysis 计算框架
+        ForwardAnalysis.__init__( self, 
+                                  order_jobs     = True, 
+                                  allow_merging  = True, 
+                                  allow_widening = False,
+                                  graph_visitor  = function_graph_visitor
+                                )
 
         self._node_iterations = defaultdict(int)
 
@@ -426,6 +432,9 @@ class VariableRecovery(ForwardAnalysis, VariableRecoveryBase):  #pylint:disable=
     def _pre_job_handling(self, job):
         pass
 
+    ## 如果目标 block 的输入状态为 None，这里就构造一个初始状态替代之（注：正常情况下这应该仅仅适用于流图的入口节点。因为对于其它内部节点，
+    ## 在数据流分析框架中，其输入状态来源于前驱节点的输出状态）
+    ## 
     def _initial_abstract_state(self, node):
 
         concrete_state = self.project.factory.blank_state(
@@ -439,7 +448,12 @@ class VariableRecovery(ForwardAnalysis, VariableRecoveryBase):  #pylint:disable=
         # give it enough stack space
         concrete_state.regs.bp = concrete_state.regs.sp + 0x100000
 
-        return VariableRecoveryState(node.addr, self, self.project.arch, self.function, [ concrete_state ])
+        return VariableRecoveryState( node.addr, 
+                                      self, 
+                                      self.project.arch, 
+                                      self.function, 
+                                      [ concrete_state ]
+                                    )
 
     def _merge_states(self, node, *states):
 

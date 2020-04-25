@@ -59,6 +59,7 @@ class HeavyVEXMixin(SuccessorsMixin, ClaripyDataMixin, SimStateStorageMixin, VEX
 
     # entry point
 
+    ## UberEngine 将调用本类的该接口，处理 project.factory.successors 请求
     def process_successors(self,
         successors,
         irsb=None,
@@ -132,6 +133,7 @@ class HeavyVEXMixin(SuccessorsMixin, ClaripyDataMixin, SimStateStorageMixin, VEX
 
 
             try:
+                # VEX 基本块的解释执行。此处为调用 angr/angr/engines/vex/light/light.py 中 VEXMixin 类里的成员函数
                 self.handle_vex_block(irsb)
             except errors.SimReliftException as e:
                 self.state = e.state

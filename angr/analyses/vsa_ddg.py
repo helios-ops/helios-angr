@@ -8,6 +8,8 @@ from .code_location import CodeLocation
 from ..errors import AngrDDGError
 from ..sim_variable import SimRegisterVariable, SimMemoryVariable
 
+import claripy
+
 l = logging.getLogger(name=__name__)
 
 class DefUseChain(object):
@@ -61,9 +63,10 @@ class VSA_DDG(Analysis):
         if vfg is not None:
             self._vfg = vfg
         else:
-            self._vfg = self.project.analyses.VFG(function_start=start_addr,
-                                             interfunction_level=interfunction_level,
-                                             context_sensitivity_level=context_sensitivity_level)
+            self._vfg = self.project.analyses.VFG( function_start=start_addr,
+                                                   interfunction_level = interfunction_level,
+                                                   context_sensitivity_level = context_sensitivity_level
+                                                 )
 
         self.graph = networkx.DiGraph()
         self.keep_data = keep_data
@@ -119,6 +122,7 @@ class VSA_DDG(Analysis):
         # Set up a set of worklist for fast inclusion test
         worklist_set = set(worklist)
 
+        ## live_defs_per_node: node -> variable -> location
         # A dict storing defs set
         # variable -> locations
         live_defs_per_node = { }
@@ -141,6 +145,8 @@ class VSA_DDG(Analysis):
 
             successing_nodes = self._vfg.graph.successors(node)
             for state in final_states:
+
+                ## call-through edges
                 if state.history.jumpkind == 'Ijk_FakeRet' and len(final_states) > 1:
                     # Skip fakerets if there are other control flow transitions available
                     continue
@@ -160,8 +166,31 @@ class VSA_DDG(Analysis):
                     defs_for_next_node = { }
                     live_defs_per_node[successing_node] = defs_for_next_node
 
+                # --------------------------------------------------------- #
+                '''
+                print ("--------------")
+                for var_item, code_loc_item in defs_for_next_node:
+                    print ( "var_item = " + var_item + ", type = " + str(type(var_item)) )
+                print ("--------------")
+                '''
+                # --------------------------------------------------------- #
+
                 changed = False
                 for var, code_loc_set in new_defs.items():
+                    print ("the var = " + str(var) + ", size = " + str(var.size))
+                    print ( str(type(var)) )
+
+                    #print ("------------------------------")
+                    #print ("stack-region-map: ")
+                    #print (state.memory._stack_region_map.region_ids)
+                    #print ("state.ip = " + str(state.ip) + ", jumpkind = " + state.history.jumpkind)
+                    #print ("node = " + str(node))
+                    #print ("------------------------------")
+
+                    if (type(var) is SimMemoryVariable):
+                        print (var.addr)
+                        print ("type(var.addr) = " + str(type(var.addr)))
+
                     if var not in defs_for_next_node:
                         defs_for_next_node[var] = code_loc_set
                         changed = True
@@ -172,6 +201,7 @@ class VSA_DDG(Analysis):
                                 defs_for_next_node[var].add(code_loc)
                                 changed = True
 
+                ## live_defs_per_node[successing_node] 维护的定值状态发生了变化
                 if changed:
                     # Put all reachable successors back to our worklist again
                     if successing_node not in worklist_set:
@@ -184,7 +214,10 @@ class VSA_DDG(Analysis):
                                 worklist.append(s)
                                 worklist_set.add(s)
 
-    def _track(self, state, live_defs):
+    def _track( self, 
+                state, 
+                live_defs # SimVariable -> CodeLocation
+              ):
         """
         Given all live definitions prior to this program point, track the changes, and return a new list of live
         definitions. We scan through the action list of the new state to track the changes.
@@ -197,6 +230,7 @@ class VSA_DDG(Analysis):
         # Make a copy of live_defs
         live_defs = live_defs.copy()
 
+        ## 获取 state 所执行的上一个基本块里面发生的所有 action
         action_list = list(state.history.recent_actions)
 
         # Since all temporary variables are local, we simply track them in a local dict
@@ -243,6 +277,8 @@ class VSA_DDG(Analysis):
             if del_key:
                 del dict_[key]
 
+        print ("========================")
+
         for a in action_list:
 
             if a.bbl_addr is None:
@@ -251,26 +287,56 @@ class VSA_DDG(Analysis):
                 current_code_loc = CodeLocation(a.bbl_addr, a.stmt_idx, ins_addr=a.ins_addr)
 
             if a.type == "mem":
+
+                # ----------------------------------------------------------------------------------------- #
+                ## original 
+                '''
                 if a.actual_addrs is None:
                     # For now, mem reads don't necessarily have actual_addrs set properly
                     addr_list = set(state.memory.normalize_address(a.addr.ast, convert_to_valueset=True))
                 else:
                     addr_list = set(a.actual_addrs)
+                    print ("addr_list is set !")
+                    print ("+++++++++++++++++++++++")
+                    for addr_0 in addr_list:
+                        print (addr_0)
+                    print ("+++++++++++++++++++++++")
+                '''
+                ## modified
+                if (a.actual_addrs is None):
+                    addr_list = set(state.memory.normalize_address(a.addr.ast, convert_to_valueset=True))
+                else:
+                    addr_list = set(state.memory.normalize_address(a.addr.ast, convert_to_valueset=False))
+                # ----------------------------------------------------------------------------------------- #
 
                 for addr in addr_list:
+                    #if (type(addr) is claripy.ast.bv.BV):
+                    #    addr = state.memory.normalize_address(addr)
+
                     variable = SimMemoryVariable(addr, a.data.ast.size()) # TODO: Properly unpack the SAO
+
+                    #print ("<< ---------------- << ")
+                    #print ("SimMemoryVariable --- addr = " )
+                    #print (addr)
+                    #print ("state-pc = " + hex(a.ins_addr))
+                    #print ("<< ---------------- << \n")
 
                     if a.action == "read":
                         # Create an edge between def site and use site
+                        print ("testing for ")
+                        print (variable)
 
                         prevdefs = self._def_lookup(live_defs, variable)
 
                         for prev_code_loc, labels in prevdefs.items():
                             self._read_edge = True
+
+                            ## 添加 prev_code_loc -> current_code_loc 的边到 VSA-DDG 中：记录 current_code_loc 对 prev_code_loc 的数据依赖
                             self._add_edge(prev_code_loc, current_code_loc, **labels)
 
                     else: #if a.action == "write":
                         # Kill the existing live def
+                        ## 将原来 live_defs 中维护的关于 variable 变量的定值位置改成 current_code_loc
                         self._kill(live_defs, variable, current_code_loc)
 
                     # For each of its register dependency and data dependency, we revise the corresponding edge
@@ -338,6 +404,8 @@ class VSA_DDG(Analysis):
             _dump_edge_from_dict(regs_to_edges, reg_offset, del_key=False)
         for tmp in temps_to_edges:
             _dump_edge_from_dict(temps_to_edges, tmp, del_key=False)
+
+        print ("========================\n")
 
         return live_defs
 

@@ -13,6 +13,8 @@ from angr.storage.file import SimFile
 
 def test_copy():
     s = SimState(arch="AMD64")
+    #print ("test_copy: SimState.solver = " + str(type(s.solver.ValueSet)))
+
     s.memory.store(0x100, b"ABCDEFGHIJKLMNOP")
     s.memory.store(0x200, b"XXXXXXXXXXXXXXXX")
     x = s.solver.BVS('size', s.arch.bits)

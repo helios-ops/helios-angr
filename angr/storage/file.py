@@ -622,6 +622,14 @@ class SimFileDescriptorBase(SimStatePlugin):
         :return:        The real length of the read
         """
         data, realsize = self.read_data(size, **kwargs)
+
+        print (" +++++++++++++++++++++++++++++++++ ")
+        print ("SimFileDescriptorBase::read() --- data = ")
+        print (data)
+        print ("pos = ")
+        print (pos)
+        print (" +++++++++++++++++++++++++++++++++ \n")
+
         if not self.state.solver.is_true(realsize == 0):
             self.state.memory.store(pos, data, size=realsize)
         return realsize
@@ -908,6 +916,10 @@ class SimFileDescriptorDuplex(SimFileDescriptorBase):
     def read_data(self, size, **kwargs):
         size = self._prep_read(size)
         data, realsize, self._read_pos = self._read_file.read(self._read_pos, size)
+
+        #print ("read_data: " )
+        #print (data)
+
         return data, realsize
 
     def write_data(self, data, size=None, **kwargs):

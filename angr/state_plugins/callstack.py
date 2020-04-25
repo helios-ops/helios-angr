@@ -238,6 +238,7 @@ class CallStack(SimStatePlugin):
         Push the frame cf onto the stack. Return the new stack.
         """
         cf.next = self
+
         if self.state is not None:
             self.state.register_plugin('callstack', cf)
             self.state.history.recent_stack_actions.append(CallStackAction(
@@ -252,6 +253,8 @@ class CallStack(SimStatePlugin):
         """
         if self.next is None:
             raise SimEmptyCallStackError("Cannot pop a frame from an empty call stack.")
+
+        ## pop 动作
         new_list = self.next.copy({})
 
         if self.state is not None:

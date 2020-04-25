@@ -398,6 +398,7 @@ class ForwardAnalysis:
 
         self._post_job_handling(job, all_new_jobs, successors)
 
+    ## 注册一个 job 进入工作队列。如果之前有同 key 的 job 存在，则视情况应用 widening 和 merging 算子
     def _insert_job(self, job):
         """
         Insert a new job into the job queue. If the job queue is ordered, this job will be inserted at the correct

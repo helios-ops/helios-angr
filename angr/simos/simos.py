@@ -279,8 +279,10 @@ class SimOS:
         Returns a 2-tuple. The first item is the address of the function code, the second is the address of the
         relocation target.
         """
+
         if basic_addr is None:
             basic_addr = self.project.loader.extern_object.get_pseudo_addr(symbol_name)
+
         return basic_addr, basic_addr
 
     def handle_exception(self, successors, engine, exception): # pylint: disable=no-self-use,unused-argument

@@ -51,6 +51,7 @@ class LoopFinder(Analysis):
             with self._resilience():
                 if normalize:
                     function.normalize()
+                # tops: 最顶层的循环（Loop类）； alls: 所有的循环（Loop类的List）
                 tops, alls = self._parse_loops_from_graph(function.graph)
                 self.loops += alls
                 self.loops_hierarchy[function.addr] = tops

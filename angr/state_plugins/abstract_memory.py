@@ -112,13 +112,15 @@ class MemoryRegion:
             aloc_id = bbl_addr
 
         if aloc_id not in self._alocs:
-            self._alocs[aloc_id] = self.state.solver.AbstractLocation(bbl_addr,
-                                                                  stmt_id,
-                                                                  self.id,
-                                                                  region_offset=request.addr,
-                                                                  size=len(request.data) // self.state.arch.byte_width)
+            self._alocs[aloc_id] = self.state.solver.AbstractLocation( bbl_addr,
+                                                                       stmt_id,
+                                                                       self.id,
+                                                                       region_offset=request.addr,
+                                                                       size=len(request.data) // self.state.arch.byte_width
+                                                                     )
             return self.memory._store(request)
         else:
+            ## AbstractLocation.update() : 添加该 AbstractLocation 对应的地址范围 
             if self._alocs[aloc_id].update(request.addr, len(request.data) // self.state.arch.byte_width):
                 return self.memory._store(request)
             else:
@@ -276,8 +278,17 @@ class SimAbstractMemory(SimMemory): #pylint:disable=abstract-method
 
         stack_base = self._stack_region_map.stack_base
 
+        # ------------------------------------------------------------------------ #
+        ## the original case
+        '''
         if stack_base - self._stack_size < relative_address <= stack_base and \
                 (target_region is not None and target_region.startswith('stack_')):
+        '''
+        ## hhui patched
+        if stack_base - self._stack_size < relative_address <= stack_base or \
+                (target_region is not None and target_region.startswith('stack_')):
+        # ------------------------------------------------------------------------ #
+            
             # The absolute address seems to be in the stack region.
             # Map it to stack
             new_region_id, new_relative_address, related_function_addr = self._stack_region_map.relativize(
@@ -395,6 +406,7 @@ class SimAbstractMemory(SimMemory): #pylint:disable=abstract-method
 
         if isinstance(addr_e, claripy.ast.Base):
             if not isinstance(addr_e._model_vsa, ValueSet):
+                ## 这里是通过调用 ValueSet.apply_annotation 完成转换
                 # Convert it to a ValueSet first by annotating it
                 addr_e = addr_e.annotate(RegionAnnotation('global', 0, addr_e._model_vsa))
 

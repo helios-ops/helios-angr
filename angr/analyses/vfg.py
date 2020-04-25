@@ -19,6 +19,8 @@ from ..errors import AngrDelayJobNotice, AngrSkipJobNotice, AngrVFGError, AngrEr
 from ..procedures import SIM_PROCEDURES
 from ..state_plugins.callstack import CallStack
 
+from angr import BP_AFTER, BP_BEFORE
+
 l = logging.getLogger(name=__name__)
 
 
@@ -114,6 +116,7 @@ class FunctionAnalysis(AnalysisTask):
     # Properties
     #
 
+    ## 当本 FunctionAnalysis 无需要分析的 VFGJob 时，即认为该 FunctionAnalysis 为完成状态
     @property
     def done(self):
         return not self.jobs
@@ -129,6 +132,8 @@ class CallAnalysis(AnalysisTask):
 
         self.address = address
         self.return_address = return_address
+
+        ## 记录本 callsite 对应的所有可能被调用的目标函数们的 FunctionAnalysis 
         self.function_analysis_tasks = function_analysis_tasks if function_analysis_tasks is not None else [ ]
         self._mergeable_plugins = mergeable_plugins
 
@@ -143,6 +148,7 @@ class CallAnalysis(AnalysisTask):
     # Properties
     #
 
+    ## 只有当所有对应的可能被调用的目标函数都分析完成，我们才能认为当前的 CallAnalysis 完成了
     @property
     def done(self):
         for task in self.function_analysis_tasks:
@@ -159,12 +165,19 @@ class CallAnalysis(AnalysisTask):
         assert isinstance(task, FunctionAnalysis)
 
         self.function_analysis_tasks.append(task)
-        task.call_analysis = self
 
-    def add_final_job(self, job):
+        ## 为 FunctionAnalysis 注册当前所属的 CallAnalysis 
+        task.call_analysis = self
+        
+    ## add_final_job : 旨在为函数 A 所处的 callsite 对应的 CallAnalysis 关联本函数 A 的返回点任务 VFGJob
+    def add_final_job( self, 
+                       job   # 被调用函数内的返回点 VFGJob
+                     ):
 
         self._final_jobs.append(job)
 
+    ## merge_jobs : 将本 CallAnalysis 对应 callsite 所能调用的所有目标函数的返回点任务 VFGJob 对应的完成时程序状态合并，
+    ##              由此形成 callsite 对应任务的新的入口点状态
     def merge_jobs(self):
 
         assert self._final_jobs
@@ -270,7 +283,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                  widening_interval=3,
                  final_state_callback=None,
                  status_callback=None,
-                 record_function_final_states=False
+                 record_function_final_states=False,
                  ):
         """
         :param cfg: The control-flow graph to base this analysis on. If none is provided, we will
@@ -286,6 +299,11 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         :param int timeout:
         """
 
+        ## 注意：正常情况下使用 angr 内置的基于流图的数据流分析，这里需要提供 graph_visitor，分析类进而可以定制自己的 run_on_node 函数，
+        ##       依托于 angr 静态分析框架进行分析。这里未提供，可见 VSA 分析并非基于静态数据流分析。
+        ##
+        ##       graph_visitor 实质上指定了一种图上的节点遍历策略。如果有提供，ForwardAnalysis 将沿着该策略对图上节点们进行遍历；
+        ##       如果没有，则 ForwardAnalysis 将以工作集的方式展开分析。
         ForwardAnalysis.__init__(self, order_jobs=True, allow_merging=True, allow_widening=True,
                                  status_callback=status_callback
                                  )
@@ -334,6 +352,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         self._state_initialization_map = defaultdict(list)
 
         self._exit_targets = defaultdict(list) # A dict to log edges and the jumpkind between each basic block
+
+        ## 记录对于指定的 return address，所有能 return 到它的 return-site address 和对应的 return 时刻的“调用链上下文”
         # A dict to record all blocks that returns to a specific address
         self._return_target_sources = defaultdict(list)
 
@@ -503,6 +523,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         block_id = BlockID.new(state.addr, job.get_call_stack_suffix(), job.jumpkind)
         job._block_id = block_id
 
+        ## 注册一个 job 进入工作集队列中。在入队列前视情况进行 widening 和 merging 操作
         self._insert_job(job)
 
         # create the task
@@ -576,10 +597,13 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         assert isinstance(self._top_task, FunctionAnalysis)
 
+        ## 检查该 job 是否是属于 "当前函数" 的 job
         if job not in self._top_task.jobs:
             # it seems that all jobs of the top task has been done. unwind the task stack
             # make sure this job is at least recorded somewhere
             unwind_count = None
+
+            ## 在任务栈中以“从栈顶到栈底” 的顺序查找
             for i, task in enumerate(reversed(self._task_stack)):
                 if isinstance(task, FunctionAnalysis):
                     if job in task.jobs:
@@ -593,6 +617,10 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                 # unwind the stack till the target, unless we see any pending jobs for each new top task
                 for i in range(unwind_count):
                     if isinstance(self._top_task, FunctionAnalysis):
+
+                        ## 这里对各个 unwind 的 FunctionAnalysis 展开分析。如果发现某个 FunctionAnalysis 有 PendingJob，
+                        ## 就将该 PendingJob 的分析通过 _trace_pending_job 加入到 job 队列中，正式提上日程。
+
                         # are there any pending job belonging to the current function that we should handle first?
                         pending_job_key = self._get_pending_job(self._top_task.function_address)
                         if pending_job_key is not None:
@@ -601,6 +629,9 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                             self._trace_pending_job(pending_job_key)
                             l.debug("A pending job is found for function %#x. Delay %s.",
                                     self._top_task.function_address, job)
+
+                            ## 注意，这里扔出的异常将被 ForwardAnalysis._analysis_core_baremetal 分析框架捕获
+                            ## 接到该异常信息后，分析框架将拿取新的 job_info_queue[0] 任务展开分析
                             raise AngrDelayJobNotice()
 
                     task = self._task_stack.pop()
@@ -610,6 +641,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
                 assert job in self._top_task.jobs
 
+        ## self._final_state_callback 为用户提供的回调
         # check if this is considered to be a final state
         if self._final_state_callback is not None and self._final_state_callback(job.state, job.call_stack):
             l.debug("%s.state is considered as a final state. Skip the job.", job)
@@ -626,6 +658,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         job.jumpkind = 'Ijk_Boring' if job.state.history.jumpkind is None else \
             job.state.history.jumpkind
 
+        ## 本 job 的前驱节点的 ID
         src_block_id = job.src_block_id
         src_exit_stmt_idx = job.src_exit_stmt_idx
 
@@ -644,12 +677,15 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             self._nodes[block_id] = vfg_node
 
         else:
+            ## 之前在同样的 “调用链上下文” 下分析过这个 block
             vfg_node = self._nodes[block_id]
 
         job.vfg_node = vfg_node
         # log the current state
         vfg_node.state = input_state
 
+
+        ## 这里是关键所在！基于 angr 内置的 UberEngine 引擎展开计算
         # Execute this basic block with input state, and get a new SimSuccessors instance
         # unused result var is `error_occured`
         job.sim_successors, _, restart_analysis = self._get_simsuccessors(input_state, addr)
@@ -664,11 +700,12 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             l.debug('Cannot create SimSuccessors for %s. Skip.', job)
             raise AngrSkipJobNotice()
 
-        self._graph_add_edge(src_block_id,
-                             block_id,
-                             jumpkind=job.jumpkind,
-                             src_exit_stmt_idx=src_exit_stmt_idx
-                             )
+        ## 在后继 block 的 job 分析结束后，再补充 src-block 和后继 block 之间的 vfg 边
+        self._graph_add_edge( src_block_id,
+                              block_id,
+                              jumpkind=job.jumpkind,
+                              src_exit_stmt_idx=src_exit_stmt_idx
+                            )
 
     def _get_successors(self, job):
         # Extract initial values
@@ -719,7 +756,13 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             # create the call task
 
             # TODO: correctly fill the return address
-            call_task = CallAnalysis(job.addr, None, [ ], mergeable_plugins=self._mergeable_plugins)
+            call_task = CallAnalysis( job.addr, # callsite address --- 事实上是 callsite 所位于 block 的起始地址
+                                      None,     # return address 
+                                      [ ],      # FunctionAnalysis tasks 
+                                      mergeable_plugins=self._mergeable_plugins
+                                    )
+
+            #print ("CallAnalysis: " + hex(job.addr))
             self._task_stack.append(call_task)
 
             job.call_task = call_task
@@ -790,7 +833,11 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         if self._is_call_jumpkind(jumpkind):
             # Create a new call stack for the successor
-            new_call_stack = self._create_callstack(job, successor_addr, jumpkind, fakeret_successor)
+            new_call_stack = self._create_callstack( job,              # callsite job 
+                                                     successor_addr,   # callee function 
+                                                     jumpkind, 
+                                                     fakeret_successor
+                                                   )
             if new_call_stack is None:
                 l.debug("Cannot create a new callstack for address %#x", successor_addr)
                 job.dbg_exit_status[successor] = ""
@@ -798,6 +845,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             new_call_stack_suffix = new_call_stack.stack_suffix(self._context_sensitivity_level)
 
             new_function_key = FunctionKey.new(successor_addr, new_call_stack_suffix)
+            
+            ## 维护给定函数的入口位置在特定“调用链上下文”下的程序分析状态 --- 仅仅是记录计算信息 
             # Save the initial state for the function
             self._save_function_initial_state(new_function_key, successor_addr, successor.copy())
 
@@ -817,7 +866,11 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         elif jumpkind == 'Ijk_Ret':
             # Pop the current function out from the call stack
-            new_call_stack = self._create_callstack(job, successor_addr, jumpkind, fakeret_successor)
+            new_call_stack = self._create_callstack( job,              # return-site job
+                                                     successor_addr,   # return address
+                                                     jumpkind, 
+                                                     fakeret_successor
+                                                   )
             if new_call_stack is None:
                 l.debug("Cannot create a new callstack for address %#x", successor_addr)
                 job.dbg_exit_status[successor] = ""
@@ -825,11 +878,15 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             new_call_stack_suffix = new_call_stack.stack_suffix(self._context_sensitivity_level)
 
         else:
+            ## 保持一样的 "调用链上下文"
             new_call_stack = job.call_stack
             new_call_stack_suffix = job.call_stack_suffix
 
         # Generate the new block ID
-        new_block_id = BlockID.new(successor_addr, new_call_stack_suffix, jumpkind)
+        new_block_id = BlockID.new( successor_addr, 
+                                    new_call_stack_suffix,  ## callsite tuple
+                                    jumpkind
+                                  )
 
         #
         # Generate new VFG jobs
@@ -838,6 +895,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         if jumpkind == "Ijk_Ret":
             assert not job.is_call_jump
 
+            ## 为给定的 return address，记录所有会 return 到它的 "调用链上下文" 的 retsite-addr
             # Record this return
             self._return_target_sources[successor_addr].append(job.call_stack_suffix + (addr,))
 
@@ -846,6 +904,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                 del self._pending_returns[new_block_id]
 
         # Check if we have reached a fix-point
+        ## FakeRet: the callthrough edge
         if jumpkind != 'Ijk_FakeRet' and \
                 new_block_id in self._nodes:
             last_state = self._nodes[new_block_id].state
@@ -893,6 +952,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             concrete_successor = successor.copy()
             concrete_successor.ip = ip
 
+            ## 这里保证 successor.ip 为唯一的具体值
             concrete_jobs = self._handle_successor(job, concrete_successor, all_successors)
 
             if job.is_call_jump:  # TODO: take care of syscalls
@@ -900,10 +960,14 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                     # TODO: correctly fill the return address. The return address can be found from the
                     # TODO: fakeret successor in the `successors` list
                     function_analysis_task = FunctionAnalysis(new_job.addr, None)
+
+                    ## 这是属于新的 FunctionAnalysis 的第一个 VFGJob
                     # log the new job
                     function_analysis_task.jobs.append(new_job)
                     # put it onto the stack
                     self._task_stack.append(function_analysis_task)
+
+                    ## 在函数的调用点处，将被调用函数的分析 task 注册到函数调用点任务的 call_task (CallAnalysis) 中
                     # log it in the call_task
                     job.call_task.register_function_analysis(function_analysis_task)
 
@@ -918,7 +982,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             self._post_job_handling_debug(job, successors)
 
         # pop all finished tasks from the task stack
-
+        ## BlockID.func_addr: 依据 BlockID 内含的 callchain，获取 callchain 顶部的 function 地址
+        ## 也就是 PendingJob 对应 callsite 所在的调用者函数
         pending_task_func_addrs = set(k.func_addr for k in self._pending_returns.keys())
         while True:
             task = self._top_task
@@ -939,24 +1004,37 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                 if not task.done or task.function_address in pending_task_func_addrs:
                     break
                 else:
+                    ## 当前的 FunctionAnalysis 型 task 已完成，且该 FunctionAnalysis 内无 PendingJob（无未决的 callsite）
+
                     l.debug('%s is finished.', task)
                     self._task_stack.pop()
 
                     # the next guy *might be* a call analysis task
                     task = self._top_task
                     if isinstance(task, CallAnalysis):
+
+                        ## CallAnalysis.done: 只有当所有可能被调用的函数的 FunctionAnalysis 都已完成，我们才认为该 CallAnalysis 为完成的!
                         if task.done:
                             # awesome!
                             # pop it from the task stack
                             self._task_stack.pop()
 
                             if task._final_jobs:
+                                ## 合并 CallAnalysis 对应的所有目标函数的返回点状态，由此形成新的任务（call 指令后继节点的 VFGJob）并加入
+                                ## 任务队列中
+
+                                ## merge_jobs : 将本 CallAnalysis 对应 callsite 所能调用的所有目标函数的返回点任务 VFGJob 对应的完成时
+                                ##              程序状态合并，由此形成 callsite 对应任务的新的入口点状态，进而由此构造从 FakeRet 边的后继
+                                ##              开始的新的任务 VFGJob，并将其加入到所属函数的 FunctionAnalysis.jobs 中
+                                ##
+                                ## 这里值得注意，此时所有被 merge 的 job 都已经完成，所以 job.state 都是 job 完成时的程序状态
                                 # merge all jobs, and create a new job
                                 new_job = task.merge_jobs()
 
                                 # register the job to the top task
                                 self._top_task.jobs.append(new_job)
 
+                                ## new_job.addr 为 call 指令之后指令的地址
                                 # insert the job
                                 self._insert_job(new_job)
 
@@ -1147,6 +1225,29 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         return s, narrowing_occurred
 
+
+    ## BP based security property check
+    # ---------------------------------------------------------------------------------------------------- #
+    def dbg_vulhook(self, state):
+        #state.inspect.b('mem_read', when=BP_BEFORE, action = VFG.dbg_memread_check)
+        state.inspect.b('mem_write', when=BP_BEFORE, action = VFG.dbg_memwrite_check)
+
+    @staticmethod
+    def dbg_memread_check(state):
+        print ("memread check !")
+        state.inspect.mem_read_expr
+        state.inspect.mem_read_address
+
+    @staticmethod
+    def dbg_memwrite_check(state):
+        print ("memwrite check !")
+        print ("content = ")
+        print (state.inspect.mem_write_expr)
+        print ("addr = ")
+        print (state.inspect.mem_write_address)
+    # ---------------------------------------------------------------------------------------------------- #
+
+
     #
     # Helper methods
     #
@@ -1160,17 +1261,21 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         """
 
         if state is None:
-            state = self.project.factory.blank_state(mode="static",
-                                                     remove_options=self._state_options_to_remove
-                                                     )
+            ## 这里的 'static' 是来自于 sim_options.py 中的分析模式。
+            state = self.project.factory.blank_state( mode="static",
+                                                      remove_options=self._state_options_to_remove
+                                                    )
 
         # make room for arguments passed to the function
         sp = state.regs.sp
         sp_val = state.solver.eval_one(sp)
-        state.memory.set_stack_address_mapping(sp_val,
-                                               state.memory.stack_id(function_start) + '_pre',
-                                               0
-                                               )
+
+
+        ## AbstractMemory 插件类中的函数
+        state.memory.set_stack_address_mapping( sp_val,
+                                                state.memory.stack_id(function_start) + '_pre',
+                                                0
+                                              )
         state.registers.store('sp', sp - 0x100)
 
         # Set the stack address mapping for the initial stack
@@ -1181,6 +1286,12 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                                                state.memory.stack_id(function_start),
                                                function_start
                                                )
+
+        #print ("init-sp : " )
+        #print (initial_sp)
+
+        ## HHui added at April 24th, 2020
+        self.dbg_vulhook(state)
 
         return state
 
@@ -1334,6 +1445,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             jumpkind = state.history.jumpkind
 
         try:
+            ## 获取地址对应的 cfg 节点，拿到该节点蕴含的指令的数目 N ，然后抽象计算这 N 条指令
             node = self._cfg.model.get_any_node(addr)
             num_inst = None if node is None else len(node.instruction_addrs)
             sim_successors = self.project.factory.successors(state, jumpkind=jumpkind, num_inst=num_inst)
@@ -1372,12 +1484,17 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         return sim_successors, error_occured, restart_analysis
 
-    def _create_new_jobs(self, job, successor, new_block_id, new_call_stack):
+    def _create_new_jobs( self, 
+                          job, 
+                          successor, 
+                          new_block_id,  # 包含 successor job 的起始地址
+                          new_call_stack
+                        ):
         """
         Create a list of new VFG jobs for the successor state.
 
         :param VFGJob job:                 The VFGJob instance.
-        :param SimState successor: The succeeding state.
+        :param SimState successor:         The succeeding state.
         :param BlockID new_block_id:       Block ID for the new VFGJob
         :param new_call_stack:             The new callstack.
         :return:                           A list of newly created VFG jobs.
@@ -1388,9 +1505,14 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         jumpkind = successor.history.jumpkind
         stmt_idx = successor.scratch.stmt_idx
+
+        ## src-ip 
         ins_addr = successor.scratch.ins_addr
+
         # Make a copy of the state in case we use it later
         successor_state = successor.copy()
+
+        ## dst-ip
         successor_addr = successor_state.solver.eval(successor_state.ip)
 
         new_jobs = [ ]
@@ -1413,6 +1535,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                 else:
                     sp_difference = 0
                 reg_sp_offset = successor_state.arch.sp_offset
+
+                ## 模仿“弹栈”动作
                 reg_sp_expr = successor_state.registers.load(reg_sp_offset) + sp_difference
                 successor_state.registers.store(successor_state.arch.sp_offset, reg_sp_expr)
 
@@ -1426,25 +1550,39 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                 #if self.project.arch.name == 'X86':
                 #    successor_state.regs.eax = successor_state.solver.BVS('ret_val', 32, min=0, max=0xffffffff, stride=1)
 
-                new_job = VFGJob(successor_addr,
-                                 successor_state,
-                                 self._context_sensitivity_level,
-                                 block_id=new_block_id,
-                                 jumpkind='Ijk_Ret',
-                                 call_stack=new_call_stack,
-                                 src_block_id=job.block_id,
-                                 src_exit_stmt_idx=stmt_idx,
-                                 src_ins_addr=ins_addr,
-                                 )
+                new_job = VFGJob( successor_addr,  # callthrough 后继节点的地址
+                                  successor_state,
+                                  self._context_sensitivity_level,
+                                  block_id=new_block_id,
+                                  jumpkind='Ijk_Ret',
+                                  call_stack=new_call_stack,
+                                  src_block_id=job.block_id,
+                                  src_exit_stmt_idx=stmt_idx,
+                                  src_ins_addr=ins_addr,
+                                )
 
                 new_jobs.append(new_job)
+
+                ## self._task_stack[-1] 为当前正在分析的函数 A；self._task_stack[-2] 为 A 函数的调用者函数 B
                 assert isinstance(self._task_stack[-2], FunctionAnalysis)
                 self._task_stack[-2].jobs.append(new_job)
                 job.dbg_exit_status[successor] = "Pending"
 
             else:
-                self._pending_returns[new_block_id] = PendingJob(new_block_id, successor_state, new_call_stack,
-                                                                 job.block_id, stmt_idx, ins_addr)
+                '''
+                print ( "pending JOB: ins_addr = " + hex(ins_addr) + ", stmt_idx = " + str(stmt_idx) + 
+                        ", successor_addr = " + hex(successor_addr) + " " + str(new_block_id) )
+                '''
+
+                ## 对于 FakeRet (call-through) 边，我们需要完成 call 对应目标函数分析后才能继续分析。所以这里成为 PendingJob
+                ## 值得注意的是, new_block_id 包含了 successor-job 的起始地址（对于 FakeRet 边，即为 call 指令的后继地址）
+                self._pending_returns[new_block_id] = PendingJob( new_block_id, 
+                                                                  successor_state, # call 指令的下一条指令的地址 
+                                                                  new_call_stack,
+                                                                  job.block_id, 
+                                                                  stmt_idx, 
+                                                                  ins_addr         # call instruction addr --- src_ins_addr
+                                                                )
                 job.dbg_exit_status[successor] = "Pending"
 
         else:
@@ -1454,11 +1592,11 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                     reg_sp_si = self._create_stack_region(successor_state, successor_addr)
 
                     # Save the new sp register
-                    new_reg_sp_expr = successor_state.solver.ValueSet(successor_state.arch.bits,
+                    new_reg_sp_expr = successor_state.solver.ValueSet( successor_state.arch.bits,
                                                                        'global',
                                                                        0,
                                                                        reg_sp_si
-                                                                       )
+                                                                     )
                     successor_state.regs.sp = new_reg_sp_expr
 
                 elif successor.history.jumpkind == "Ijk_Ret":
@@ -1494,6 +1632,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                     source_function_key = FunctionKey.new(job.func_addr,
                                                           job.call_stack_suffix
                                                           )
+
+                    ## 在函数的返回点，将其当前的状态保存到当前 “调用链上下文” 下该函数出口点状态内
                     self._save_function_final_state(source_function_key, job.func_addr, successor_state)
 
                 # TODO: add an assertion that requires the returning target being the same as the return address we
@@ -1501,6 +1641,12 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
                 current_task = self._top_task
                 if current_task.call_analysis is not None:
+
+                    ## current_task 是正在分析的 FunctionAnaysis
+                    ## FunctionAnalysis.call_analysis 指称当前的 FunctionAnalysis 所处于调用点的 CallAnalysis
+                    ## 这里的 add_final_job，旨在为本函数所处的 callsite 对应的 CallAnalysis 关联本函数的返回点任务 VFGJob
+                    ## 在 post_job_handling 中，仅仅当关联的所有目标函数返回点任务都为 done 的状态，callsite 对应的 CallAnalysis 
+                    ## 才能够被认为 done.
                     current_task.call_analysis.add_final_job(new_job)
 
                     job.dbg_exit_status[successor] = "Appended to the call analysis task"
@@ -1509,10 +1655,15 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
             else:
                 if self._is_call_jumpkind(successor.history.jumpkind):
+                    ## successor 是前一个 job 经 call 转移过来的，也就是说前一个 job 是一个 call job，job.call_task 是其相关的 CallAnalysis
+
                     # create a function analysis task
                     # TODO: the return address
                     task = FunctionAnalysis(new_job.addr, None)
                     self._task_stack.append(task)
+
+                    ## 在函数的调用点处，将被调用函数的分析 task 注册到函数调用点任务的 call_task 中
+                    ## 同时，也标明 task.call_analysis 为 job.call_task
                     # link it to the call analysis
                     job.call_task.register_function_analysis(task)
 
@@ -1621,13 +1772,19 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         reg_sp_val = reg_sp_val - successor_state.arch.bytes  # TODO: Is it OK?
         new_stack_region_id = successor_state.memory.stack_id(successor_ip)
-        successor_state.memory.set_stack_address_mapping(reg_sp_val,
-                                                        new_stack_region_id,
-                                                        successor_ip)
+        successor_state.memory.set_stack_address_mapping( reg_sp_val,
+                                                          new_stack_region_id,
+                                                          successor_ip
+                                                        )
 
         return reg_sp_si
 
-    def _create_callstack(self, job, successor_ip, jumpkind, fakeret_successor):
+    def _create_callstack( self, 
+                           job,              # callsite job | return-site job
+                           successor_ip,     # callee addr  | return address
+                           jumpkind, 
+                           fakeret_successor
+                         ):
         addr = job.addr
 
         if self._is_call_jumpkind(jumpkind):
@@ -1644,11 +1801,15 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                 retn_target_addr = fakeret_successor.solver.eval_one(fakeret_successor.ip)
 
             # Create call stack
-            new_call_stack = new_call_stack.call(addr, successor_ip,
-                                retn_target=retn_target_addr)
+            new_call_stack = new_call_stack.call( addr,                         # callsite 
+                                                  successor_ip,                 # target-pc
+                                                  retn_target=retn_target_addr  # return-address
+                                                )
 
         elif jumpkind == "Ijk_Ret":
             new_call_stack = job.call_stack_copy()
+
+            # 这里指定期望的返回地址 successor_ip，CallStack 将会 unwind 回溯到返回地址为该值的记录上
             new_call_stack = new_call_stack.ret(successor_ip)
 
         else:
@@ -1657,6 +1818,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         return new_call_stack
 
+    ## 维护给定函数的入口位置在特定“调用链上下文”下的程序分析状态 
+    ## 这个东西在实际分析中并未被使用 —— 应该仅仅作为分析结果
     def _save_function_initial_state(self, function_key, function_address, state):
         """
         Save the initial state of a function, and merge it with existing ones if there are any.
@@ -1667,10 +1830,13 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         :return: None
         """
 
+        '''
         l.debug('Saving the initial state for function %#08x with function key %s',
                 function_address,
                 function_key
                 )
+
+        ## 注意: 这里的 function_key 包含了函数的调用上下文信息。由此可见该方法是一种上下文敏感的程序分析方法
         if function_key in self._function_initial_states[function_address]:
             existing_state = self._function_initial_states[function_address][function_key]
             merged_state, _, _ = existing_state.merge(state)
@@ -1678,6 +1844,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         else:
             self._function_initial_states[function_address][function_key] = state
+        '''
 
     def _save_function_final_state(self, function_key, function_address, state):
         """
@@ -1689,6 +1856,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         :return: None
         """
 
+        '''
         l.debug('Saving the final state for function %#08x with function key %s',
                 function_address,
                 function_key
@@ -1701,19 +1869,23 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         else:
             self._function_final_states[function_address][function_key] = state
+        '''
 
+    ## 找到对应的 PendingJob，开始处置它: 将它加入到 job 队列，并关联对应的 AnalysisTask
     def _trace_pending_job(self, job_key):
 
         pending_job = self._pending_returns.pop(job_key)  # type: PendingJob
+
+        ## the return address at the callsite
         addr = job_key.addr
 
         # Unlike CFG, we will still trace those blocks that have been traced before. In other words, we don't
         # remove fake returns even if they have been traced - otherwise we cannot come to a fix-point.
 
-        block_id = BlockID.new(addr,
-                               pending_job.call_stack.stack_suffix(self._context_sensitivity_level),
-                               'Ijk_Ret'
-                               )
+        block_id = BlockID.new( addr,
+                                pending_job.call_stack.stack_suffix(self._context_sensitivity_level),
+                                'Ijk_Ret'
+                              )
         job = VFGJob(addr,
                      pending_job.state,
                      self._context_sensitivity_level,
@@ -1724,6 +1896,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                      src_exit_stmt_idx=pending_job.src_stmt_idx,
                      src_ins_addr=pending_job.src_ins_addr,
                      )
+
+        ## ForwardAnalysis._insert_job: 注册一个 job 进入工作队列。如果之前有同 key 的 job 存在，则视情况应用 widening 和 merging 算子
         self._insert_job(job)
         self._top_task.jobs.append(job)
 

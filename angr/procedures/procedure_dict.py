@@ -14,6 +14,7 @@ skip_dirs = ['definitions']
 
 for pkg_name, package in autoimport.auto_import_packages('angr.procedures', path, skip_dirs):
     for _, mod in autoimport.filter_module(package, type_req=type(os)):
+        ## 从 mod 模块中拿到继承自 SimProcedure 的“类的名称”和对应的“类”
         for name, proc in autoimport.filter_module(mod, type_req=type, subclass_req=SimProcedure):
             if hasattr(proc, "__provides__"):
                 for custom_pkg_name, custom_func_name in proc.__provides__:

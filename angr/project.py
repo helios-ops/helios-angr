@@ -489,10 +489,11 @@ class Project:
                             eventually.
         :param replace:     Control the behavior on finding that the address is already hooked. If
                             true, silently replace the hook. If false, warn and do not replace the
-                            hook. If none (default), warn and replace the hook.
+                            hook. If none (default), hook_symbolwarn and replace the hook.
         :returns:           The address of the new symbol.
         :rtype:             int
         """
+
         if type(symbol_name) is not int:
             sym = self.loader.find_symbol(symbol_name)
             if sym is None:
@@ -517,6 +518,9 @@ class Project:
             symbol_name = None
 
         hook_addr, _ = self.simos.prepare_function_symbol(symbol_name, basic_addr=basic_addr)
+
+        #print ("hhook !")
+        #print (symbol_name)
 
         self.hook(hook_addr, simproc, kwargs=kwargs, replace=replace)
         return hook_addr

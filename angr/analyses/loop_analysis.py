@@ -65,6 +65,7 @@ class SootBlockProcessor:
         self.loop = loop
         self.defuse = defuse
 
+    ## LoopAnalysis._run_on_node 中会调用该函数
     def process(self):
 
         if not isinstance(self.block, SootBlockNode):

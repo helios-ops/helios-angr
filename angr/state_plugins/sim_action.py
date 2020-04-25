@@ -225,6 +225,7 @@ class SimActionData(SimAction):
                 else:
                     # it's not symbolic
                     self.offset = state.solver.eval_one(addr)
+
         self.addr = self._make_object(addr)
         self.size = self._make_object(size)
         self.data = self._make_object(data)
