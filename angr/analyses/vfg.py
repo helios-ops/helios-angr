@@ -662,6 +662,12 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         src_block_id = job.src_block_id
         src_exit_stmt_idx = job.src_exit_stmt_idx
 
+        #print ("job.state.regs = ")
+        #print (job.state.registers)
+        #print (job.state.regs)
+        #print (type(job.state.regs))
+        #exit(0)
+
         addr = job.state.solver.eval(job.state.regs.ip)
         input_state = job.state
         block_id = BlockID.new(addr, job.call_stack_suffix, job.jumpkind)
@@ -1240,11 +1246,23 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
     @staticmethod
     def dbg_memwrite_check(state):
+        print ('------------------------------')
         print ("memwrite check !")
         print ("content = ")
         print (state.inspect.mem_write_expr)
+        print (state.inspect.mem_write_expr._model_vsa)
         print ("addr = ")
         print (state.inspect.mem_write_address)
+        addr_model_vsa = state.inspect.mem_write_address._model_vsa
+        aws = state.memory.normalize_address( state.inspect.mem_write_address, 
+                                        is_write=False, convert_to_valueset=False, target_region=None, condition=None)
+        print ("aws = ")
+        print (aws)
+
+        print ("instruction = ")
+        print (state.inspect.instruction)
+        print ('------------------------------')
+        print ('\n')
     # ---------------------------------------------------------------------------------------------------- #
 
 
@@ -1612,6 +1630,16 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                         reg_sp_val = reg_sp_si.min
                         # TODO: Finish it!
 
+                    # ----------------------------------------------------- #
+                    callee_func = self._task_stack[-1]
+                    if ( type(callee_func) is FunctionAnalysis ) is False:
+                        print ("vfg.py: suspicious --- unexpected task_stack !")
+                        exit(0)
+                    callee_func_addr = callee_func.function_address
+                    stack_id = "stack_" + hex(callee_func_addr)
+                    self._reclaim_stack_region(successor_state, successor_addr, stack_id)
+                    # ----------------------------------------------------- #
+
             new_job = VFGJob(successor_addr,
                              successor_state,
                              self._context_sensitivity_level,
@@ -1772,12 +1800,31 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         reg_sp_val = reg_sp_val - successor_state.arch.bytes  # TODO: Is it OK?
         new_stack_region_id = successor_state.memory.stack_id(successor_ip)
+
+        print("new_stack_region_id = " + new_stack_region_id + ", reg_sp_val = " + hex(reg_sp_val))
         successor_state.memory.set_stack_address_mapping( reg_sp_val,
                                                           new_stack_region_id,
                                                           successor_ip
                                                         )
 
         return reg_sp_si
+
+    @staticmethod
+    def _reclaim_stack_region(successor_state, successor_ip, stack_id):
+        '''
+        reg_sp_expr = successor_state.regs.sp
+        if isinstance(reg_sp_expr._model_vsa, claripy.vsa.StridedInterval):
+            reg_sp_si = reg_sp_expr._model_vsa
+            reg_sp_val = reg_sp_si.min
+        elif isinstance(reg_sp_expr._model_vsa, claripy.vsa.ValueSet):
+            reg_sp_si = next(iter(reg_sp_expr._model_vsa.items()))[1]
+            reg_sp_val = reg_sp_si.min
+
+        stack_id = ""
+        '''
+        print ("_reclaim_stack_region --- stack_id = " + stack_id)
+        successor_state.memory.unset_stack_address_mapping_by_stackid(stack_id)
+
 
     def _create_callstack( self, 
                            job,              # callsite job | return-site job

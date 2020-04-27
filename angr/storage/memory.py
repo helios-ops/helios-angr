@@ -318,6 +318,8 @@ class SimMemory(SimStatePlugin):
         self._stack_region_map = None
         self._generic_region_map = None
 
+        self._heap_region_map = None
+
     @property
     def category(self):
         """
@@ -441,6 +443,17 @@ class SimMemory(SimStatePlugin):
         if self._stack_region_map is None:
             raise SimMemoryError('Stack region map is not initialized.')
         self._stack_region_map.unmap_by_address(absolute_address)
+
+
+    def unset_stack_address_mapping_by_stackid(self, stack_id):
+        if self._stack_region_map is None:
+            raise SimMemoryError('Stack region map is not initialized.')
+        if (stack_id in self._stack_region_map._region_id_to_address) is False:
+            raise SimMemoryError("stack regin map does not contain id = " + stack_id)
+        region_desc = self._stack_region_map._region_id_to_address[stack_id]
+        base_addr   = region_desc.base_address
+        self.unset_stack_address_mapping(base_addr)
+
 
     def stack_id(self, function_address):
         """
