@@ -623,12 +623,12 @@ class SimFileDescriptorBase(SimStatePlugin):
         """
         data, realsize = self.read_data(size, **kwargs)
 
-        print (" +++++++++++++++++++++++++++++++++ ")
-        print ("SimFileDescriptorBase::read() --- data = ")
-        print (data)
-        print ("pos = ")
-        print (pos)
-        print (" +++++++++++++++++++++++++++++++++ \n")
+        #print (" +++++++++++++++++++++++++++++++++ ")
+        #print ("SimFileDescriptorBase::read() --- data = ")
+        #print (data)
+        #print ("pos = ")
+        #print (pos)
+        #print (" +++++++++++++++++++++++++++++++++ \n")
 
         if not self.state.solver.is_true(realsize == 0):
             self.state.memory.store(pos, data, size=realsize)

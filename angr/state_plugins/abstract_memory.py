@@ -192,11 +192,12 @@ class SimAbstractMemory(SimMemory): #pylint:disable=abstract-method
           Currently this is only used for stack!
     """
     def __init__(self, memory_backer=None, memory_id="mem", endness=None, stack_region_map=None,
-                 generic_region_map=None):
+                 generic_region_map=None, heap_region_map=None):
         SimMemory.__init__(self,
                            endness=endness,
                            stack_region_map=stack_region_map,
                            generic_region_map=generic_region_map,
+                           heap_region_map=heap_region_map
                            )
 
         self._regions = {}
@@ -284,6 +285,9 @@ class SimAbstractMemory(SimMemory): #pylint:disable=abstract-method
         if stack_base - self._stack_size < relative_address <= stack_base and \
                 (target_region is not None and target_region.startswith('stack_')):
         '''
+        #print ("normalize_address ---")
+        #print (self._heap_region_map)
+
         ## hhui patched
         if stack_base - self._stack_size < relative_address <= stack_base or \
                 (target_region is not None and target_region.startswith('stack_')):
@@ -299,6 +303,17 @@ class SimAbstractMemory(SimMemory): #pylint:disable=abstract-method
             return AddressWrapper(new_region_id, self._region_base(new_region_id), new_relative_address, True,
                                   related_function_addr
                                   )
+
+        elif (target_region is not None and target_region.startswith('heap_')) or \
+                self._heap_region_map.get_heap_region_by_va(relative_address):
+            heap_region_info = self._heap_region_map.get_heap_region_by_va(relative_address)
+            new_relative_address = relative_address - heap_region_info.base_address
+            return AddressWrapper( heap_region_info.region_id, 
+                                   heap_region_info.base_address, 
+                                   new_relative_address, 
+                                   False,  # is_on_stack
+                                   None
+                                 )
 
         else:
             new_region_id, new_relative_address, related_function_addr = self._generic_region_map.relativize(
@@ -626,7 +641,8 @@ class SimAbstractMemory(SimMemory): #pylint:disable=abstract-method
             memory_id=self._memory_id,
             endness=self.endness,
             stack_region_map=self._stack_region_map,
-            generic_region_map=self._generic_region_map
+            generic_region_map=self._generic_region_map,
+            heap_region_map=self._heap_region_map
         )
         for region_id, region in self._regions.items():
             am._regions[region_id] = region.copy(memo)

@@ -53,6 +53,46 @@ class AddressWrapper(object):
         """
         return state.solver.VS(state.arch.bits, self.region, self.region_base_addr, self.address)
 
+
+class HeapRegionDescriptor(object):
+
+    def __init__(self, region_id, base_address, size):
+        self.region_id    = region_id
+        self.base_address = base_address
+        self.size         = size
+
+    def copy(self):
+        new_cp = HeapRegionDescriptor(self.region_id, self.base_address, self.size)
+        return new_cp
+
+
+class HeapRegionMap(object):
+    def __init__(self):
+        self.alloc_regions = {}
+
+    def copy(self):
+        new_map = HeapRegionMap()
+        for item in self.alloc_regions:
+            new_map.alloc_regions[item] = self.alloc_regions[item].copy()
+        return new_map
+
+    def map(self, region_id, base_address, size):
+        desc = HeapRegionDescriptor(region_id, base_address, size)
+        self.alloc_regions[region_id] = desc
+
+    def unmap(self, address):
+        for item in self.alloc_regions:
+            if (item == address):
+                del self.alloc_regions[item]
+                
+    def get_heap_region_by_va(self, absolute_address):
+        for item in self.alloc_regions:
+            region = self.alloc_regions[item]
+            if (region.base_address <= absolute_address) and ((region.base_address + region.size) > absolute_address) :
+                return region
+        return None
+
+
 class RegionDescriptor(object):
     """
     Descriptor for a memory region ID.
@@ -67,6 +107,7 @@ class RegionDescriptor(object):
             self.region_id,
             self.related_function_address if self.related_function_address is not None else 0
         )
+
 
 class RegionMap(object):
     """
@@ -278,7 +319,7 @@ class SimMemory(SimStatePlugin):
     """
     Represents the memory space of the process.
     """
-    def __init__(self, endness=None, abstract_backer=None, stack_region_map=None, generic_region_map=None):
+    def __init__(self, endness=None, abstract_backer=None, stack_region_map=None, generic_region_map=None, heap_region_map=None):
         SimStatePlugin.__init__(self)
         self.id = None
         self.endness = "Iend_BE" if endness is None else endness
@@ -318,7 +359,9 @@ class SimMemory(SimStatePlugin):
         self._stack_region_map = None
         self._generic_region_map = None
 
-        self._heap_region_map = None
+        self._temp_heap_region_map = heap_region_map
+        
+        self._heap_region_map = {}
 
     @property
     def category(self):
@@ -357,6 +400,8 @@ class SimMemory(SimStatePlugin):
         # Delayed initialization
         stack_region_map, generic_region_map = self._temp_stack_region_map, self._temp_generic_region_map
 
+        heap_region_map = self._temp_heap_region_map
+
         if stack_region_map or generic_region_map:
             # Inherited from its parent
             self._stack_region_map = stack_region_map.copy()
@@ -371,6 +416,12 @@ class SimMemory(SimStatePlugin):
             else:
                 self._stack_region_map = None
                 self._generic_region_map = None
+
+        if not (heap_region_map is None):
+            self._heap_region_map = heap_region_map.copy()
+        else:
+            self._heap_region_map = HeapRegionMap()
+
 
     def _resolve_location_name(self, name, is_write=False):
 
@@ -453,6 +504,18 @@ class SimMemory(SimStatePlugin):
         region_desc = self._stack_region_map._region_id_to_address[stack_id]
         base_addr   = region_desc.base_address
         self.unset_stack_address_mapping(base_addr)
+
+
+    def add_heap_address_mapping(self, absolute_address, size, alloc_ctx = None):
+        if self._heap_region_map is None:
+            raise SimMemoryError()
+        self._heap_region_map.map(alloc_ctx, absolute_address, size)
+
+
+    def remove_heap_address_mapping(self, absolute_address):
+        if self._heap_region_map is None:
+            return SimMemoryError()
+        self._heap_region_map.unmap(absolute_address)
 
 
     def stack_id(self, function_address):

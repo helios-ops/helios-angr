@@ -34,3 +34,5 @@ from .propagator import PropagatorAnalysis
 from .xrefs import XRefsAnalysis
 
 from .static_taintAna import StaticTaintAnalysis
+
+from .vfg_heap import VFG_HeapManager

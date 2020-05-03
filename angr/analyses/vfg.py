@@ -21,6 +21,8 @@ from ..state_plugins.callstack import CallStack
 
 from angr import BP_AFTER, BP_BEFORE
 
+from .vfg_heap import VFG_HeapManager
+
 l = logging.getLogger(name=__name__)
 
 
@@ -285,6 +287,16 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                  status_callback=None,
                  record_function_final_states=False,
                  ):
+
+        min_heapAddr = 0x400000
+        max_heapAddr = 0x1000000
+        self._vfg_heapmanager = VFG_HeapManager( self.project, 
+                                                 self, 
+                                                 min_heapAddr, 
+                                                 max_heapAddr
+                                               )
+        self._vfg_heapmanager.build_heapHooks()
+ 
         """
         :param cfg: The control-flow graph to base this analysis on. If none is provided, we will
                     construct a CFGEmulated.
@@ -378,6 +390,14 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         # Start analysis
         self._analyze()
+        
+        
+    def get_current_job(self):
+        if not self._job_info_queue:
+            return None
+        jobinfo = self._job_info_queue[0]
+        return jobinfo.job
+
 
     #
     # Internal properties
@@ -788,6 +808,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         # Initialize parameters
         addr = job.addr
+
+        ## 这里的 jumpkind 是 job 到 successor 的跳转类型
         jumpkind = successor.history.jumpkind
 
         #
@@ -866,6 +888,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                 job.call_skipped = True
                 job.call_function_key = new_function_key
 
+                # 相关的 CallAnalysis
                 job.call_task.skipped = True
 
                 return [ ]
@@ -904,6 +927,10 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             ## 为给定的 return address，记录所有会 return 到它的 "调用链上下文" 的 retsite-addr
             # Record this return
             self._return_target_sources[successor_addr].append(job.call_stack_suffix + (addr,))
+
+            #print ("handle_successor --- RET: ")
+            #print (new_block_id)
+            #exit (0)
 
             # Check if this return is inside our pending returns list
             if new_block_id in self._pending_returns:
@@ -1235,8 +1262,9 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
     ## BP based security property check
     # ---------------------------------------------------------------------------------------------------- #
     def dbg_vulhook(self, state):
+        pass
         #state.inspect.b('mem_read', when=BP_BEFORE, action = VFG.dbg_memread_check)
-        state.inspect.b('mem_write', when=BP_BEFORE, action = VFG.dbg_memwrite_check)
+        #state.inspect.b('mem_write', when=BP_BEFORE, action = VFG.dbg_memwrite_check)
 
     @staticmethod
     def dbg_memread_check(state):
@@ -1252,6 +1280,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         print (state.inspect.mem_write_expr)
         print (state.inspect.mem_write_expr._model_vsa)
         print ("addr = ")
+
         print (state.inspect.mem_write_address)
         addr_model_vsa = state.inspect.mem_write_address._model_vsa
         aws = state.memory.normalize_address( state.inspect.mem_write_address, 
@@ -1310,6 +1339,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         ## HHui added at April 24th, 2020
         self.dbg_vulhook(state)
+
+        #state.register_plugin("heap", angr.state_plugins.heap.heap_ptmalloc.SimHeapPTMalloc())
 
         return state
 
@@ -1481,6 +1512,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
             # Generate a PathTerminator to terminate the current path
             inst = SIM_PROCEDURES["stubs"]["PathTerminator"](
                 state, self.project.arch)
+            print ("_get_simsuccessors --- addr = " + hex(addr))
             sim_successors = SimEngineProcedure().process(state, inst)
         except SimError:
             l.error("SimError: ", exc_info=True)
@@ -1587,10 +1619,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
                 job.dbg_exit_status[successor] = "Pending"
 
             else:
-                '''
                 print ( "pending JOB: ins_addr = " + hex(ins_addr) + ", stmt_idx = " + str(stmt_idx) + 
                         ", successor_addr = " + hex(successor_addr) + " " + str(new_block_id) )
-                '''
 
                 ## 对于 FakeRet (call-through) 边，我们需要完成 call 对应目标函数分析后才能继续分析。所以这里成为 PendingJob
                 ## 值得注意的是, new_block_id 包含了 successor-job 的起始地址（对于 FakeRet 边，即为 call 指令的后继地址）
@@ -1801,7 +1831,7 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
         reg_sp_val = reg_sp_val - successor_state.arch.bytes  # TODO: Is it OK?
         new_stack_region_id = successor_state.memory.stack_id(successor_ip)
 
-        print("new_stack_region_id = " + new_stack_region_id + ", reg_sp_val = " + hex(reg_sp_val))
+        #print("new_stack_region_id = " + new_stack_region_id + ", reg_sp_val = " + hex(reg_sp_val))
         successor_state.memory.set_stack_address_mapping( reg_sp_val,
                                                           new_stack_region_id,
                                                           successor_ip
@@ -1822,7 +1852,8 @@ class VFG(ForwardAnalysis, Analysis):   # pylint:disable=abstract-method
 
         stack_id = ""
         '''
-        print ("_reclaim_stack_region --- stack_id = " + stack_id)
+        
+        #print ("_reclaim_stack_region --- stack_id = " + stack_id)
         successor_state.memory.unset_stack_address_mapping_by_stackid(stack_id)
 
 
